@@ -1,0 +1,1001 @@
+citizen_id,name,age,gender,annual_income,category,occupation,state,district,is_bpl,is_disabled,has_agricultural_land
+MH0001,Adweta Dash,56,Male,46225,OBC,Student,Maharashtra,Kolhapur,1,0,0
+MH0002,Neel Ahuja,22,Male,639176,General,Farmer,Maharashtra,Mumbai,0,0,1
+MH0003,Pooja Kata,54,Male,608508,ST,Street Vendor,Maharashtra,Buldhana,0,0,0
+MH0004,Champak Bora,44,Female,26814,ST,Street Vendor,Maharashtra,Latur,1,0,0
+MH0005,Eshana Peri,25,Male,372944,SC,Farmer,Maharashtra,Jalgaon,0,0,0
+MH0006,Gautami Ramachandran,54,Female,65561,General,Unemployed,Maharashtra,Nashik,1,0,0
+MH0007,Aachal Kapur,40,Male,598856,OBC,Street Vendor,Maharashtra,Yavatmal,0,0,0
+MH0008,Karan Banik,39,Male,758797,SC,Farmer,Maharashtra,Kolhapur,0,0,0
+MH0009,Radhika Kaur,70,Male,125907,General,Daily Wage Worker,Maharashtra,Nanded,0,0,0
+MH0010,Guneet Saran,39,Male,408162,OBC,Student,Maharashtra,Thane,0,0,0
+MH0011,Veda Barman,59,Male,658720,ST,Unemployed,Maharashtra,Kolhapur,0,0,0
+MH0012,Jagrati Shenoy,40,Female,691088,ST,Street Vendor,Maharashtra,Sangli,0,0,0
+MH0013,Gaurang Tiwari,65,Male,260174,SC,Daily Wage Worker,Maharashtra,Jalgaon,0,0,0
+MH0014,Janaki Bains,29,Female,242955,General,Small Business Owner,Maharashtra,Nanded,0,0,0
+MH0015,Prisha Jani,24,Male,608637,OBC,Street Vendor,Maharashtra,Akola,0,0,0
+MH0016,Isha Narayanan,53,Female,399580,ST,Student,Maharashtra,Beed,0,0,0
+MH0017,Janaki Bhardwaj,64,Male,134975,ST,Street Vendor,Maharashtra,Solapur,0,0,0
+MH0018,Zayan Mammen,43,Male,423457,General,Unemployed,Maharashtra,Nanded,0,0,0
+MH0019,George Bahl,51,Male,733328,SC,Street Vendor,Maharashtra,Buldhana,0,0,0
+MH0020,Ayushman Kothari,65,Female,136970,OBC,Small Business Owner,Maharashtra,Solapur,0,0,0
+MH0021,Nidra Zachariah,62,Female,544902,ST,Unemployed,Maharashtra,Nashik,0,0,0
+MH0022,Daksha Rai,35,Male,180263,OBC,Student,Maharashtra,Buldhana,0,0,0
+MH0023,Ira Sur,75,Male,648038,OBC,Small Business Owner,Maharashtra,Mumbai,0,0,0
+MH0024,Aradhana Gulati,39,Female,271083,SC,Student,Maharashtra,Akola,0,0,0
+MH0025,Arunima Raval,21,Female,92574,ST,Student,Maharashtra,Osmanabad,1,0,0
+MH0026,Chakradhar Raja,26,Female,573306,General,Student,Maharashtra,Buldhana,0,0,0
+MH0027,Dalaja Manda,60,Male,767581,OBC,Small Business Owner,Maharashtra,Ahmednagar,0,0,0
+MH0028,Ranbir Dixit,49,Female,146882,ST,Student,Maharashtra,Nagpur,0,0,0
+MH0029,Chandani Rajagopalan,53,Male,637024,ST,Farmer,Maharashtra,Nagpur,0,0,1
+MH0030,Chatura De,20,Male,366479,SC,Unemployed,Maharashtra,Kolhapur,0,0,0
+MH0031,Peter Issac,47,Male,585427,ST,Street Vendor,Maharashtra,Akola,0,0,0
+MH0032,Ucchal Sandal,31,Female,446833,ST,Farmer,Maharashtra,Nashik,0,0,1
+MH0033,Varenya Munshi,42,Female,784491,SC,Street Vendor,Maharashtra,Nashik,0,1,0
+MH0034,Isaiah Bumb,62,Female,134576,ST,Student,Maharashtra,Amravati,0,0,0
+MH0035,Jagdish Kashyap,24,Female,212401,OBC,Small Business Owner,Maharashtra,Kolhapur,0,0,0
+MH0036,Gautami Sethi,20,Female,597057,SC,Farmer,Maharashtra,Buldhana,0,0,0
+MH0037,Pranav Ratta,75,Male,194389,General,Small Business Owner,Maharashtra,Osmanabad,0,0,0
+MH0038,Arya Goda,41,Male,192634,General,Farmer,Maharashtra,Jalgaon,0,0,0
+MH0039,Gautam Bakshi,45,Female,463555,General,Student,Maharashtra,Amravati,0,0,0
+MH0040,Samesh Dara,19,Male,348838,SC,Farmer,Maharashtra,Akola,0,0,0
+MH0041,Amrita Pradhan,49,Male,79642,SC,Student,Maharashtra,Nagpur,1,0,0
+MH0042,Gopal Jain,59,Male,443389,SC,Unemployed,Maharashtra,Kolhapur,0,0,0
+MH0043,Shivansh Prakash,18,Male,459589,OBC,Daily Wage Worker,Maharashtra,Amravati,0,0,0
+MH0044,Zilmil Sura,36,Male,298517,General,Student,Maharashtra,Satara,0,0,0
+MH0045,Zilmil Sarkar,75,Male,29767,General,Unemployed,Maharashtra,Akola,1,0,0
+MH0046,Aarini Khare,20,Male,550458,OBC,Student,Maharashtra,Ahmednagar,0,0,0
+MH0047,Oni Loke,72,Male,407477,OBC,Student,Maharashtra,Nanded,0,0,0
+MH0048,Logan Bala,61,Female,661390,SC,Street Vendor,Maharashtra,Buldhana,0,0,0
+MH0049,Vinaya Ravi,58,Male,160814,OBC,Farmer,Maharashtra,Nashik,0,0,1
+MH0050,Isaiah Sawhney,34,Male,772470,OBC,Student,Maharashtra,Thane,0,0,0
+MH0051,Daksha Sagar,32,Male,116781,General,Daily Wage Worker,Maharashtra,Pune,1,1,0
+MH0052,Damini Deep,65,Male,688061,OBC,Student,Maharashtra,Nanded,0,0,0
+MH0053,Kalpit Kadakia,43,Male,137308,SC,Street Vendor,Maharashtra,Aurangabad,0,0,0
+MH0054,Lavanya Chhabra,69,Female,630805,ST,Small Business Owner,Maharashtra,Aurangabad,0,1,0
+MH0055,Damyanti Verma,39,Male,395190,ST,Street Vendor,Maharashtra,Kolhapur,0,0,0
+MH0056,Ekansh Atwal,38,Female,670810,ST,Student,Maharashtra,Solapur,0,0,0
+MH0057,Jatin Chada,67,Male,452322,SC,Student,Maharashtra,Sangli,0,0,0
+MH0058,Rachit Kumer,42,Male,299766,ST,Street Vendor,Maharashtra,Nashik,0,0,0
+MH0059,Rachana Amble,18,Female,253238,ST,Small Business Owner,Maharashtra,Ahmednagar,0,0,0
+MH0060,Tanvi Sibal,66,Male,253752,SC,Street Vendor,Maharashtra,Amravati,0,0,0
+MH0061,Dhriti Sodhi,33,Male,312683,OBC,Street Vendor,Maharashtra,Beed,0,0,0
+MH0062,Mahika Dube,69,Female,48941,SC,Daily Wage Worker,Maharashtra,Solapur,1,0,0
+MH0063,Nicholas Lala,32,Male,133668,General,Daily Wage Worker,Maharashtra,Sangli,0,0,0
+MH0064,Veer Chand,48,Male,423906,ST,Daily Wage Worker,Maharashtra,Pune,0,0,0
+MH0065,Anthony Suresh,16,Male,401913,General,Farmer,Maharashtra,Sangli,0,0,1
+MH0066,Aahana Konda,23,Female,551756,OBC,Street Vendor,Maharashtra,Latur,0,0,0
+MH0067,Chasmum Bera,60,Female,601343,ST,Student,Maharashtra,Latur,0,0,0
+MH0068,Nakul Nanda,40,Male,665414,OBC,Small Business Owner,Maharashtra,Buldhana,0,0,0
+MH0069,Vedant More,35,Female,240392,General,Unemployed,Maharashtra,Yavatmal,0,0,0
+MH0070,Harrison Iyengar,45,Female,483638,ST,Unemployed,Maharashtra,Osmanabad,0,0,0
+MH0071,Michael Deo,66,Male,710855,SC,Daily Wage Worker,Maharashtra,Beed,0,0,0
+MH0072,Samaksh Chokshi,55,Female,117923,ST,Street Vendor,Maharashtra,Satara,1,0,0
+MH0073,Adya Patel,28,Male,45611,SC,Student,Maharashtra,Osmanabad,1,0,0
+MH0074,Atharv Kalita,65,Male,497538,General,Street Vendor,Maharashtra,Akola,0,0,0
+MH0075,Barkha Ganesan,60,Female,538392,General,Student,Maharashtra,Aurangabad,0,0,0
+MH0076,Eesha Chaudhry,16,Male,465798,ST,Student,Maharashtra,Beed,0,0,0
+MH0077,Kabir Cheema,51,Male,147253,General,Student,Maharashtra,Nanded,0,0,0
+MH0078,Radhika Contractor,51,Female,484071,General,Unemployed,Maharashtra,Nanded,0,0,0
+MH0079,Vivaan Kaur,63,Female,491932,OBC,Student,Maharashtra,Thane,0,0,0
+MH0080,Advik Kamdar,49,Female,677193,ST,Daily Wage Worker,Maharashtra,Nanded,0,1,0
+MH0081,Janya Sarna,34,Male,304913,OBC,Daily Wage Worker,Maharashtra,Buldhana,0,0,0
+MH0082,Chandresh Raj,25,Male,421641,ST,Street Vendor,Maharashtra,Amravati,0,1,0
+MH0083,Krisha Bhatti,42,Female,588969,General,Small Business Owner,Maharashtra,Pune,0,0,0
+MH0084,Aayush Bansal,42,Female,632451,SC,Unemployed,Maharashtra,Jalgaon,0,0,0
+MH0085,Quincy Om,38,Female,428930,General,Unemployed,Maharashtra,Buldhana,0,0,0
+MH0086,Krisha Sunder,73,Male,531945,ST,Daily Wage Worker,Maharashtra,Latur,0,0,0
+MH0087,Chakrika Batta,40,Female,721364,General,Street Vendor,Maharashtra,Solapur,0,0,0
+MH0088,Riya Arya,74,Male,672483,SC,Small Business Owner,Maharashtra,Akola,0,0,0
+MH0089,Ekbal Gill,17,Male,693971,General,Student,Maharashtra,Nanded,0,0,0
+MH0090,Vanya Palla,32,Female,363254,ST,Small Business Owner,Maharashtra,Sangli,0,0,0
+MH0091,Daksh Kala,72,Female,311773,General,Daily Wage Worker,Maharashtra,Nagpur,0,0,0
+MH0092,Faris Varughese,63,Male,386960,ST,Street Vendor,Maharashtra,Nagpur,0,0,0
+MH0093,Oviya Saran,57,Male,52537,ST,Student,Maharashtra,Mumbai,1,0,0
+MH0094,Pooja Rajagopal,31,Male,516564,SC,Unemployed,Maharashtra,Amravati,0,0,0
+MH0095,Pushti Khanna,32,Female,195939,SC,Student,Maharashtra,Satara,0,0,0
+MH0096,Ishaan Rama,17,Female,623766,General,Small Business Owner,Maharashtra,Amravati,0,1,0
+MH0097,Qasim Rastogi,60,Male,126851,OBC,Street Vendor,Maharashtra,Yavatmal,0,0,0
+MH0098,Lipika Suresh,66,Male,384069,General,Street Vendor,Maharashtra,Ahmednagar,0,1,0
+MH0099,Sanya Krish,57,Female,33266,General,Small Business Owner,Maharashtra,Nashik,1,0,0
+MH0100,Kai Dara,39,Female,761666,ST,Small Business Owner,Maharashtra,Solapur,0,0,0
+MH0101,Idika Deshmukh,57,Female,665830,General,Small Business Owner,Maharashtra,Latur,0,0,0
+MH0102,Zaid Walia,53,Female,357960,ST,Farmer,Maharashtra,Thane,0,0,1
+MH0103,Amruta Nair,45,Female,372737,SC,Small Business Owner,Maharashtra,Sangli,0,0,0
+MH0104,Banjeet Chadha,29,Female,290902,OBC,Daily Wage Worker,Maharashtra,Yavatmal,0,0,0
+MH0105,Osha Dhawan,33,Male,561722,ST,Farmer,Maharashtra,Kolhapur,0,0,1
+MH0106,Prisha Bhalla,64,Male,744156,General,Street Vendor,Maharashtra,Osmanabad,0,0,0
+MH0107,Falak Nanda,17,Male,328528,ST,Small Business Owner,Maharashtra,Kolhapur,0,0,0
+MH0108,Yashawini Baral,53,Female,516249,OBC,Small Business Owner,Maharashtra,Buldhana,0,0,0
+MH0109,Yuvraj Bahl,60,Female,304076,OBC,Daily Wage Worker,Maharashtra,Kolhapur,0,0,0
+MH0110,Bakhshi Bath,28,Female,145362,ST,Student,Maharashtra,Amravati,0,0,0
+MH0111,Gaurika Chana,33,Female,125409,ST,Daily Wage Worker,Maharashtra,Kolhapur,0,0,0
+MH0112,Rudra Oak,35,Male,762411,ST,Daily Wage Worker,Maharashtra,Pune,0,0,0
+MH0113,Yashica Kari,51,Female,751295,ST,Street Vendor,Maharashtra,Osmanabad,0,0,0
+MH0114,Ekani Gole,16,Female,512198,General,Small Business Owner,Maharashtra,Sangli,0,0,0
+MH0115,Nirja Shan,19,Female,520935,SC,Farmer,Maharashtra,Jalgaon,0,0,1
+MH0116,Panini Sekhon,59,Male,179097,ST,Unemployed,Maharashtra,Satara,0,0,0
+MH0117,Yahvi Agarwal,31,Male,605181,General,Unemployed,Maharashtra,Yavatmal,0,0,0
+MH0118,Mitesh Kaul,30,Female,492398,General,Daily Wage Worker,Maharashtra,Akola,0,0,0
+MH0119,Bhanumati Seshadri,35,Male,659244,SC,Student,Maharashtra,Amravati,0,0,0
+MH0120,Rajeshri Khurana,21,Male,271516,ST,Unemployed,Maharashtra,Nagpur,0,0,0
+MH0121,Ekbal Rege,42,Female,742858,General,Daily Wage Worker,Maharashtra,Pune,0,0,0
+MH0122,Leela Nigam,61,Female,757135,General,Farmer,Maharashtra,Kolhapur,0,0,0
+MH0123,Gopal Joshi,56,Male,465790,SC,Unemployed,Maharashtra,Kolhapur,0,0,0
+MH0124,Samaksh Rout,74,Female,169145,SC,Farmer,Maharashtra,Solapur,0,0,1
+MH0125,Shivani Vig,68,Female,480485,SC,Small Business Owner,Maharashtra,Satara,0,0,0
+MH0126,Chakradhar Chaudhry,33,Female,479023,SC,Unemployed,Maharashtra,Pune,0,0,0
+MH0127,Deepa Prabhakar,63,Female,653039,OBC,Farmer,Maharashtra,Nagpur,0,0,1
+MH0128,Rehaan Mand,71,Male,724938,OBC,Unemployed,Maharashtra,Pune,0,0,0
+MH0129,Charan Barman,27,Female,564173,General,Daily Wage Worker,Maharashtra,Solapur,0,0,0
+MH0130,Vivaan Barad,43,Female,115674,General,Daily Wage Worker,Maharashtra,Latur,1,0,0
+MH0131,Rushil Narula,58,Male,188637,OBC,Small Business Owner,Maharashtra,Osmanabad,0,0,0
+MH0132,Udyati Narayan,41,Male,496919,SC,Daily Wage Worker,Maharashtra,Thane,0,0,0
+MH0133,Nandini Loke,65,Female,559593,SC,Street Vendor,Maharashtra,Buldhana,0,0,0
+MH0134,Jagvi Yogi,19,Male,563623,OBC,Unemployed,Maharashtra,Osmanabad,0,0,0
+MH0135,Ijaya Choudhary,64,Male,233446,OBC,Unemployed,Maharashtra,Aurangabad,0,0,0
+MH0136,Neel Reddy,44,Female,147324,SC,Street Vendor,Maharashtra,Yavatmal,0,0,0
+MH0137,Lucky Chada,61,Male,345845,SC,Unemployed,Maharashtra,Latur,0,0,0
+MH0138,Alka Chaudhari,69,Male,503863,SC,Street Vendor,Maharashtra,Aurangabad,0,0,0
+MH0139,Imaran Hayer,61,Female,553590,OBC,Small Business Owner,Maharashtra,Osmanabad,0,0,0
+MH0140,Frederick Sarkar,31,Female,598043,ST,Small Business Owner,Maharashtra,Amravati,0,0,0
+MH0141,Aashi Tiwari,48,Male,93201,OBC,Small Business Owner,Maharashtra,Sangli,1,0,0
+MH0142,Hiral Gopal,48,Female,22689,OBC,Street Vendor,Maharashtra,Satara,1,0,0
+MH0143,Ayaan Ahluwalia,53,Female,175813,General,Unemployed,Maharashtra,Osmanabad,0,0,0
+MH0144,Anirudh Raju,51,Female,497463,OBC,Student,Maharashtra,Kolhapur,0,0,0
+MH0145,Mekhala Anand,30,Female,65767,OBC,Street Vendor,Maharashtra,Osmanabad,1,0,0
+MH0146,Anvi Dubey,67,Female,424832,ST,Small Business Owner,Maharashtra,Pune,0,0,0
+MH0147,Januja Mander,53,Female,125239,General,Farmer,Maharashtra,Beed,0,0,1
+MH0148,George Soni,25,Female,706587,ST,Farmer,Maharashtra,Osmanabad,0,0,1
+MH0149,Jalsa Divan,55,Female,701403,SC,Daily Wage Worker,Maharashtra,Buldhana,0,0,0
+MH0150,Abdul Hayer,36,Female,587296,SC,Unemployed,Maharashtra,Nagpur,0,0,0
+MH0151,Jacob Warrior,59,Female,258536,SC,Small Business Owner,Maharashtra,Nashik,0,0,0
+MH0152,Indali Rau,61,Male,485230,ST,Street Vendor,Maharashtra,Satara,0,0,0
+MH0153,Dakshesh Nadkarni,18,Female,78845,OBC,Daily Wage Worker,Maharashtra,Ahmednagar,1,0,0
+MH0154,Irya Pandey,31,Female,613418,ST,Student,Maharashtra,Solapur,0,1,0
+MH0155,Charita Memon,71,Female,669813,ST,Small Business Owner,Maharashtra,Akola,0,0,0
+MH0156,Yash Wable,45,Female,501894,OBC,Street Vendor,Maharashtra,Mumbai,0,0,0
+MH0157,Saanvi Bhattacharyya,45,Female,730526,ST,Farmer,Maharashtra,Nanded,0,0,0
+MH0158,Upma Chaudry,35,Female,743846,OBC,Small Business Owner,Maharashtra,Satara,0,0,0
+MH0159,Maya Parmer,40,Female,131834,ST,Small Business Owner,Maharashtra,Akola,0,0,0
+MH0160,Isaiah Lad,34,Female,43005,General,Daily Wage Worker,Maharashtra,Mumbai,1,0,0
+MH0161,Charles Raval,59,Male,655863,General,Daily Wage Worker,Maharashtra,Kolhapur,0,0,0
+MH0162,Ishita Memon,38,Male,687542,ST,Unemployed,Maharashtra,Thane,0,0,0
+MH0163,Jai Khanna,62,Male,678765,SC,Street Vendor,Maharashtra,Pune,0,0,0
+MH0164,Nathan Sachdeva,44,Male,627727,OBC,Street Vendor,Maharashtra,Aurangabad,0,0,0
+MH0165,Kashish Sangha,34,Female,455686,ST,Student,Maharashtra,Aurangabad,0,0,0
+MH0166,Chavvi Mani,72,Female,576639,OBC,Student,Maharashtra,Thane,0,0,0
+MH0167,Ijaya Kala,46,Female,375168,SC,Small Business Owner,Maharashtra,Nagpur,0,0,0
+MH0168,Kritika Bhardwaj,30,Female,604384,OBC,Farmer,Maharashtra,Jalgaon,0,1,1
+MH0169,Girindra Sunder,45,Female,725511,OBC,Unemployed,Maharashtra,Jalgaon,0,0,0
+MH0170,Nandini Jha,39,Male,727617,ST,Small Business Owner,Maharashtra,Mumbai,0,0,0
+MH0171,Nachiket Goyal,51,Female,659717,ST,Street Vendor,Maharashtra,Nagpur,0,0,0
+MH0172,Zehaan Mangat,45,Female,700776,General,Farmer,Maharashtra,Aurangabad,0,1,1
+MH0173,Andrew Sekhon,47,Male,121913,ST,Unemployed,Maharashtra,Aurangabad,0,0,0
+MH0174,Ishani Divan,39,Female,635870,ST,Small Business Owner,Maharashtra,Nashik,0,0,0
+MH0175,Alexander Sen,55,Female,313328,SC,Street Vendor,Maharashtra,Ahmednagar,0,0,0
+MH0176,Arin Char,44,Male,400303,SC,Street Vendor,Maharashtra,Ahmednagar,0,0,0
+MH0177,Radhika Sridhar,57,Female,83491,General,Daily Wage Worker,Maharashtra,Amravati,1,0,0
+MH0178,Osha Baral,70,Female,116126,ST,Street Vendor,Maharashtra,Yavatmal,1,0,0
+MH0179,Fitan Sahota,19,Female,275400,ST,Unemployed,Maharashtra,Amravati,0,1,0
+MH0180,Onveer Vasa,64,Male,634867,ST,Student,Maharashtra,Sangli,0,0,0
+MH0181,Kritika Narayanan,66,Male,310743,ST,Student,Maharashtra,Buldhana,0,0,0
+MH0182,Abhiram Chaudhry,27,Male,713169,SC,Student,Maharashtra,Mumbai,0,0,0
+MH0183,Kiaan Khalsa,66,Male,637457,OBC,Farmer,Maharashtra,Solapur,0,0,1
+MH0184,Qabil Chandran,42,Male,86645,General,Small Business Owner,Maharashtra,Ahmednagar,1,0,0
+MH0185,Yochana Agarwal,22,Female,548313,ST,Unemployed,Maharashtra,Pune,0,0,0
+MH0186,Upkaar Gill,74,Female,500292,SC,Farmer,Maharashtra,Osmanabad,0,0,1
+MH0187,Nihal Dey,22,Female,767006,General,Farmer,Maharashtra,Nagpur,0,0,1
+MH0188,Alexander Dhar,24,Female,674644,OBC,Small Business Owner,Maharashtra,Yavatmal,0,0,0
+MH0189,Amruta Ravi,45,Female,123996,SC,Street Vendor,Maharashtra,Buldhana,0,0,0
+MH0190,Yachana Ahuja,29,Female,493489,ST,Small Business Owner,Maharashtra,Sangli,0,0,0
+MH0191,Jagdish Gola,41,Female,785054,SC,Daily Wage Worker,Maharashtra,Latur,0,0,0
+MH0192,Pranit Chowdhury,32,Female,180053,General,Farmer,Maharashtra,Nagpur,0,0,1
+MH0193,Chandresh Mannan,22,Female,156435,SC,Unemployed,Maharashtra,Buldhana,0,0,0
+MH0194,Yamini Swaminathan,58,Male,450764,OBC,Street Vendor,Maharashtra,Latur,0,0,0
+MH0195,Faris Roy,62,Male,321601,OBC,Daily Wage Worker,Maharashtra,Nashik,0,0,0
+MH0196,Theodore Mohanty,29,Male,708637,General,Student,Maharashtra,Nashik,0,0,0
+MH0197,Champak Doshi,51,Female,140465,OBC,Unemployed,Maharashtra,Kolhapur,0,0,0
+MH0198,Dhruv Yadav,70,Male,658577,OBC,Farmer,Maharashtra,Solapur,0,0,0
+MH0199,Akshay Gade,74,Female,388074,SC,Student,Maharashtra,Aurangabad,0,0,0
+MH0200,Ronith Krishna,41,Male,168766,SC,Farmer,Maharashtra,Beed,0,0,1
+MH0201,Chandani Ahluwalia,37,Male,408028,OBC,Street Vendor,Maharashtra,Sangli,0,0,0
+MH0202,Robert Ganesan,52,Male,75164,ST,Student,Maharashtra,Yavatmal,1,1,0
+MH0203,Robert Bali,21,Female,484637,General,Small Business Owner,Maharashtra,Yavatmal,0,0,0
+MH0204,Abdul Kumar,33,Male,557234,SC,Daily Wage Worker,Maharashtra,Latur,0,0,0
+MH0205,Anya Rege,59,Female,572530,OBC,Farmer,Maharashtra,Kolhapur,0,0,1
+MH0206,Damyanti Raval,16,Male,336061,ST,Student,Maharashtra,Thane,0,0,0
+MH0207,Vritti Srinivasan,23,Male,541546,General,Student,Maharashtra,Aurangabad,0,0,0
+MH0208,Sathvik Karpe,61,Male,544563,OBC,Farmer,Maharashtra,Jalgaon,0,0,1
+MH0209,Lila Sachdev,17,Female,101644,OBC,Unemployed,Maharashtra,Latur,1,0,0
+MH0210,Aarini Bajwa,61,Female,323578,SC,Small Business Owner,Maharashtra,Mumbai,0,0,0
+MH0211,Jeet Nath,26,Female,743108,OBC,Farmer,Maharashtra,Latur,0,0,1
+MH0212,Amrita Jaggi,53,Female,569414,SC,Small Business Owner,Maharashtra,Satara,0,0,0
+MH0213,Ganga Raj,30,Female,196299,SC,Unemployed,Maharashtra,Nashik,0,0,0
+MH0214,Turvi Chaudhary,28,Female,388154,ST,Student,Maharashtra,Nashik,0,0,0
+MH0215,Ekantika Hari,28,Male,651661,ST,Street Vendor,Maharashtra,Nagpur,0,0,0
+MH0216,Sathvik Sarna,65,Female,506490,General,Street Vendor,Maharashtra,Akola,0,0,0
+MH0217,Girish Varma,55,Female,677685,OBC,Student,Maharashtra,Nanded,0,1,0
+MH0218,Girik Ramakrishnan,44,Female,308016,SC,Daily Wage Worker,Maharashtra,Beed,0,1,0
+MH0219,Manthan Soni,45,Female,59434,SC,Daily Wage Worker,Maharashtra,Satara,1,1,0
+MH0220,Charan Seth,71,Male,664883,General,Small Business Owner,Maharashtra,Akola,0,0,0
+MH0221,Naksh Ahuja,66,Male,491579,ST,Daily Wage Worker,Maharashtra,Yavatmal,0,0,0
+MH0222,Raghav Naik,25,Male,492407,SC,Daily Wage Worker,Maharashtra,Nagpur,0,0,0
+MH0223,Panini Kota,27,Male,279778,General,Small Business Owner,Maharashtra,Beed,0,0,0
+MH0224,Idika Naidu,26,Female,410963,OBC,Small Business Owner,Maharashtra,Latur,0,0,0
+MH0225,Kashish Dhar,59,Male,681532,OBC,Farmer,Maharashtra,Sangli,0,0,1
+MH0226,Gaurangi Bava,34,Female,778889,ST,Daily Wage Worker,Maharashtra,Nagpur,0,0,0
+MH0227,Omaja Bora,25,Female,345301,General,Student,Maharashtra,Yavatmal,0,0,0
+MH0228,Harsh Mohanty,21,Female,606072,General,Street Vendor,Maharashtra,Sangli,0,0,0
+MH0229,Oeshi Rajagopal,58,Male,697406,General,Unemployed,Maharashtra,Ahmednagar,0,1,0
+MH0230,Imaran Kapadia,35,Male,244597,OBC,Small Business Owner,Maharashtra,Amravati,0,0,0
+MH0231,Oscar Dass,24,Male,100913,OBC,Farmer,Maharashtra,Beed,1,0,0
+MH0232,Chanakya Sankaran,72,Male,714083,OBC,Unemployed,Maharashtra,Aurangabad,0,0,0
+MH0233,Jairaj Loke,25,Male,209630,ST,Street Vendor,Maharashtra,Nanded,0,1,0
+MH0234,Aarini Gour,39,Male,485776,OBC,Street Vendor,Maharashtra,Nanded,0,0,0
+MH0235,Oliver Sur,31,Female,511798,ST,Daily Wage Worker,Maharashtra,Akola,0,0,0
+MH0236,Ekaraj Mittal,45,Female,420422,General,Student,Maharashtra,Amravati,0,0,0
+MH0237,Chanchal Choudhury,24,Female,74714,General,Daily Wage Worker,Maharashtra,Buldhana,1,0,0
+MH0238,Januja Parikh,61,Male,318910,SC,Student,Maharashtra,Thane,0,0,0
+MH0239,Arya Kapadia,48,Male,478723,SC,Student,Maharashtra,Nanded,0,0,0
+MH0240,Omkaar Tata,75,Male,455050,SC,Small Business Owner,Maharashtra,Beed,0,0,0
+MH0241,Abhimanyu Karpe,40,Male,413124,ST,Farmer,Maharashtra,Sangli,0,0,0
+MH0242,Chakrika Prakash,57,Female,173143,ST,Farmer,Maharashtra,Satara,0,0,1
+MH0243,Aishani Nath,69,Male,759808,General,Small Business Owner,Maharashtra,Yavatmal,0,1,0
+MH0244,Oviya Dhar,21,Male,288355,ST,Student,Maharashtra,Buldhana,0,0,0
+MH0245,Ethan Ben,54,Female,136587,OBC,Student,Maharashtra,Satara,0,0,0
+MH0246,Riya Tella,31,Female,689989,General,Farmer,Maharashtra,Nashik,0,0,1
+MH0247,Omisha Dar,50,Male,682652,ST,Street Vendor,Maharashtra,Aurangabad,0,0,0
+MH0248,Forum Garde,16,Female,272249,General,Student,Maharashtra,Nagpur,0,0,0
+MH0249,Isha Upadhyay,39,Male,571613,SC,Small Business Owner,Maharashtra,Osmanabad,0,1,0
+MH0250,Joshua Singh,40,Female,285971,SC,Daily Wage Worker,Maharashtra,Nagpur,0,0,0
+MH0251,Ikbal Morar,62,Male,630169,OBC,Student,Maharashtra,Pune,0,0,0
+MH0252,Libni Bumb,37,Male,737941,General,Street Vendor,Maharashtra,Osmanabad,0,0,0
+MH0253,Sneha Gola,67,Male,86165,General,Farmer,Maharashtra,Satara,1,0,0
+MH0254,Udyati Kala,72,Male,350926,OBC,Unemployed,Maharashtra,Jalgaon,0,0,0
+MH0255,Ranveer Rege,50,Female,285618,SC,Street Vendor,Maharashtra,Amravati,0,0,0
+MH0256,Niharika Kar,71,Male,707584,OBC,Daily Wage Worker,Maharashtra,Nashik,0,0,0
+MH0257,Ekbal Dasgupta,43,Female,799414,General,Small Business Owner,Maharashtra,Sangli,0,0,0
+MH0258,Anmol Koshy,47,Female,405191,OBC,Farmer,Maharashtra,Latur,0,1,1
+MH0259,Sathvik Tiwari,68,Male,591971,OBC,Daily Wage Worker,Maharashtra,Nashik,0,0,0
+MH0260,Anjali Naik,58,Female,341384,General,Unemployed,Maharashtra,Latur,0,0,0
+MH0261,Samaksh Loke,44,Female,488849,SC,Street Vendor,Maharashtra,Ahmednagar,0,0,0
+MH0262,Chaitanya Nagarajan,43,Female,690532,SC,Farmer,Maharashtra,Jalgaon,0,0,0
+MH0263,Kevin Chandra,59,Male,52653,ST,Unemployed,Maharashtra,Nanded,1,1,0
+MH0264,Ishita Khare,20,Male,696502,OBC,Daily Wage Worker,Maharashtra,Jalgaon,0,0,0
+MH0265,Gavin Vala,18,Male,732048,General,Daily Wage Worker,Maharashtra,Ahmednagar,0,0,0
+MH0266,Mason Seshadri,20,Male,575178,OBC,Small Business Owner,Maharashtra,Sangli,0,0,0
+MH0267,Neha Lanka,31,Male,47172,ST,Small Business Owner,Maharashtra,Beed,1,0,0
+MH0268,Nihal Shah,51,Male,294492,OBC,Street Vendor,Maharashtra,Nanded,0,0,0
+MH0269,Prisha Chana,55,Female,747691,General,Student,Maharashtra,Nashik,0,0,0
+MH0270,Vritti Bail,20,Female,201043,General,Farmer,Maharashtra,Sangli,0,0,0
+MH0271,Nicholas Morar,51,Female,334527,ST,Street Vendor,Maharashtra,Solapur,0,0,0
+MH0272,Dhriti Bassi,48,Male,147257,ST,Student,Maharashtra,Kolhapur,0,0,0
+MH0273,Caleb Khanna,17,Female,600933,OBC,Small Business Owner,Maharashtra,Buldhana,0,0,0
+MH0274,Anika Parekh,72,Male,88941,OBC,Small Business Owner,Maharashtra,Osmanabad,1,0,0
+MH0275,Chavvi Kashyap,65,Female,622826,SC,Student,Maharashtra,Sangli,0,0,0
+MH0276,Gaurav Sen,44,Female,733145,OBC,Student,Maharashtra,Buldhana,0,0,0
+MH0277,Amaira Babu,27,Male,473633,SC,Farmer,Maharashtra,Beed,0,0,1
+MH0278,Madhavi Mitter,36,Male,382831,OBC,Farmer,Maharashtra,Thane,0,0,0
+MH0279,Irya Bath,33,Male,675383,OBC,Unemployed,Maharashtra,Buldhana,0,0,0
+MH0280,Brinda Raghavan,57,Male,640556,ST,Student,Maharashtra,Yavatmal,0,0,0
+MH0281,Priya Nadig,54,Female,610996,SC,Farmer,Maharashtra,Nagpur,0,1,1
+MH0282,Amara Sridhar,52,Female,702759,ST,Unemployed,Maharashtra,Latur,0,0,0
+MH0283,Azaan Andra,17,Female,677629,OBC,Street Vendor,Maharashtra,Satara,0,0,0
+MH0284,Aachal Setty,67,Female,331882,General,Farmer,Maharashtra,Pune,0,0,1
+MH0285,Hema Jha,45,Male,376717,ST,Daily Wage Worker,Maharashtra,Sangli,0,0,0
+MH0286,Bimala Khanna,71,Female,438084,ST,Daily Wage Worker,Maharashtra,Beed,0,0,0
+MH0287,Rajeshri Basak,36,Male,509131,SC,Daily Wage Worker,Maharashtra,Nanded,0,0,0
+MH0288,Zayan Kannan,22,Male,324309,General,Unemployed,Maharashtra,Latur,0,0,0
+MH0289,Urvi Prashad,71,Male,363341,OBC,Student,Maharashtra,Solapur,0,0,0
+MH0290,Wridesh More,48,Female,542987,OBC,Small Business Owner,Maharashtra,Mumbai,0,0,0
+MH0291,Gautami Keer,41,Female,272422,ST,Unemployed,Maharashtra,Ahmednagar,0,1,0
+MH0292,Yutika Cherian,34,Female,646543,General,Daily Wage Worker,Maharashtra,Buldhana,0,1,0
+MH0293,Saksham Hora,22,Female,160440,OBC,Street Vendor,Maharashtra,Ahmednagar,0,0,0
+MH0294,Fitan Srinivasan,39,Male,440040,SC,Unemployed,Maharashtra,Buldhana,0,0,0
+MH0295,Chameli Bhatt,51,Female,97103,General,Unemployed,Maharashtra,Nanded,1,0,0
+MH0296,Ojasvi Mane,33,Male,154913,SC,Small Business Owner,Maharashtra,Ahmednagar,0,0,0
+MH0297,Tara Pal,37,Female,171275,ST,Unemployed,Maharashtra,Beed,0,0,0
+MH0298,Baghyawati Randhawa,18,Male,60804,ST,Street Vendor,Maharashtra,Sangli,1,0,0
+MH0299,Mitesh Desai,49,Female,176175,ST,Daily Wage Worker,Maharashtra,Yavatmal,0,0,0
+MH0300,Ganga Dhingra,41,Female,642565,OBC,Unemployed,Maharashtra,Beed,0,0,0
+MH0301,Jackson Sur,61,Female,517960,SC,Daily Wage Worker,Maharashtra,Sangli,0,0,0
+MH0302,Charles Gokhale,42,Female,780557,SC,Unemployed,Maharashtra,Osmanabad,0,0,0
+MH0303,Mohammed Bajaj,57,Male,776442,SC,Unemployed,Maharashtra,Osmanabad,0,0,0
+MH0304,Shravya Samra,56,Female,174954,ST,Farmer,Maharashtra,Akola,0,0,1
+MH0305,Edhitha Sunder,17,Female,348930,General,Student,Maharashtra,Latur,0,0,0
+MH0306,Charles Parekh,42,Female,791581,SC,Street Vendor,Maharashtra,Aurangabad,0,0,0
+MH0307,Yashawini Balay,51,Female,714395,General,Unemployed,Maharashtra,Jalgaon,0,0,0
+MH0308,Ishani Hayre,27,Female,579024,OBC,Unemployed,Maharashtra,Ahmednagar,0,0,0
+MH0309,Om Deep,71,Female,659711,General,Student,Maharashtra,Kolhapur,0,0,0
+MH0310,Gaurika Gulati,35,Male,332071,OBC,Street Vendor,Maharashtra,Amravati,0,0,0
+MH0311,Rachita Saraf,47,Female,523110,OBC,Unemployed,Maharashtra,Thane,0,0,0
+MH0312,Januja Bora,52,Female,433697,OBC,Student,Maharashtra,Satara,0,1,0
+MH0313,Omisha Wable,61,Male,383188,General,Street Vendor,Maharashtra,Thane,0,0,0
+MH0314,Chavvi Bhatti,29,Male,584739,OBC,Unemployed,Maharashtra,Thane,0,0,0
+MH0315,Chandresh Krishnan,55,Male,274235,SC,Street Vendor,Maharashtra,Beed,0,0,0
+MH0316,Neel Nagar,30,Male,125065,General,Daily Wage Worker,Maharashtra,Osmanabad,0,0,0
+MH0317,Yug Tailor,65,Male,25433,ST,Small Business Owner,Maharashtra,Osmanabad,1,0,0
+MH0318,Chakrika Shukla,28,Female,356768,OBC,Street Vendor,Maharashtra,Pune,0,0,0
+MH0319,Omaja Bandi,21,Male,581147,SC,Student,Maharashtra,Latur,0,0,0
+MH0320,Tamanna Wali,27,Male,436278,General,Student,Maharashtra,Satara,0,0,0
+MH0321,Yochana Jayaraman,16,Female,615551,SC,Daily Wage Worker,Maharashtra,Satara,0,0,0
+MH0322,Lohit Bobal,57,Female,160718,General,Daily Wage Worker,Maharashtra,Amravati,0,0,0
+MH0323,Timothy Bakshi,37,Male,786634,General,Street Vendor,Maharashtra,Thane,0,0,0
+MH0324,Keya D’Alia,16,Female,329355,ST,Student,Maharashtra,Yavatmal,0,0,0
+MH0325,Girish Viswanathan,73,Female,468479,OBC,Farmer,Maharashtra,Jalgaon,0,0,1
+MH0326,Osha Bhagat,24,Female,359320,ST,Farmer,Maharashtra,Thane,0,0,1
+MH0327,Oscar Mukherjee,33,Female,336613,SC,Daily Wage Worker,Maharashtra,Ahmednagar,0,0,0
+MH0328,Ikshita Dube,19,Male,508002,OBC,Student,Maharashtra,Jalgaon,0,0,0
+MH0329,Banjeet Khatri,75,Female,743821,SC,Street Vendor,Maharashtra,Satara,0,0,0
+MH0330,Kalpit More,30,Male,160057,General,Student,Maharashtra,Nanded,0,0,0
+MH0331,Lipika Amble,54,Female,456045,General,Unemployed,Maharashtra,Amravati,0,0,0
+MH0332,Logan Aggarwal,59,Male,571033,General,Unemployed,Maharashtra,Ahmednagar,0,1,0
+MH0333,Ekani Swaminathan,52,Male,84758,ST,Unemployed,Maharashtra,Buldhana,1,0,0
+MH0334,Niharika Garg,36,Female,141886,ST,Street Vendor,Maharashtra,Akola,0,0,0
+MH0335,Eshana Dass,73,Female,78338,General,Student,Maharashtra,Beed,1,0,0
+MH0336,Vasudha Devan,52,Male,605941,General,Street Vendor,Maharashtra,Satara,0,0,0
+MH0337,Yochana Chokshi,41,Female,23161,ST,Unemployed,Maharashtra,Nagpur,1,1,0
+MH0338,Vincent Chokshi,38,Male,587451,SC,Farmer,Maharashtra,Osmanabad,0,1,1
+MH0339,Vihaan Sodhi,65,Male,692687,General,Daily Wage Worker,Maharashtra,Jalgaon,0,0,0
+MH0340,Zinal Kumar,74,Female,413892,SC,Street Vendor,Maharashtra,Buldhana,0,0,0
+MH0341,Saanvi Sridhar,71,Female,144395,ST,Unemployed,Maharashtra,Jalgaon,0,0,0
+MH0342,Faraj Mody,62,Male,23642,SC,Daily Wage Worker,Maharashtra,Nanded,1,0,0
+MH0343,Chavvi Deshmukh,50,Female,577772,General,Student,Maharashtra,Kolhapur,0,0,0
+MH0344,Yadavi Sankaran,25,Female,217636,SC,Farmer,Maharashtra,Latur,0,0,0
+MH0345,Nicholas Bail,72,Male,272356,ST,Farmer,Maharashtra,Nashik,0,0,1
+MH0346,Max Majumdar,59,Male,276622,SC,Small Business Owner,Maharashtra,Nanded,0,0,0
+MH0347,Rohan Kurian,29,Male,166942,OBC,Student,Maharashtra,Akola,0,0,0
+MH0348,Naveen Arora,54,Female,268411,OBC,Student,Maharashtra,Beed,0,0,0
+MH0349,Rishi Karnik,35,Female,83918,ST,Street Vendor,Maharashtra,Latur,1,0,0
+MH0350,Aishani Bir,19,Female,694565,General,Unemployed,Maharashtra,Sangli,0,0,0
+MH0351,Onkar Dey,42,Male,334455,General,Student,Maharashtra,Buldhana,0,0,0
+MH0352,Lila Devan,70,Male,335344,ST,Small Business Owner,Maharashtra,Pune,0,0,0
+MH0353,Warinder Gole,42,Male,427286,ST,Daily Wage Worker,Maharashtra,Amravati,0,0,0
+MH0354,Yug Sarma,21,Female,409102,SC,Unemployed,Maharashtra,Amravati,0,1,0
+MH0355,Priya Kamdar,40,Male,96319,ST,Unemployed,Maharashtra,Buldhana,1,0,0
+MH0356,Yug Sane,29,Female,337915,SC,Student,Maharashtra,Amravati,0,0,0
+MH0357,Wyatt Mistry,23,Female,274377,ST,Small Business Owner,Maharashtra,Kolhapur,0,0,0
+MH0358,Nilima Kapur,65,Female,419152,General,Unemployed,Maharashtra,Ahmednagar,0,0,0
+MH0359,Bakhshi Rajan,39,Female,508640,SC,Street Vendor,Maharashtra,Osmanabad,0,0,0
+MH0360,Wakeeta Sehgal,36,Male,408712,OBC,Small Business Owner,Maharashtra,Pune,0,0,0
+MH0361,Udant Karan,30,Male,37007,OBC,Unemployed,Maharashtra,Akola,1,0,0
+MH0362,Alexander Bhatia,42,Female,179814,ST,Daily Wage Worker,Maharashtra,Kolhapur,0,0,0
+MH0363,Yauvani Sheth,69,Male,543555,OBC,Daily Wage Worker,Maharashtra,Osmanabad,0,0,0
+MH0364,Neha Ramaswamy,57,Female,503214,ST,Street Vendor,Maharashtra,Ahmednagar,0,0,0
+MH0365,Yashica Nadig,62,Female,212988,SC,Unemployed,Maharashtra,Pune,0,0,0
+MH0366,Yachana Varty,20,Male,26693,General,Student,Maharashtra,Kolhapur,1,1,0
+MH0367,Nimrat Gara,25,Male,249344,General,Daily Wage Worker,Maharashtra,Pune,0,0,0
+MH0368,Vincent Dube,58,Female,711309,General,Farmer,Maharashtra,Mumbai,0,0,1
+MH0369,Prisha Arora,17,Female,581762,OBC,Farmer,Maharashtra,Beed,0,0,1
+MH0370,Teerth Mandal,67,Male,132214,SC,Unemployed,Maharashtra,Aurangabad,0,0,0
+MH0371,Vamakshi Devan,55,Female,391658,OBC,Small Business Owner,Maharashtra,Nagpur,0,0,0
+MH0372,Chakradev Dube,41,Female,612447,ST,Street Vendor,Maharashtra,Kolhapur,0,0,0
+MH0373,Vinaya Dutt,68,Male,705491,SC,Farmer,Maharashtra,Jalgaon,0,0,1
+MH0374,Sanaya Vohra,19,Male,756986,ST,Farmer,Maharashtra,Osmanabad,0,0,1
+MH0375,Neelima Tata,37,Male,573815,SC,Student,Maharashtra,Amravati,0,0,0
+MH0376,Chaman Dhaliwal,60,Female,304263,SC,Farmer,Maharashtra,Thane,0,0,1
+MH0377,Qasim Borah,18,Male,349761,SC,Student,Maharashtra,Akola,0,0,0
+MH0378,Udant Wadhwa,68,Female,100674,OBC,Student,Maharashtra,Akola,1,0,0
+MH0379,Ojas Bajaj,69,Female,729922,OBC,Small Business Owner,Maharashtra,Aurangabad,0,0,0
+MH0380,Finn Mitter,60,Male,545119,OBC,Farmer,Maharashtra,Nashik,0,0,0
+MH0381,Irya Bhatnagar,37,Female,362230,SC,Street Vendor,Maharashtra,Thane,0,0,0
+MH0382,Ubika Pall,44,Female,259220,OBC,Unemployed,Maharashtra,Jalgaon,0,0,0
+MH0383,Deepa Vig,59,Female,109856,OBC,Student,Maharashtra,Nagpur,1,0,0
+MH0384,Qushi Goda,25,Female,766247,ST,Street Vendor,Maharashtra,Jalgaon,0,0,0
+MH0385,Aahana Varty,22,Male,25447,OBC,Small Business Owner,Maharashtra,Ahmednagar,1,0,0
+MH0386,Jagvi Nagi,22,Male,111537,ST,Small Business Owner,Maharashtra,Nanded,1,0,0
+MH0387,Udyati Roy,48,Female,128310,SC,Farmer,Maharashtra,Ahmednagar,0,0,1
+MH0388,Samarth Grover,66,Female,423951,SC,Daily Wage Worker,Maharashtra,Latur,0,0,0
+MH0389,Bishakha Balakrishnan,21,Male,619743,ST,Street Vendor,Maharashtra,Jalgaon,0,0,0
+MH0390,Yug Mann,33,Female,301444,General,Student,Maharashtra,Nagpur,0,0,0
+MH0391,Ganga Kala,33,Female,334313,General,Farmer,Maharashtra,Ahmednagar,0,0,1
+MH0392,Hema Morar,56,Female,642651,ST,Small Business Owner,Maharashtra,Nashik,0,0,0
+MH0393,Nihal Deol,16,Female,368354,General,Daily Wage Worker,Maharashtra,Nanded,0,0,0
+MH0394,Vanya Balakrishnan,68,Male,335029,OBC,Unemployed,Maharashtra,Amravati,0,0,0
+MH0395,Ijaya Mangal,27,Female,354640,OBC,Street Vendor,Maharashtra,Osmanabad,0,0,0
+MH0396,Samarth Mammen,66,Male,361716,General,Daily Wage Worker,Maharashtra,Jalgaon,0,0,0
+MH0397,Chameli Mani,75,Male,640995,ST,Street Vendor,Maharashtra,Buldhana,0,1,0
+MH0398,Damyanti Dhillon,62,Female,762776,ST,Small Business Owner,Maharashtra,Satara,0,0,0
+MH0399,Raksha Chandran,20,Female,725668,General,Student,Maharashtra,Satara,0,0,0
+MH0400,Chakradhar Pandey,58,Male,769979,General,Small Business Owner,Maharashtra,Nagpur,0,0,0
+MH0401,Aarna Sarma,54,Female,630527,General,Unemployed,Maharashtra,Beed,0,0,0
+MH0402,Rachita Konda,71,Female,590053,SC,Daily Wage Worker,Maharashtra,Buldhana,0,0,0
+MH0403,Mugdha Cheema,74,Male,134682,ST,Street Vendor,Maharashtra,Ahmednagar,0,0,0
+MH0404,Ridhi Mitra,55,Male,610579,General,Daily Wage Worker,Maharashtra,Latur,0,0,0
+MH0405,Gaurang Gera,22,Female,252785,ST,Small Business Owner,Maharashtra,Ahmednagar,0,0,0
+MH0406,Upadhriti Vig,65,Male,381724,SC,Small Business Owner,Maharashtra,Nashik,0,0,0
+MH0407,Simon Shah,74,Male,141707,ST,Daily Wage Worker,Maharashtra,Satara,0,0,0
+MH0408,Hitesh Sachdeva,66,Male,566428,General,Daily Wage Worker,Maharashtra,Osmanabad,0,0,0
+MH0409,Reyansh Krish,62,Female,354400,SC,Daily Wage Worker,Maharashtra,Pune,0,0,0
+MH0410,Azaan Bir,23,Male,379743,SC,Street Vendor,Maharashtra,Solapur,0,0,0
+MH0411,Zansi Thakkar,63,Male,561058,ST,Unemployed,Maharashtra,Solapur,0,0,0
+MH0412,Pavani Prashad,43,Female,263118,General,Street Vendor,Maharashtra,Solapur,0,0,0
+MH0413,Faqid Prasad,58,Female,434798,SC,Street Vendor,Maharashtra,Yavatmal,0,0,0
+MH0414,Veda Krish,44,Female,427723,SC,Street Vendor,Maharashtra,Amravati,0,0,0
+MH0415,Zarna Bhakta,64,Male,625393,SC,Unemployed,Maharashtra,Solapur,0,0,0
+MH0416,Hemani Chander,28,Female,139490,OBC,Street Vendor,Maharashtra,Osmanabad,0,0,0
+MH0417,Aashi Varughese,56,Female,645969,General,Unemployed,Maharashtra,Jalgaon,0,0,0
+MH0418,Prisha Johal,38,Female,500101,ST,Street Vendor,Maharashtra,Satara,0,0,0
+MH0419,Amaira Narula,53,Male,724758,ST,Daily Wage Worker,Maharashtra,Nashik,0,0,0
+MH0420,Kamala Mohan,23,Male,411439,ST,Unemployed,Maharashtra,Jalgaon,0,0,0
+MH0421,Anya Majumdar,24,Female,463588,ST,Small Business Owner,Maharashtra,Buldhana,0,0,0
+MH0422,Manan Rajan,57,Male,601868,ST,Small Business Owner,Maharashtra,Satara,0,0,0
+MH0423,Dayamai Sridhar,36,Female,669498,SC,Daily Wage Worker,Maharashtra,Mumbai,0,0,0
+MH0424,Akshay Nori,28,Female,608861,General,Small Business Owner,Maharashtra,Osmanabad,0,0,0
+MH0425,Fiyaz Tiwari,69,Female,532438,ST,Farmer,Maharashtra,Akola,0,1,0
+MH0426,Onveer Hayre,34,Male,308204,ST,Unemployed,Maharashtra,Satara,0,0,0
+MH0427,Chaman Gandhi,45,Female,596429,SC,Unemployed,Maharashtra,Nashik,0,0,0
+MH0428,Nidra Peri,50,Female,588373,SC,Street Vendor,Maharashtra,Nanded,0,0,0
+MH0429,Harita Shanker,43,Male,791740,ST,Daily Wage Worker,Maharashtra,Pune,0,0,0
+MH0430,Manbir Raju,38,Male,480398,SC,Student,Maharashtra,Amravati,0,0,0
+MH0431,Ikbal Rajagopal,53,Female,765279,General,Student,Maharashtra,Yavatmal,0,0,0
+MH0432,Hema Bhakta,29,Male,82241,OBC,Unemployed,Maharashtra,Thane,1,0,0
+MH0433,Pranit Dhillon,26,Female,758253,OBC,Daily Wage Worker,Maharashtra,Akola,0,0,0
+MH0434,David Brahmbhatt,70,Male,162175,General,Farmer,Maharashtra,Thane,0,0,1
+MH0435,Liam Oak,71,Male,281805,ST,Street Vendor,Maharashtra,Sangli,0,0,0
+MH0436,Advik Nayar,64,Female,533234,ST,Unemployed,Maharashtra,Thane,0,0,0
+MH0437,Hemani Tailor,40,Female,99184,SC,Small Business Owner,Maharashtra,Beed,1,0,0
+MH0438,Sanya Choudhary,60,Female,496782,General,Daily Wage Worker,Maharashtra,Akola,0,1,0
+MH0439,Devansh Bumb,65,Male,786437,General,Street Vendor,Maharashtra,Ahmednagar,0,0,0
+MH0440,Ekta Tara,66,Female,248411,General,Student,Maharashtra,Osmanabad,0,0,0
+MH0441,Garima Anne,69,Female,374161,ST,Unemployed,Maharashtra,Osmanabad,0,0,0
+MH0442,Yachana Dara,73,Male,68174,SC,Street Vendor,Maharashtra,Nanded,1,1,0
+MH0443,Keya Modi,75,Male,482721,General,Farmer,Maharashtra,Latur,0,0,1
+MH0444,Aarna Kota,24,Female,186699,OBC,Farmer,Maharashtra,Ahmednagar,0,0,1
+MH0445,Chandani Dora,73,Male,74302,General,Street Vendor,Maharashtra,Satara,1,0,0
+MH0446,Nathan Kade,64,Male,470081,SC,Street Vendor,Maharashtra,Nashik,0,1,0
+MH0447,Edhitha Hans,46,Male,159145,ST,Unemployed,Maharashtra,Nanded,0,1,0
+MH0448,Manan Sha,60,Female,146451,General,Street Vendor,Maharashtra,Aurangabad,0,0,0
+MH0449,Bachittar Lall,30,Female,113670,SC,Farmer,Maharashtra,Sangli,1,0,1
+MH0450,Waida Rai,40,Male,692741,ST,Farmer,Maharashtra,Beed,0,0,1
+MH0451,Odika Madan,26,Female,388247,ST,Street Vendor,Maharashtra,Aurangabad,0,0,0
+MH0452,Ikshita Naidu,55,Female,247797,SC,Farmer,Maharashtra,Aurangabad,0,0,1
+MH0453,Ekapad Jaggi,40,Female,470246,OBC,Student,Maharashtra,Kolhapur,0,0,0
+MH0454,Bhavani Bhargava,21,Male,600278,OBC,Street Vendor,Maharashtra,Mumbai,0,0,0
+MH0455,Zaid Natt,58,Female,235425,ST,Street Vendor,Maharashtra,Jalgaon,0,0,0
+MH0456,Vrishti Rama,19,Male,538927,General,Farmer,Maharashtra,Kolhapur,0,0,1
+MH0457,Omaja Wali,49,Male,398638,OBC,Student,Maharashtra,Jalgaon,0,0,0
+MH0458,Kevin Sinha,52,Female,403162,ST,Small Business Owner,Maharashtra,Nagpur,0,1,0
+MH0459,Balendra Goel,20,Male,294921,ST,Farmer,Maharashtra,Pune,0,0,1
+MH0460,Wridesh Talwar,34,Female,464150,General,Farmer,Maharashtra,Buldhana,0,0,1
+MH0461,Gauri Dash,21,Female,102860,ST,Student,Maharashtra,Buldhana,1,0,0
+MH0462,Anay Borra,53,Male,345236,General,Street Vendor,Maharashtra,Kolhapur,0,1,0
+MH0463,Zilmil Karpe,21,Female,141620,General,Unemployed,Maharashtra,Yavatmal,0,1,0
+MH0464,Kabir Sen,58,Male,145245,SC,Street Vendor,Maharashtra,Aurangabad,0,0,0
+MH0465,Qasim Agarwal,26,Female,383546,OBC,Student,Maharashtra,Ahmednagar,0,0,0
+MH0466,Yadavi Cheema,65,Female,788538,SC,Farmer,Maharashtra,Sangli,0,0,1
+MH0467,Chandani Dube,20,Female,766925,SC,Small Business Owner,Maharashtra,Nanded,0,0,0
+MH0468,Hema Mangal,19,Female,614423,ST,Daily Wage Worker,Maharashtra,Solapur,0,0,0
+MH0469,Waida Sengupta,22,Male,259499,SC,Farmer,Maharashtra,Mumbai,0,0,1
+MH0470,Peter Suri,40,Male,207654,SC,Unemployed,Maharashtra,Latur,0,0,0
+MH0471,Zaid Sant,31,Female,775276,OBC,Daily Wage Worker,Maharashtra,Nagpur,0,0,0
+MH0472,Radhika Shenoy,23,Male,208056,ST,Unemployed,Maharashtra,Pune,0,0,0
+MH0473,Jack Amble,20,Female,316020,OBC,Daily Wage Worker,Maharashtra,Nagpur,0,0,0
+MH0474,Thomas Wadhwa,16,Female,230418,OBC,Unemployed,Maharashtra,Satara,0,0,0
+MH0475,Dev Saha,31,Female,406162,General,Student,Maharashtra,Buldhana,0,0,0
+MH0476,Vedika Ganguly,31,Male,26687,General,Farmer,Maharashtra,Kolhapur,1,0,1
+MH0477,Bhavna Buch,60,Male,371291,SC,Street Vendor,Maharashtra,Jalgaon,0,0,0
+MH0478,Aadhya Pillay,62,Female,128998,ST,Unemployed,Maharashtra,Kolhapur,0,0,0
+MH0479,Rayaan Samra,19,Male,766221,OBC,Farmer,Maharashtra,Pune,0,0,0
+MH0480,Kavya Gade,49,Female,754891,OBC,Small Business Owner,Maharashtra,Nagpur,0,0,0
+MH0481,Chakradhar Dara,48,Male,688169,General,Farmer,Maharashtra,Akola,0,0,1
+MH0482,Warda Bhatt,24,Male,325844,OBC,Daily Wage Worker,Maharashtra,Jalgaon,0,0,0
+MH0483,Priya Das,63,Female,353507,General,Daily Wage Worker,Maharashtra,Kolhapur,0,1,0
+MH0484,Janani Bora,28,Male,633110,SC,Student,Maharashtra,Nashik,0,0,0
+MH0485,Manya Ratta,45,Female,446259,SC,Unemployed,Maharashtra,Ahmednagar,0,0,0
+MH0486,Quincy Chad,29,Female,343284,General,Daily Wage Worker,Maharashtra,Nashik,0,0,0
+MH0487,Vedant Mukherjee,67,Female,758936,SC,Student,Maharashtra,Sangli,0,0,0
+MH0488,Anusha Lalla,61,Male,393023,General,Unemployed,Maharashtra,Pune,0,0,0
+MH0489,Amaira Nath,32,Male,52591,General,Small Business Owner,Maharashtra,Buldhana,1,0,0
+MH0490,Wishi Ramanathan,31,Male,504487,SC,Student,Maharashtra,Nashik,0,1,0
+MH0491,Nachiket Shan,69,Male,157064,ST,Small Business Owner,Maharashtra,Ahmednagar,0,0,0
+MH0492,Frederick Pradhan,57,Male,630610,OBC,Farmer,Maharashtra,Mumbai,0,0,1
+MH0493,Ekbal Mittal,57,Female,155047,SC,Daily Wage Worker,Maharashtra,Nashik,0,1,0
+MH0494,Parth Patil,45,Male,196149,General,Street Vendor,Maharashtra,Jalgaon,0,0,0
+MH0495,Girish Nagi,40,Female,201201,OBC,Student,Maharashtra,Solapur,0,0,0
+MH0496,Ekanta Bhat,44,Male,56332,ST,Street Vendor,Maharashtra,Satara,1,0,0
+MH0497,Triveni Prakash,72,Female,83941,SC,Daily Wage Worker,Maharashtra,Jalgaon,1,0,0
+MH0498,Nicholas Taneja,28,Male,681393,SC,Small Business Owner,Maharashtra,Ahmednagar,0,0,0
+MH0499,Harsh Badal,66,Female,380745,OBC,Small Business Owner,Maharashtra,Thane,0,0,0
+MH0500,Ekanta Anne,36,Male,50726,OBC,Farmer,Maharashtra,Osmanabad,1,0,0
+MH0501,Chandran Nath,30,Male,124998,ST,Street Vendor,Maharashtra,Kolhapur,0,0,0
+MH0502,Siya Dugar,68,Male,250069,General,Daily Wage Worker,Maharashtra,Solapur,0,0,0
+MH0503,Yachana Raja,53,Female,793959,OBC,Unemployed,Maharashtra,Mumbai,0,0,0
+MH0504,Sachi Sem,38,Male,610462,ST,Small Business Owner,Maharashtra,Buldhana,0,0,0
+MH0505,Wakeeta Natarajan,47,Male,114641,SC,Student,Maharashtra,Yavatmal,1,0,0
+MH0506,Max Bal,49,Female,20716,OBC,Unemployed,Maharashtra,Amravati,1,0,0
+MH0507,Eesha Contractor,37,Male,359307,SC,Farmer,Maharashtra,Aurangabad,0,0,0
+MH0508,Chandani Shankar,65,Male,571860,OBC,Farmer,Maharashtra,Ahmednagar,0,0,1
+MH0509,Irya Malhotra,53,Male,372909,OBC,Daily Wage Worker,Maharashtra,Aurangabad,0,0,0
+MH0510,Nidra Shroff,62,Female,690318,General,Street Vendor,Maharashtra,Sangli,0,0,0
+MH0511,Robert Mitter,51,Female,254081,ST,Small Business Owner,Maharashtra,Satara,0,0,0
+MH0512,Jeremiah Dada,34,Male,206340,SC,Street Vendor,Maharashtra,Akola,0,0,0
+MH0513,Ekantika Butala,65,Male,210926,OBC,Unemployed,Maharashtra,Kolhapur,0,0,0
+MH0514,Kiaan Goswami,22,Female,167475,OBC,Street Vendor,Maharashtra,Nagpur,0,0,0
+MH0515,Sara Oak,36,Male,687090,SC,Street Vendor,Maharashtra,Sangli,0,0,0
+MH0516,Faraj Tak,32,Male,281662,SC,Daily Wage Worker,Maharashtra,Thane,0,0,0
+MH0517,Aryan Ramanathan,62,Male,70486,General,Small Business Owner,Maharashtra,Latur,1,0,0
+MH0518,Faqid Rajagopal,72,Female,537033,General,Daily Wage Worker,Maharashtra,Buldhana,0,0,0
+MH0519,Gopal Chakrabarti,69,Female,626135,ST,Student,Maharashtra,Nanded,0,1,0
+MH0520,Ekiya Rau,70,Male,329234,SC,Daily Wage Worker,Maharashtra,Thane,0,0,0
+MH0521,Bachittar Deshmukh,20,Female,198368,General,Student,Maharashtra,Nagpur,0,0,0
+MH0522,Samuel Ganesh,73,Male,374366,General,Street Vendor,Maharashtra,Mumbai,0,0,0
+MH0523,Frederick Ahluwalia,57,Male,656818,General,Student,Maharashtra,Pune,0,0,0
+MH0524,Reyansh Yogi,29,Male,449161,OBC,Street Vendor,Maharashtra,Satara,0,0,0
+MH0525,Ryan Patel,22,Male,431987,General,Student,Maharashtra,Pune,0,0,0
+MH0526,Meghana Sachar,43,Male,328857,General,Student,Maharashtra,Nashik,0,1,0
+MH0527,Ranveer Reddy,26,Female,105916,General,Farmer,Maharashtra,Satara,1,0,1
+MH0528,Raagini Agrawal,73,Female,115563,General,Student,Maharashtra,Ahmednagar,1,0,0
+MH0529,Oeshi Dani,39,Male,487429,SC,Daily Wage Worker,Maharashtra,Nanded,0,0,0
+MH0530,Damyanti Jani,30,Female,611655,SC,Student,Maharashtra,Nashik,0,0,0
+MH0531,Qabil Bhatti,38,Female,638372,ST,Unemployed,Maharashtra,Pune,0,0,0
+MH0532,Xalak Shenoy,68,Female,581527,General,Unemployed,Maharashtra,Kolhapur,0,0,0
+MH0533,Damini Manda,21,Female,769003,SC,Unemployed,Maharashtra,Akola,0,0,0
+MH0534,Turvi Kari,67,Male,146124,General,Student,Maharashtra,Solapur,0,0,0
+MH0535,Abdul Kunda,67,Male,152315,SC,Small Business Owner,Maharashtra,Nagpur,0,0,0
+MH0536,Om Karnik,43,Male,677694,ST,Unemployed,Maharashtra,Thane,0,0,0
+MH0537,Bhanumati Ramanathan,62,Male,111254,General,Unemployed,Maharashtra,Jalgaon,1,0,0
+MH0538,Krisha Bhavsar,70,Female,564932,General,Farmer,Maharashtra,Yavatmal,0,0,0
+MH0539,Keya Shroff,23,Female,176911,ST,Unemployed,Maharashtra,Akola,0,0,0
+MH0540,Rushil Dave,22,Male,610016,SC,Daily Wage Worker,Maharashtra,Buldhana,0,0,0
+MH0541,Sudiksha Gill,72,Female,296967,General,Street Vendor,Maharashtra,Osmanabad,0,0,0
+MH0542,Lekha Kar,46,Male,200564,OBC,Small Business Owner,Maharashtra,Aurangabad,0,0,0
+MH0543,Anusha Gandhi,59,Female,60666,General,Daily Wage Worker,Maharashtra,Kolhapur,1,1,0
+MH0544,Vasatika Khosla,46,Female,410532,SC,Daily Wage Worker,Maharashtra,Satara,0,0,0
+MH0545,Abhimanyu Comar,69,Female,750000,SC,Student,Maharashtra,Aurangabad,0,0,0
+MH0546,Pranit Manne,63,Female,356454,OBC,Street Vendor,Maharashtra,Latur,0,0,0
+MH0547,Zaid Kadakia,21,Male,483173,ST,Small Business Owner,Maharashtra,Osmanabad,0,0,0
+MH0548,Krisha Loke,71,Female,78936,ST,Farmer,Maharashtra,Satara,1,0,1
+MH0549,Ekapad Hayer,65,Male,202176,ST,Student,Maharashtra,Pune,0,0,0
+MH0550,Jack Raval,45,Male,397880,ST,Daily Wage Worker,Maharashtra,Ahmednagar,0,0,0
+MH0551,Kashvi Mukherjee,48,Female,686275,SC,Street Vendor,Maharashtra,Mumbai,0,0,0
+MH0552,Theodore Bansal,47,Female,206209,General,Unemployed,Maharashtra,Buldhana,0,0,0
+MH0553,Zaitra Dayal,26,Female,742312,SC,Daily Wage Worker,Maharashtra,Mumbai,0,0,0
+MH0554,Oni Shetty,26,Male,252103,ST,Street Vendor,Maharashtra,Amravati,0,0,0
+MH0555,Gavin Balay,42,Male,735338,SC,Small Business Owner,Maharashtra,Aurangabad,0,0,0
+MH0556,Simon Edwin,54,Male,254639,OBC,Unemployed,Maharashtra,Satara,0,0,0
+MH0557,Ranveer Shroff,61,Female,464393,General,Daily Wage Worker,Maharashtra,Nanded,0,0,0
+MH0558,Vinaya Sama,45,Female,730091,General,Unemployed,Maharashtra,Nashik,0,1,0
+MH0559,Om Venkatesh,58,Female,608730,OBC,Daily Wage Worker,Maharashtra,Nashik,0,0,0
+MH0560,Jai Chopra,37,Female,691712,OBC,Daily Wage Worker,Maharashtra,Thane,0,0,0
+MH0561,Qushi Bhatia,73,Female,217509,ST,Unemployed,Maharashtra,Kolhapur,0,0,0
+MH0562,Abdul Warrior,67,Female,712616,OBC,Street Vendor,Maharashtra,Aurangabad,0,0,0
+MH0563,Ekanta Patla,57,Female,329963,OBC,Small Business Owner,Maharashtra,Jalgaon,0,0,0
+MH0564,Girik Chandra,18,Male,379836,ST,Street Vendor,Maharashtra,Buldhana,0,0,0
+MH0565,Ijaya Bandi,46,Female,551958,OBC,Student,Maharashtra,Buldhana,0,0,0
+MH0566,Aarav Reddy,22,Female,154159,OBC,Street Vendor,Maharashtra,Buldhana,0,0,0
+MH0567,Yuvraj Gera,27,Female,706224,SC,Student,Maharashtra,Ahmednagar,0,0,0
+MH0568,Barkha Sawhney,71,Female,460897,OBC,Daily Wage Worker,Maharashtra,Thane,0,0,0
+MH0569,Christopher Naidu,45,Male,513393,SC,Street Vendor,Maharashtra,Akola,0,0,0
+MH0570,Waida Venkatesh,55,Male,515158,ST,Unemployed,Maharashtra,Nashik,0,0,0
+MH0571,Chaitaly Gera,40,Female,453174,SC,Student,Maharashtra,Aurangabad,0,0,0
+MH0572,Falan Vora,37,Female,617062,General,Student,Maharashtra,Sangli,0,0,0
+MH0573,Jacob Sidhu,27,Male,531265,OBC,Street Vendor,Maharashtra,Solapur,0,0,0
+MH0574,Jasmit Iyer,19,Male,494012,OBC,Student,Maharashtra,Solapur,0,0,0
+MH0575,Bhavika Krishnan,26,Female,112318,ST,Unemployed,Maharashtra,Latur,1,0,0
+MH0576,Samuel Varkey,41,Female,520590,General,Farmer,Maharashtra,Pune,0,0,0
+MH0577,Amrita Misra,16,Female,576829,ST,Farmer,Maharashtra,Mumbai,0,0,1
+MH0578,Vihaan Sood,60,Female,347252,ST,Farmer,Maharashtra,Jalgaon,0,0,1
+MH0579,Aradhana Yadav,20,Male,332687,OBC,Small Business Owner,Maharashtra,Beed,0,0,0
+MH0580,Yochana Edwin,37,Female,740141,ST,Daily Wage Worker,Maharashtra,Osmanabad,0,0,0
+MH0581,Niharika Panchal,28,Male,442986,SC,Student,Maharashtra,Kolhapur,0,0,0
+MH0582,Aadhya Atwal,24,Male,789735,SC,Unemployed,Maharashtra,Beed,0,0,0
+MH0583,Gavin Sur,39,Male,413417,OBC,Unemployed,Maharashtra,Yavatmal,0,1,0
+MH0584,Meera Kalita,19,Male,705315,SC,Farmer,Maharashtra,Nashik,0,0,1
+MH0585,Unnati Bali,51,Female,517440,ST,Student,Maharashtra,Mumbai,0,0,0
+MH0586,Zansi Ramaswamy,58,Male,714663,OBC,Unemployed,Maharashtra,Yavatmal,0,0,0
+MH0587,Sanaya Sodhi,42,Male,556435,SC,Daily Wage Worker,Maharashtra,Nashik,0,0,0
+MH0588,Shravya Loke,47,Male,658584,ST,Daily Wage Worker,Maharashtra,Beed,0,0,0
+MH0589,Faris Saini,38,Female,329698,ST,Farmer,Maharashtra,Buldhana,0,0,1
+MH0590,Bhavya Chaudhari,75,Female,366663,ST,Farmer,Maharashtra,Mumbai,0,0,0
+MH0591,Madhavi Bhavsar,69,Female,176389,SC,Unemployed,Maharashtra,Nagpur,0,0,0
+MH0592,Hardik Sen,22,Female,695636,ST,Small Business Owner,Maharashtra,Satara,0,0,0
+MH0593,Nitesh Maharaj,19,Male,203188,SC,Daily Wage Worker,Maharashtra,Ahmednagar,0,0,0
+MH0594,Varenya Kuruvilla,36,Female,794415,SC,Farmer,Maharashtra,Pune,0,1,1
+MH0595,Ekapad Kale,57,Male,364625,OBC,Small Business Owner,Maharashtra,Yavatmal,0,0,0
+MH0596,Dakshesh Cherian,62,Male,410722,OBC,Student,Maharashtra,Nashik,0,0,0
+MH0597,Yochana Baral,45,Female,424452,General,Small Business Owner,Maharashtra,Solapur,0,0,0
+MH0598,Hemangini Sane,60,Male,187138,SC,Small Business Owner,Maharashtra,Akola,0,0,0
+MH0599,Lavanya Murty,52,Female,210065,General,Daily Wage Worker,Maharashtra,Yavatmal,0,1,0
+MH0600,Daniel Dalal,59,Male,526545,General,Farmer,Maharashtra,Latur,0,0,1
+MH0601,Prisha Mutti,57,Female,32960,ST,Street Vendor,Maharashtra,Sangli,1,0,0
+MH0602,Jack Narain,60,Male,473873,ST,Small Business Owner,Maharashtra,Ahmednagar,0,0,0
+MH0603,Chanchal Amble,57,Female,175875,SC,Farmer,Maharashtra,Solapur,0,0,1
+MH0604,Pavani Bhavsar,47,Male,98501,General,Daily Wage Worker,Maharashtra,Kolhapur,1,0,0
+MH0605,Ayush Atwal,33,Male,551553,ST,Unemployed,Maharashtra,Jalgaon,0,0,0
+MH0606,Teerth Deep,31,Male,501395,General,Unemployed,Maharashtra,Nanded,0,0,0
+MH0607,Bishakha Bala,47,Female,351414,SC,Small Business Owner,Maharashtra,Mumbai,0,0,0
+MH0608,Watika Bhatti,42,Male,604194,SC,Farmer,Maharashtra,Yavatmal,0,0,1
+MH0609,Girish Char,72,Male,706393,General,Daily Wage Worker,Maharashtra,Ahmednagar,0,0,0
+MH0610,Charita Arora,68,Male,496535,OBC,Unemployed,Maharashtra,Yavatmal,0,0,0
+MH0611,Brinda Sehgal,61,Female,770689,General,Farmer,Maharashtra,Nashik,0,0,1
+MH0612,Kalpit Goda,37,Female,684441,OBC,Unemployed,Maharashtra,Beed,0,0,0
+MH0613,Damyanti Sunder,22,Male,192129,General,Student,Maharashtra,Latur,0,0,0
+MH0614,Kamya Varkey,55,Male,216653,SC,Small Business Owner,Maharashtra,Amravati,0,0,0
+MH0615,Siddharth Sampath,66,Male,771606,OBC,Farmer,Maharashtra,Latur,0,1,1
+MH0616,Manya Shah,59,Male,492388,General,Street Vendor,Maharashtra,Akola,0,0,0
+MH0617,Gunbir Borde,24,Female,24548,SC,Unemployed,Maharashtra,Latur,1,0,0
+MH0618,Mahika Desai,46,Male,745423,ST,Street Vendor,Maharashtra,Aurangabad,0,0,0
+MH0619,Unnati Nair,58,Female,548597,General,Small Business Owner,Maharashtra,Yavatmal,0,0,0
+MH0620,Nidra Chopra,64,Male,306886,General,Daily Wage Worker,Maharashtra,Satara,0,0,0
+MH0621,Xalak Gara,24,Male,452794,OBC,Street Vendor,Maharashtra,Buldhana,0,0,0
+MH0622,Aarav Chowdhury,61,Male,230647,ST,Unemployed,Maharashtra,Satara,0,0,0
+MH0623,Udyati Toor,74,Male,764904,ST,Unemployed,Maharashtra,Buldhana,0,0,0
+MH0624,Lucky Baral,36,Male,389348,General,Unemployed,Maharashtra,Akola,0,0,0
+MH0625,Libni Banerjee,61,Female,726995,OBC,Small Business Owner,Maharashtra,Mumbai,0,0,0
+MH0626,Arjun Sathe,17,Female,172386,SC,Street Vendor,Maharashtra,Pune,0,0,0
+MH0627,Indira Bhasin,64,Male,320538,OBC,Student,Maharashtra,Pune,0,0,0
+MH0628,Nathan Kota,34,Male,587460,SC,Daily Wage Worker,Maharashtra,Nanded,0,0,0
+MH0629,Vaishnavi Roy,71,Male,798476,General,Student,Maharashtra,Beed,0,0,0
+MH0630,Amruta Lata,67,Female,746596,SC,Small Business Owner,Maharashtra,Jalgaon,0,0,0
+MH0631,Saanvi Suresh,66,Female,598944,SC,Farmer,Maharashtra,Thane,0,0,0
+MH0632,Aditya Dave,71,Female,256504,OBC,Unemployed,Maharashtra,Buldhana,0,0,0
+MH0633,Ria Ramesh,28,Male,328467,General,Student,Maharashtra,Nagpur,0,0,0
+MH0634,Vivaan Chaudhry,27,Male,415521,SC,Small Business Owner,Maharashtra,Thane,0,0,0
+MH0635,Dalbir Agarwal,24,Male,632353,OBC,Farmer,Maharashtra,Sangli,0,0,0
+MH0636,Gaurang Yadav,18,Male,358302,SC,Street Vendor,Maharashtra,Yavatmal,0,0,0
+MH0637,Urvashi Krishnan,35,Female,620495,OBC,Farmer,Maharashtra,Sangli,0,0,0
+MH0638,Amruta Chand,49,Male,549678,ST,Small Business Owner,Maharashtra,Buldhana,0,0,0
+MH0639,Dayamai Ravel,21,Female,251942,ST,Street Vendor,Maharashtra,Sangli,0,0,0
+MH0640,Bhavani Goyal,34,Male,668314,General,Unemployed,Maharashtra,Mumbai,0,0,0
+MH0641,Zayyan Narula,38,Female,272023,ST,Farmer,Maharashtra,Sangli,0,0,0
+MH0642,Anthony Kalla,23,Female,289054,OBC,Farmer,Maharashtra,Beed,0,0,1
+MH0643,Bahadurjit Kata,67,Female,530451,SC,Daily Wage Worker,Maharashtra,Amravati,0,0,0
+MH0644,Oscar Ramakrishnan,21,Male,195526,SC,Street Vendor,Maharashtra,Nagpur,0,0,0
+MH0645,Ridhi Bansal,56,Male,738699,General,Farmer,Maharashtra,Amravati,0,0,0
+MH0646,Charles Sheth,63,Female,697968,SC,Street Vendor,Maharashtra,Aurangabad,0,1,0
+MH0647,Maanas Rao,61,Female,59726,SC,Farmer,Maharashtra,Pune,1,0,1
+MH0648,Abeer Chaudry,20,Male,291212,General,Small Business Owner,Maharashtra,Nanded,0,0,0
+MH0649,Frederick Goswami,43,Female,37711,General,Street Vendor,Maharashtra,Nashik,1,0,0
+MH0650,Gautami Lalla,57,Male,634054,SC,Street Vendor,Maharashtra,Nagpur,0,0,0
+MH0651,Reyansh Kala,48,Male,323915,OBC,Unemployed,Maharashtra,Nagpur,0,0,0
+MH0652,Vihaan Pal,75,Female,419941,General,Street Vendor,Maharashtra,Mumbai,0,0,0
+MH0653,Lajita Nayar,50,Male,163006,General,Unemployed,Maharashtra,Satara,0,0,0
+MH0654,Samuel Suresh,25,Female,730189,OBC,Farmer,Maharashtra,Buldhana,0,0,1
+MH0655,Tamanna Mammen,18,Male,620538,General,Unemployed,Maharashtra,Buldhana,0,0,0
+MH0656,Rishi Menon,35,Male,797446,OBC,Student,Maharashtra,Latur,0,0,0
+MH0657,Eiravati Toor,70,Male,188772,ST,Student,Maharashtra,Yavatmal,0,0,0
+MH0658,Anamika Sarna,28,Male,210167,SC,Unemployed,Maharashtra,Nanded,0,0,0
+MH0659,Agastya Patla,20,Female,724313,SC,Daily Wage Worker,Maharashtra,Nashik,0,0,0
+MH0660,Urvashi Bajwa,53,Female,366922,OBC,Student,Maharashtra,Kolhapur,0,0,0
+MH0661,Arya Jhaveri,55,Male,222897,OBC,Small Business Owner,Maharashtra,Nanded,0,0,0
+MH0662,Sanaya Zacharia,58,Female,747143,ST,Unemployed,Maharashtra,Akola,0,0,0
+MH0663,Naksh Arya,36,Female,196831,SC,Daily Wage Worker,Maharashtra,Kolhapur,0,0,0
+MH0664,Urvashi Edwin,61,Female,310119,OBC,Student,Maharashtra,Sangli,0,0,0
+MH0665,Amol Gupta,45,Female,396167,OBC,Small Business Owner,Maharashtra,Buldhana,0,0,0
+MH0666,Zansi Pall,57,Male,314247,ST,Unemployed,Maharashtra,Amravati,0,0,0
+MH0667,Jeremiah Doshi,72,Male,782760,SC,Farmer,Maharashtra,Beed,0,0,0
+MH0668,Amaira Puri,53,Female,638697,ST,Farmer,Maharashtra,Buldhana,0,0,0
+MH0669,George Suri,50,Female,705672,ST,Daily Wage Worker,Maharashtra,Jalgaon,0,0,0
+MH0670,Vedant Sule,65,Female,160384,General,Unemployed,Maharashtra,Beed,0,0,0
+MH0671,Neel Bahri,39,Male,714868,ST,Unemployed,Maharashtra,Solapur,0,0,0
+MH0672,Yasti Subramanian,24,Female,186956,ST,Unemployed,Maharashtra,Akola,0,0,0
+MH0673,Krish Dhar,25,Female,396224,SC,Student,Maharashtra,Osmanabad,0,0,0
+MH0674,Nitara Nagy,32,Female,265386,SC,Street Vendor,Maharashtra,Amravati,0,0,0
+MH0675,Barkha Dar,66,Female,426945,General,Small Business Owner,Maharashtra,Pune,0,1,0
+MH0676,Samesh Gade,57,Female,128239,OBC,Street Vendor,Maharashtra,Thane,0,0,0
+MH0677,Pahal Jaggi,52,Male,414956,General,Daily Wage Worker,Maharashtra,Akola,0,0,0
+MH0678,Akshay Bera,69,Male,561760,OBC,Small Business Owner,Maharashtra,Kolhapur,0,0,0
+MH0679,Hardik Narayan,38,Female,530511,General,Unemployed,Maharashtra,Mumbai,0,0,0
+MH0680,Advik Gaba,24,Female,193650,ST,Farmer,Maharashtra,Beed,0,0,1
+MH0681,Yug Atwal,27,Male,399818,SC,Street Vendor,Maharashtra,Kolhapur,0,0,0
+MH0682,Saumya Rai,37,Male,524906,General,Small Business Owner,Maharashtra,Amravati,0,0,0
+MH0683,Qarin Saini,57,Female,43536,ST,Farmer,Maharashtra,Aurangabad,1,0,1
+MH0684,Vidhi Kapadia,56,Male,620067,ST,Farmer,Maharashtra,Solapur,0,0,1
+MH0685,Warhi Nagi,41,Male,774500,OBC,Farmer,Maharashtra,Amravati,0,0,0
+MH0686,Dipta Koshy,71,Female,198852,ST,Small Business Owner,Maharashtra,Yavatmal,0,0,0
+MH0687,Sudiksha Parsa,53,Male,673484,OBC,Student,Maharashtra,Sangli,0,0,0
+MH0688,Xiti Bhattacharyya,54,Male,260977,General,Small Business Owner,Maharashtra,Aurangabad,0,0,0
+MH0689,Gaurika Dugar,28,Female,176826,SC,Student,Maharashtra,Osmanabad,0,0,0
+MH0690,Oliver Lad,54,Male,577244,SC,Farmer,Maharashtra,Osmanabad,0,0,0
+MH0691,Wakeeta Ganguly,50,Male,731521,General,Unemployed,Maharashtra,Latur,0,0,0
+MH0692,Alka Arora,18,Female,260633,General,Small Business Owner,Maharashtra,Ahmednagar,0,0,0
+MH0693,Ekapad Thaman,63,Male,466157,ST,Daily Wage Worker,Maharashtra,Osmanabad,0,0,0
+MH0694,Oscar Srinivasan,74,Male,317026,General,Daily Wage Worker,Maharashtra,Amravati,0,1,0
+MH0695,Shivani Singhal,63,Male,626063,SC,Unemployed,Maharashtra,Mumbai,0,0,0
+MH0696,Yug Srinivas,29,Female,448705,OBC,Farmer,Maharashtra,Aurangabad,0,0,1
+MH0697,Omkaar Vohra,32,Female,612099,OBC,Unemployed,Maharashtra,Thane,0,0,0
+MH0698,Lavanya Kunda,41,Male,453301,General,Student,Maharashtra,Ahmednagar,0,0,0
+MH0699,Lekha Mukhopadhyay,46,Female,341549,OBC,Street Vendor,Maharashtra,Jalgaon,0,0,0
+MH0700,Harshil Garg,70,Male,260932,General,Street Vendor,Maharashtra,Solapur,0,0,0
+MH0701,Vamakshi Gade,48,Female,374877,SC,Student,Maharashtra,Jalgaon,0,0,0
+MH0702,Jeremiah Behl,16,Male,172387,General,Unemployed,Maharashtra,Latur,0,0,0
+MH0703,Sathvik Palla,32,Male,408848,SC,Unemployed,Maharashtra,Pune,0,0,0
+MH0704,Nidra Dubey,75,Female,663789,OBC,Street Vendor,Maharashtra,Yavatmal,0,1,0
+MH0705,Amara Mand,65,Male,691394,General,Small Business Owner,Maharashtra,Mumbai,0,0,0
+MH0706,Warhi Biswas,58,Female,224206,SC,Unemployed,Maharashtra,Beed,0,0,0
+MH0707,Leela Sule,30,Male,726765,SC,Daily Wage Worker,Maharashtra,Kolhapur,0,0,0
+MH0708,Krish Rajagopalan,26,Male,309340,General,Daily Wage Worker,Maharashtra,Jalgaon,0,0,0
+MH0709,Hitesh Kant,28,Male,792722,SC,Farmer,Maharashtra,Buldhana,0,0,0
+MH0710,Onveer Chowdhury,74,Female,384354,OBC,Student,Maharashtra,Yavatmal,0,0,0
+MH0711,Warda Chhabra,45,Female,622833,SC,Daily Wage Worker,Maharashtra,Solapur,0,0,0
+MH0712,Neel Badal,22,Male,547611,OBC,Daily Wage Worker,Maharashtra,Nashik,0,0,0
+MH0713,Hemani More,32,Female,747912,General,Small Business Owner,Maharashtra,Akola,0,0,0
+MH0714,Chanakya Doshi,31,Female,501137,General,Unemployed,Maharashtra,Mumbai,0,0,0
+MH0715,Tripti Balakrishnan,32,Male,421261,ST,Street Vendor,Maharashtra,Kolhapur,0,0,0
+MH0716,Qushi Pathak,42,Female,561593,SC,Street Vendor,Maharashtra,Thane,0,0,0
+MH0717,Krisha Sahota,21,Female,726423,OBC,Farmer,Maharashtra,Buldhana,0,0,1
+MH0718,Jairaj Koshy,38,Male,621581,OBC,Student,Maharashtra,Amravati,0,0,0
+MH0719,Ishwar Sami,28,Male,791153,ST,Daily Wage Worker,Maharashtra,Amravati,0,0,0
+MH0720,Jagvi Gole,69,Male,668645,OBC,Student,Maharashtra,Nashik,0,0,0
+MH0721,Naksh Lalla,21,Female,663644,SC,Unemployed,Maharashtra,Pune,0,0,0
+MH0722,Yasti Krishna,39,Female,536256,OBC,Small Business Owner,Maharashtra,Solapur,0,0,0
+MH0723,Niharika Chaudhari,74,Female,437206,ST,Unemployed,Maharashtra,Aurangabad,0,1,0
+MH0724,Upkaar Narang,67,Female,521554,SC,Unemployed,Maharashtra,Ahmednagar,0,0,0
+MH0725,Jhalak Lall,59,Male,499404,SC,Street Vendor,Maharashtra,Beed,0,0,0
+MH0726,Sanya Desai,60,Male,32394,ST,Small Business Owner,Maharashtra,Akola,1,0,0
+MH0727,Benjamin Toor,39,Female,216243,OBC,Student,Maharashtra,Thane,0,0,0
+MH0728,Vedhika Srivastava,55,Female,403699,ST,Small Business Owner,Maharashtra,Latur,0,0,0
+MH0729,Chanchal Chana,60,Female,402812,General,Daily Wage Worker,Maharashtra,Nanded,0,0,0
+MH0730,Aarav Kakar,24,Male,124721,OBC,Student,Maharashtra,Buldhana,0,0,0
+MH0731,Sachi Mitter,40,Male,172928,ST,Small Business Owner,Maharashtra,Mumbai,0,0,0
+MH0732,Amrita Sami,47,Male,681286,OBC,Small Business Owner,Maharashtra,Satara,0,0,0
+MH0733,Anay Char,70,Male,437754,SC,Street Vendor,Maharashtra,Solapur,0,1,0
+MH0734,Timothy Bobal,68,Female,519687,SC,Small Business Owner,Maharashtra,Sangli,0,0,0
+MH0735,Aishani Bhandari,39,Female,380857,SC,Small Business Owner,Maharashtra,Nashik,0,0,0
+MH0736,Tara Parikh,59,Male,624875,ST,Daily Wage Worker,Maharashtra,Ahmednagar,0,0,0
+MH0737,Dakshesh Sarin,48,Female,792303,General,Farmer,Maharashtra,Jalgaon,0,0,1
+MH0738,Hemani Pall,25,Male,691697,OBC,Small Business Owner,Maharashtra,Yavatmal,0,0,0
+MH0739,Fitan Badal,70,Male,102954,ST,Daily Wage Worker,Maharashtra,Kolhapur,1,0,0
+MH0740,Jeet Merchant,57,Female,764943,OBC,Unemployed,Maharashtra,Jalgaon,0,0,0
+MH0741,Leena Nazareth,44,Female,635429,General,Small Business Owner,Maharashtra,Solapur,0,0,0
+MH0742,Chatresh Modi,17,Male,783124,ST,Street Vendor,Maharashtra,Thane,0,0,0
+MH0743,Anika Upadhyay,60,Male,240800,ST,Small Business Owner,Maharashtra,Nashik,0,0,0
+MH0744,Agastya Ramakrishnan,75,Female,595074,SC,Farmer,Maharashtra,Jalgaon,0,0,0
+MH0745,Lajita Golla,22,Female,668127,ST,Farmer,Maharashtra,Jalgaon,0,0,1
+MH0746,Vidhi Dhillon,34,Female,676912,ST,Student,Maharashtra,Beed,0,0,0
+MH0747,Kiaan Dani,17,Male,715781,OBC,Daily Wage Worker,Maharashtra,Osmanabad,0,0,0
+MH0748,Dayamai Pai,71,Female,595191,General,Student,Maharashtra,Buldhana,0,0,0
+MH0749,Xalak Bhalla,54,Female,681701,General,Unemployed,Maharashtra,Buldhana,0,0,0
+MH0750,Ayush Grewal,38,Female,585883,ST,Farmer,Maharashtra,Nanded,0,0,1
+MH0751,Onveer Mani,25,Female,31068,SC,Unemployed,Maharashtra,Aurangabad,1,0,0
+MH0752,Alexander Ray,46,Male,741179,General,Small Business Owner,Maharashtra,Satara,0,1,0
+MH0753,Daksh Chandra,43,Female,646003,ST,Farmer,Maharashtra,Buldhana,0,0,1
+MH0754,Amara Din,51,Female,433927,ST,Student,Maharashtra,Jalgaon,0,0,0
+MH0755,Simon Chowdhury,30,Female,103057,General,Street Vendor,Maharashtra,Kolhapur,1,0,0
+MH0756,Shivani Sundaram,67,Female,318505,OBC,Small Business Owner,Maharashtra,Amravati,0,0,0
+MH0757,Jagrati Luthra,27,Male,323662,SC,Street Vendor,Maharashtra,Nanded,0,0,0
+MH0758,Hritik Brahmbhatt,33,Female,216911,OBC,Farmer,Maharashtra,Aurangabad,0,1,1
+MH0759,Yochana Ghose,27,Male,315818,OBC,Student,Maharashtra,Nanded,0,0,0
+MH0760,Amrita Khare,30,Male,178003,SC,Small Business Owner,Maharashtra,Amravati,0,0,0
+MH0761,Reva Nadig,35,Female,409438,General,Street Vendor,Maharashtra,Pune,0,0,0
+MH0762,Yamini Konda,69,Male,78760,OBC,Small Business Owner,Maharashtra,Nagpur,1,0,0
+MH0763,Girindra Radhakrishnan,27,Male,282227,General,Farmer,Maharashtra,Nashik,0,0,0
+MH0764,Yadavi Oommen,40,Female,279168,SC,Student,Maharashtra,Nanded,0,0,0
+MH0765,Wakeeta Bhandari,22,Male,515793,General,Street Vendor,Maharashtra,Satara,0,0,0
+MH0766,Oliver Gade,26,Male,596276,SC,Daily Wage Worker,Maharashtra,Osmanabad,0,0,0
+MH0767,Dayamai Rout,28,Female,74617,ST,Farmer,Maharashtra,Kolhapur,1,0,1
+MH0768,Anika Subramanian,26,Female,633099,SC,Small Business Owner,Maharashtra,Kolhapur,0,1,0
+MH0769,Inaya Tripathi,18,Female,741846,ST,Daily Wage Worker,Maharashtra,Nagpur,0,0,0
+MH0770,Ira Verma,47,Male,739265,OBC,Street Vendor,Maharashtra,Pune,0,1,0
+MH0771,Bhavika Bajaj,57,Male,755395,SC,Student,Maharashtra,Osmanabad,0,0,0
+MH0772,Chaitanya Kalla,51,Female,480030,ST,Farmer,Maharashtra,Jalgaon,0,0,1
+MH0773,Abdul Dhaliwal,73,Male,528876,General,Unemployed,Maharashtra,Satara,0,0,0
+MH0774,Harrison Bhavsar,47,Male,614229,ST,Unemployed,Maharashtra,Ahmednagar,0,0,0
+MH0775,Ucchal Kade,45,Female,647761,ST,Farmer,Maharashtra,Beed,0,0,1
+MH0776,Udyati Bali,32,Female,496136,SC,Street Vendor,Maharashtra,Beed,0,0,0
+MH0777,Yuvraj Bora,27,Male,669838,OBC,Unemployed,Maharashtra,Kolhapur,0,0,0
+MH0778,Imaran De,20,Female,219092,General,Unemployed,Maharashtra,Aurangabad,0,0,0
+MH0779,Gaurika Khare,36,Female,692036,OBC,Farmer,Maharashtra,Nashik,0,0,1
+MH0780,Nikita Mukhopadhyay,69,Male,207316,SC,Student,Maharashtra,Nashik,0,0,0
+MH0781,Banjeet Wali,22,Male,618749,General,Street Vendor,Maharashtra,Osmanabad,0,0,0
+MH0782,Sathvik Kala,60,Female,71470,OBC,Student,Maharashtra,Yavatmal,1,0,0
+MH0783,Sathvik Ben,16,Male,707603,General,Farmer,Maharashtra,Nanded,0,0,1
+MH0784,Manthan Srinivasan,51,Female,406996,SC,Unemployed,Maharashtra,Thane,0,0,0
+MH0785,Advika Bajaj,62,Male,338667,SC,Student,Maharashtra,Beed,0,0,0
+MH0786,Warda Gour,62,Male,577487,General,Student,Maharashtra,Amravati,0,0,0
+MH0787,Faqid Chawla,31,Male,605549,General,Street Vendor,Maharashtra,Nashik,0,0,0
+MH0788,Falguni Kapur,52,Female,727256,General,Street Vendor,Maharashtra,Latur,0,0,0
+MH0789,Netra Murthy,26,Male,596680,General,Unemployed,Maharashtra,Sangli,0,0,0
+MH0790,Nachiket Bal,50,Female,389438,OBC,Unemployed,Maharashtra,Sangli,0,0,0
+MH0791,Triveni Doshi,42,Female,781127,OBC,Unemployed,Maharashtra,Kolhapur,0,0,0
+MH0792,Liam Lad,29,Female,596967,OBC,Daily Wage Worker,Maharashtra,Nanded,0,0,0
+MH0793,Caleb Dube,41,Male,781594,SC,Daily Wage Worker,Maharashtra,Yavatmal,0,1,0
+MH0794,Shivani Chaudhuri,24,Female,26887,OBC,Student,Maharashtra,Amravati,1,0,0
+MH0795,Krish Sami,17,Female,600557,ST,Farmer,Maharashtra,Pune,0,0,1
+MH0796,Ati Bhattacharyya,32,Female,630434,ST,Student,Maharashtra,Thane,0,0,0
+MH0797,Chakradhar Grewal,21,Female,616707,ST,Street Vendor,Maharashtra,Nagpur,0,0,0
+MH0798,Vedhika Ramachandran,66,Female,201301,General,Street Vendor,Maharashtra,Akola,0,0,0
+MH0799,Hritik Chacko,22,Female,59186,General,Farmer,Maharashtra,Pune,1,0,1
+MH0800,Vrinda Swamy,72,Female,456754,SC,Student,Maharashtra,Yavatmal,0,0,0
+MH0801,Abha Dave,56,Female,76757,OBC,Unemployed,Maharashtra,Pune,1,0,0
+MH0802,Jasmit Oza,52,Male,362707,ST,Student,Maharashtra,Pune,0,0,0
+MH0803,Oviya Kala,41,Female,644041,SC,Student,Maharashtra,Latur,0,0,0
+MH0804,Praneel Kumar,41,Male,158610,OBC,Farmer,Maharashtra,Osmanabad,0,0,1
+MH0805,Triveni Din,41,Female,109211,General,Unemployed,Maharashtra,Latur,1,0,0
+MH0806,Reva Sahni,24,Male,524283,ST,Small Business Owner,Maharashtra,Jalgaon,0,0,0
+MH0807,Urishilla Wadhwa,28,Male,274085,SC,Daily Wage Worker,Maharashtra,Latur,0,0,0
+MH0808,Anamika Chaudhuri,75,Male,137996,General,Small Business Owner,Maharashtra,Ahmednagar,0,0,0
+MH0809,Fitan Kale,36,Female,642725,SC,Daily Wage Worker,Maharashtra,Solapur,0,0,0
+MH0810,Hema Dass,55,Female,673453,ST,Small Business Owner,Maharashtra,Pune,0,0,0
+MH0811,Abha Lanka,30,Male,738651,OBC,Student,Maharashtra,Nagpur,0,0,0
+MH0812,Nathaniel Issac,19,Male,671168,ST,Daily Wage Worker,Maharashtra,Mumbai,0,0,0
+MH0813,Mekhala Dyal,67,Male,339939,General,Small Business Owner,Maharashtra,Mumbai,0,0,0
+MH0814,Onveer Mani,63,Male,233701,OBC,Unemployed,Maharashtra,Osmanabad,0,0,0
+MH0815,Yashodhara Buch,25,Male,414900,SC,Daily Wage Worker,Maharashtra,Solapur,0,1,0
+MH0816,Michael Sethi,28,Female,75663,General,Street Vendor,Maharashtra,Mumbai,1,1,0
+MH0817,Gayathri Thaker,58,Female,715186,OBC,Farmer,Maharashtra,Mumbai,0,0,0
+MH0818,Ishani Pandey,40,Male,419194,SC,Daily Wage Worker,Maharashtra,Osmanabad,0,0,0
+MH0819,Nirja Bora,50,Male,215472,ST,Unemployed,Maharashtra,Nanded,0,0,0
+MH0820,Ishanvi Kumer,61,Male,61683,ST,Unemployed,Maharashtra,Satara,1,0,0
+MH0821,Amara Wadhwa,41,Male,39264,OBC,Street Vendor,Maharashtra,Ahmednagar,1,0,0
+MH0822,Pushti Solanki,35,Male,545600,OBC,Farmer,Maharashtra,Thane,0,0,0
+MH0823,Urvi Kata,68,Male,601896,OBC,Student,Maharashtra,Aurangabad,0,0,0
+MH0824,Kiaan Khurana,41,Male,112059,General,Unemployed,Maharashtra,Yavatmal,1,0,0
+MH0825,Mitali Cheema,59,Male,457605,ST,Unemployed,Maharashtra,Aurangabad,0,0,0
+MH0826,William Naik,35,Female,490988,ST,Student,Maharashtra,Aurangabad,0,0,0
+MH0827,Balhaar Setty,59,Male,164818,OBC,Street Vendor,Maharashtra,Beed,0,0,0
+MH0828,Warjas Dhawan,43,Male,708108,ST,Daily Wage Worker,Maharashtra,Nagpur,0,0,0
+MH0829,Samaksh Wable,62,Male,213079,OBC,Student,Maharashtra,Mumbai,0,0,0
+MH0830,Maanav Krish,72,Female,451228,OBC,Small Business Owner,Maharashtra,Thane,0,0,0
+MH0831,Rachana Guha,28,Male,157935,ST,Farmer,Maharashtra,Yavatmal,0,0,1
+MH0832,Maanav Dhingra,55,Male,645329,ST,Student,Maharashtra,Mumbai,0,0,0
+MH0833,Maanav Ramachandran,60,Female,160600,General,Street Vendor,Maharashtra,Ahmednagar,0,0,0
+MH0834,Ronith Chauhan,40,Female,516864,ST,Student,Maharashtra,Amravati,0,0,0
+MH0835,Faris Khalsa,42,Male,302967,General,Student,Maharashtra,Amravati,0,0,0
+MH0836,Gaurang Dara,20,Male,480623,General,Street Vendor,Maharashtra,Sangli,0,0,0
+MH0837,Victor Zacharia,72,Male,468324,General,Farmer,Maharashtra,Yavatmal,0,0,1
+MH0838,Madhavi Seth,36,Female,661209,SC,Unemployed,Maharashtra,Nashik,0,0,0
+MH0839,Naksh Pal,68,Male,277657,General,Street Vendor,Maharashtra,Pune,0,0,0
+MH0840,Yashodhara Gokhale,49,Male,219072,OBC,Small Business Owner,Maharashtra,Jalgaon,0,0,0
+MH0841,Zinal Venkatesh,65,Female,503757,ST,Small Business Owner,Maharashtra,Satara,0,0,0
+MH0842,Upasna Khanna,19,Male,506097,General,Farmer,Maharashtra,Beed,0,0,0
+MH0843,Luke Sachar,73,Male,432160,General,Daily Wage Worker,Maharashtra,Nanded,0,1,0
+MH0844,Pavani Contractor,45,Male,496769,SC,Daily Wage Worker,Maharashtra,Sangli,0,0,0
+MH0845,Frado Chahal,74,Male,773270,SC,Farmer,Maharashtra,Nashik,0,0,1
+MH0846,Kiaan Devi,21,Female,782182,ST,Small Business Owner,Maharashtra,Buldhana,0,0,0
+MH0847,Harish Puri,65,Male,371475,ST,Student,Maharashtra,Aurangabad,0,0,0
+MH0848,Max Iyengar,61,Male,459963,OBC,Daily Wage Worker,Maharashtra,Nanded,0,0,0
+MH0849,Ayush Palan,27,Male,157962,ST,Farmer,Maharashtra,Yavatmal,0,0,1
+MH0850,Vrishti Buch,47,Female,589902,SC,Unemployed,Maharashtra,Osmanabad,0,0,0
+MH0851,Chatura Kari,53,Female,495779,General,Small Business Owner,Maharashtra,Nagpur,0,0,0
+MH0852,Daksh Kamdar,16,Male,593929,OBC,Unemployed,Maharashtra,Buldhana,0,0,0
+MH0853,Siya Bajaj,29,Male,213818,ST,Farmer,Maharashtra,Ahmednagar,0,1,0
+MH0854,Nitesh Saraf,58,Female,367195,SC,Farmer,Maharashtra,Nashik,0,0,1
+MH0855,Geetika Mandal,59,Female,660774,ST,Small Business Owner,Maharashtra,Akola,0,0,0
+MH0856,Anamika Saxena,18,Male,333833,OBC,Daily Wage Worker,Maharashtra,Jalgaon,0,0,0
+MH0857,Eshana Rajagopal,64,Female,597210,SC,Daily Wage Worker,Maharashtra,Osmanabad,0,0,0
+MH0858,Jagvi Bora,60,Female,365200,General,Unemployed,Maharashtra,Amravati,0,0,0
+MH0859,Zaitra Bassi,55,Male,134611,SC,Small Business Owner,Maharashtra,Yavatmal,0,0,0
+MH0860,Kabir Gandhi,61,Female,467798,OBC,Daily Wage Worker,Maharashtra,Beed,0,0,0
+MH0861,Jeet Parsa,55,Female,156014,General,Unemployed,Maharashtra,Osmanabad,0,0,0
+MH0862,Isaac Wali,27,Male,763007,OBC,Student,Maharashtra,Mumbai,0,0,0
+MH0863,Charles Baral,45,Male,793291,ST,Unemployed,Maharashtra,Latur,0,0,0
+MH0864,Hamsini Sha,37,Female,607638,ST,Farmer,Maharashtra,Amravati,0,0,1
+MH0865,Anvi Raja,20,Female,334870,OBC,Farmer,Maharashtra,Nashik,0,0,1
+MH0866,Ekantika Thakkar,62,Male,204160,ST,Daily Wage Worker,Maharashtra,Sangli,0,0,0
+MH0867,Kavya Sura,46,Female,57285,ST,Small Business Owner,Maharashtra,Aurangabad,1,0,0
+MH0868,Chaitaly Pillay,73,Female,504935,General,Street Vendor,Maharashtra,Pune,0,0,0
+MH0869,Benjamin Sule,35,Female,602145,SC,Student,Maharashtra,Akola,0,0,0
+MH0870,Panini Menon,67,Female,89429,ST,Daily Wage Worker,Maharashtra,Mumbai,1,0,0
+MH0871,Aarnav Iyengar,40,Male,618717,General,Student,Maharashtra,Yavatmal,0,0,0
+MH0872,Parth Mammen,66,Female,759525,OBC,Street Vendor,Maharashtra,Pune,0,0,0
+MH0873,Arunima Swamy,21,Female,269185,OBC,Small Business Owner,Maharashtra,Satara,0,0,0
+MH0874,Unni Patla,35,Male,137683,OBC,Farmer,Maharashtra,Amravati,0,0,1
+MH0875,Manthan Kashyap,17,Female,544344,ST,Student,Maharashtra,Sangli,0,0,0
+MH0876,Nihal Bahl,62,Female,363238,ST,Farmer,Maharashtra,Beed,0,0,1
+MH0877,Triya More,62,Male,501682,General,Street Vendor,Maharashtra,Beed,0,0,0
+MH0878,Yashawini Keer,35,Male,740426,SC,Daily Wage Worker,Maharashtra,Nanded,0,0,0
+MH0879,Dakshesh Chacko,22,Female,43572,OBC,Street Vendor,Maharashtra,Amravati,1,0,0
+MH0880,Frado Nath,28,Female,310088,OBC,Small Business Owner,Maharashtra,Nashik,0,0,0
+MH0881,Raghav Panchal,26,Female,140020,SC,Unemployed,Maharashtra,Buldhana,0,0,0
+MH0882,Omaja Dalal,29,Female,596051,OBC,Daily Wage Worker,Maharashtra,Aurangabad,0,0,0
+MH0883,Nakul Raghavan,67,Female,621969,ST,Student,Maharashtra,Nagpur,0,0,0
+MH0884,Prisha Bali,73,Female,586836,General,Farmer,Maharashtra,Aurangabad,0,1,0
+MH0885,Isaac Comar,19,Male,422233,SC,Farmer,Maharashtra,Latur,0,0,0
+MH0886,Urvi Dugal,73,Female,666253,OBC,Daily Wage Worker,Maharashtra,Sangli,0,0,0
+MH0887,Michael Dar,61,Male,508316,ST,Farmer,Maharashtra,Nanded,0,0,1
+MH0888,Harinakshi Mistry,57,Female,513403,ST,Student,Maharashtra,Aurangabad,0,0,0
+MH0889,Chameli Walia,55,Female,401104,General,Student,Maharashtra,Sangli,0,0,0
+MH0890,Farhan Reddy,72,Female,495301,General,Farmer,Maharashtra,Nagpur,0,0,1
+MH0891,Gauri Ganesh,45,Male,315968,OBC,Unemployed,Maharashtra,Akola,0,0,0
+MH0892,Abdul Nigam,22,Female,768969,SC,Daily Wage Worker,Maharashtra,Buldhana,0,0,0
+MH0893,Charvi Date,66,Female,578624,General,Small Business Owner,Maharashtra,Akola,0,0,0
+MH0894,Daksh Johal,55,Male,594566,ST,Small Business Owner,Maharashtra,Jalgaon,0,1,0
+MH0895,Sara Din,29,Female,476501,OBC,Unemployed,Maharashtra,Kolhapur,0,0,0
+MH0896,Jonathan Bhardwaj,58,Male,795282,General,Farmer,Maharashtra,Akola,0,0,1
+MH0897,Wishi Bahri,22,Female,204731,OBC,Small Business Owner,Maharashtra,Nagpur,0,0,0
+MH0898,Xalak Kar,59,Female,363312,General,Street Vendor,Maharashtra,Pune,0,0,0
+MH0899,Ekalinga Sunder,68,Male,628979,SC,Student,Maharashtra,Aurangabad,0,0,0
+MH0900,Jatin Rao,34,Female,665474,General,Student,Maharashtra,Amravati,0,0,0
+MH0901,Girish Munshi,36,Female,617978,OBC,Small Business Owner,Maharashtra,Ahmednagar,0,0,0
+MH0902,Ishanvi Desai,53,Male,661194,General,Student,Maharashtra,Satara,0,1,0
+MH0903,Yutika Ramakrishnan,73,Male,20884,OBC,Farmer,Maharashtra,Satara,1,0,1
+MH0904,Abeer Sachar,60,Female,675584,OBC,Street Vendor,Maharashtra,Jalgaon,0,0,0
+MH0905,Logan Sheth,43,Male,714668,ST,Small Business Owner,Maharashtra,Aurangabad,0,0,0
+MH0906,Geetika Bora,40,Female,457503,ST,Daily Wage Worker,Maharashtra,Aurangabad,0,0,0
+MH0907,Alexander Merchant,20,Male,170990,General,Street Vendor,Maharashtra,Latur,0,0,0
+MH0908,Kiaan Mangal,24,Male,163885,General,Small Business Owner,Maharashtra,Yavatmal,0,0,0
+MH0909,Ayush Sane,55,Male,496467,General,Unemployed,Maharashtra,Nanded,0,0,0
+MH0910,Nitesh Tripathi,30,Male,465405,SC,Unemployed,Maharashtra,Osmanabad,0,0,0
+MH0911,Riya Kuruvilla,31,Female,450794,OBC,Farmer,Maharashtra,Pune,0,0,0
+MH0912,Naksh Rama,23,Female,744038,SC,Student,Maharashtra,Beed,0,0,0
+MH0913,Idika Banerjee,64,Female,507521,SC,Unemployed,Maharashtra,Yavatmal,0,0,0
+MH0914,Barkha Konda,46,Male,737303,OBC,Unemployed,Maharashtra,Pune,0,0,0
+MH0915,Gautami Sur,50,Male,511644,General,Unemployed,Maharashtra,Osmanabad,0,0,0
+MH0916,Kai Desai,37,Female,390057,OBC,Daily Wage Worker,Maharashtra,Solapur,0,1,0
+MH0917,Banjeet Wali,75,Female,782285,OBC,Farmer,Maharashtra,Osmanabad,0,0,1
+MH0918,Kashvi Tiwari,58,Female,793199,SC,Daily Wage Worker,Maharashtra,Osmanabad,0,0,0
+MH0919,Vedhika Chad,48,Male,311345,OBC,Student,Maharashtra,Yavatmal,0,0,0
+MH0920,Daniel Som,70,Female,34892,SC,Unemployed,Maharashtra,Solapur,1,0,0
+MH0921,Gunbir Luthra,63,Male,711174,General,Daily Wage Worker,Maharashtra,Solapur,0,0,0
+MH0922,Gabriel Choudhry,60,Male,528473,ST,Unemployed,Maharashtra,Pune,0,0,0
+MH0923,Tanay Venkataraman,21,Male,644473,ST,Small Business Owner,Maharashtra,Latur,0,0,0
+MH0924,Isaiah Mannan,31,Female,781265,ST,Student,Maharashtra,Akola,0,0,0
+MH0925,Daksha Gaba,38,Male,693459,OBC,Farmer,Maharashtra,Pune,0,0,1
+MH0926,Niharika Pillay,35,Female,578388,ST,Small Business Owner,Maharashtra,Jalgaon,0,0,0
+MH0927,Charles Batta,25,Female,32439,OBC,Small Business Owner,Maharashtra,Jalgaon,1,0,0
+MH0928,Bhavani Yogi,49,Male,122093,OBC,Small Business Owner,Maharashtra,Yavatmal,0,0,0
+MH0929,Ladli Ramakrishnan,70,Female,371238,OBC,Daily Wage Worker,Maharashtra,Nashik,0,0,0
+MH0930,Akshay Dani,53,Female,503507,ST,Street Vendor,Maharashtra,Akola,0,0,0
+MH0931,Jai Contractor,49,Female,730638,ST,Daily Wage Worker,Maharashtra,Buldhana,0,1,0
+MH0932,Upkaar Chand,16,Male,32542,General,Farmer,Maharashtra,Beed,1,0,1
+MH0933,Akshay Doshi,30,Female,284132,ST,Farmer,Maharashtra,Mumbai,0,0,1
+MH0934,Ekavir Dixit,54,Male,648500,SC,Street Vendor,Maharashtra,Nashik,0,0,0
+MH0935,Harish Misra,54,Male,414220,ST,Farmer,Maharashtra,Solapur,0,0,1
+MH0936,Hredhaan Bose,75,Male,689809,General,Daily Wage Worker,Maharashtra,Latur,0,0,0
+MH0937,Bhavya Dua,58,Female,289836,ST,Farmer,Maharashtra,Thane,0,0,1
+MH0938,Shravya Raghavan,37,Male,290782,OBC,Student,Maharashtra,Nanded,0,1,0
+MH0939,Harsh Swamy,75,Male,659947,General,Student,Maharashtra,Osmanabad,0,0,0
+MH0940,Chatura Dass,50,Female,248994,SC,Small Business Owner,Maharashtra,Thane,0,0,0
+MH0941,Vedika Srinivasan,20,Male,619098,OBC,Small Business Owner,Maharashtra,Mumbai,0,0,0
+MH0942,Amrita Lalla,25,Male,59673,General,Daily Wage Worker,Maharashtra,Aurangabad,1,0,0
+MH0943,Jeremiah Mangal,73,Female,622553,SC,Unemployed,Maharashtra,Osmanabad,0,0,0
+MH0944,Nidra Dave,41,Male,586366,ST,Farmer,Maharashtra,Jalgaon,0,0,0
+MH0945,Krish Saini,46,Male,614798,OBC,Daily Wage Worker,Maharashtra,Satara,0,0,0
+MH0946,Chakrika Buch,56,Male,403102,OBC,Farmer,Maharashtra,Nanded,0,0,1
+MH0947,Pranav Rajagopal,28,Male,601409,SC,Small Business Owner,Maharashtra,Amravati,0,0,0
+MH0948,Hritik Sahota,40,Male,681249,OBC,Small Business Owner,Maharashtra,Nagpur,0,0,0
+MH0949,Bhavani Joshi,44,Male,166740,SC,Student,Maharashtra,Mumbai,0,0,0
+MH0950,Patrick Kapur,53,Male,532997,General,Farmer,Maharashtra,Buldhana,0,0,1
+MH0951,Keya Ganesh,69,Female,37215,SC,Daily Wage Worker,Maharashtra,Pune,1,0,0
+MH0952,Yashawini Din,62,Male,445205,SC,Student,Maharashtra,Beed,0,0,0
+MH0953,Hema Ramakrishnan,59,Male,797048,ST,Farmer,Maharashtra,Pune,0,0,1
+MH0954,Jai Prashad,17,Female,668410,SC,Student,Maharashtra,Aurangabad,0,1,0
+MH0955,Isaac Parsa,56,Male,342266,SC,Small Business Owner,Maharashtra,Yavatmal,0,0,0
+MH0956,Faqid Gulati,53,Male,131496,SC,Small Business Owner,Maharashtra,Yavatmal,0,0,0
+MH0957,Priya Anne,30,Male,232484,General,Daily Wage Worker,Maharashtra,Jalgaon,0,0,0
+MH0958,Adweta Nayak,59,Male,357211,ST,Farmer,Maharashtra,Akola,0,0,1
+MH0959,Qasim Krishna,33,Male,455320,ST,Street Vendor,Maharashtra,Ahmednagar,0,0,0
+MH0960,Anmol Choudhary,44,Male,630256,SC,Student,Maharashtra,Nashik,0,0,0
+MH0961,Pranav Prakash,56,Female,185416,SC,Small Business Owner,Maharashtra,Nagpur,0,1,0
+MH0962,Onveer Raman,27,Male,761071,OBC,Small Business Owner,Maharashtra,Osmanabad,0,0,0
+MH0963,Ekantika Srinivasan,29,Male,690905,OBC,Unemployed,Maharashtra,Nanded,0,0,0
+MH0964,Tanvi Kala,27,Male,645236,ST,Street Vendor,Maharashtra,Osmanabad,0,0,0
+MH0965,Arin Garg,21,Female,384750,General,Farmer,Maharashtra,Buldhana,0,0,1
+MH0966,Niharika Mittal,49,Male,668985,OBC,Unemployed,Maharashtra,Beed,0,0,0
+MH0967,Niharika Vala,65,Male,309854,SC,Student,Maharashtra,Nashik,0,0,0
+MH0968,Tanvi Dhawan,59,Female,541682,ST,Student,Maharashtra,Pune,0,1,0
+MH0969,Yauvani Sha,39,Female,239770,General,Daily Wage Worker,Maharashtra,Sangli,0,0,0
+MH0970,Saumya Aggarwal,72,Female,65421,SC,Street Vendor,Maharashtra,Pune,1,0,0
+MH0971,Zinal Keer,27,Male,50477,General,Unemployed,Maharashtra,Nashik,1,1,0
+MH0972,Laksh Varughese,31,Female,641497,OBC,Small Business Owner,Maharashtra,Amravati,0,0,0
+MH0973,Azad Tailor,73,Female,261238,SC,Daily Wage Worker,Maharashtra,Kolhapur,0,0,0
+MH0974,Oliver Bora,63,Female,229668,General,Student,Maharashtra,Nagpur,0,0,0
+MH0975,Noah Loke,47,Male,477037,ST,Student,Maharashtra,Yavatmal,0,0,0
+MH0976,Chakradev Khanna,40,Female,163030,General,Street Vendor,Maharashtra,Amravati,0,0,0
+MH0977,Garima Padmanabhan,33,Male,372207,ST,Farmer,Maharashtra,Akola,0,1,1
+MH0978,Zansi Ranganathan,70,Female,500854,General,Student,Maharashtra,Sangli,0,0,0
+MH0979,Teerth Mohan,34,Male,688990,ST,Unemployed,Maharashtra,Buldhana,0,0,0
+MH0980,Isaac Vaidya,21,Female,567114,General,Student,Maharashtra,Akola,0,0,0
+MH0981,Yashica Sur,45,Female,35208,General,Street Vendor,Maharashtra,Kolhapur,1,0,0
+MH0982,Oeshi Mangat,43,Male,640517,ST,Unemployed,Maharashtra,Mumbai,0,0,0
+MH0983,Advay Chaudhuri,18,Male,513515,SC,Small Business Owner,Maharashtra,Beed,0,0,0
+MH0984,Anirudh Wali,67,Male,494419,General,Student,Maharashtra,Nagpur,0,0,0
+MH0985,Saumya Dubey,16,Female,248596,ST,Daily Wage Worker,Maharashtra,Satara,0,0,0
+MH0986,Benjamin Tak,21,Male,523088,OBC,Student,Maharashtra,Nanded,0,0,0
+MH0987,Hemani Lal,63,Male,496935,General,Student,Maharashtra,Jalgaon,0,0,0
+MH0988,Tanmayi Sampath,71,Female,677258,General,Street Vendor,Maharashtra,Mumbai,0,0,0
+MH0989,Veer Bera,20,Female,744304,OBC,Unemployed,Maharashtra,Pune,0,0,0
+MH0990,Ojas Karnik,64,Female,751963,ST,Street Vendor,Maharashtra,Nagpur,0,0,0
+MH0991,Reyansh Barman,37,Male,559740,OBC,Farmer,Maharashtra,Nashik,0,0,1
+MH0992,Radha Mody,18,Female,404232,ST,Street Vendor,Maharashtra,Buldhana,0,0,0
+MH0993,Yashodhara Chokshi,51,Male,165129,OBC,Student,Maharashtra,Buldhana,0,0,0
+MH0994,Urvi Sha,46,Male,256388,OBC,Daily Wage Worker,Maharashtra,Thane,0,0,0
+MH0995,Fitan Pingle,43,Female,77105,SC,Daily Wage Worker,Maharashtra,Ahmednagar,1,0,0
+MH0996,Yashodhara Garg,48,Male,513002,OBC,Small Business Owner,Maharashtra,Yavatmal,0,0,0
+MH0997,Aahana Dhar,59,Male,217503,General,Farmer,Maharashtra,Nagpur,0,0,1
+MH0998,Falguni Nazareth,20,Male,192769,OBC,Farmer,Maharashtra,Aurangabad,0,0,0
+MH0999,Gaurang Rastogi,49,Male,327410,General,Street Vendor,Maharashtra,Buldhana,0,0,0
+MH1000,Sneha Kapoor,46,Female,460538,General,Street Vendor,Maharashtra,Mumbai,0,0,0

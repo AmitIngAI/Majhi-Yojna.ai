@@ -1,0 +1,15 @@
+{
+  "model_version": "1.0.0",
+  "state_coverage": "Maharashtra Only",
+  "total_schemes": 30,
+  "algorithm": "Rule Based Engine + Cosine Similarity Ranking",
+  "features": [
+    "age",
+    "income",
+    "gender",
+    "category",
+    "occupation",
+    "is_bpl",
+    "is_disabled"
+  ]
+}

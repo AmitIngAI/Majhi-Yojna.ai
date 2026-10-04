@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+ml-model/venv/
+**/venv/
+
+# Build outputs
+backend/target/
+**/target/
+frontend/build/
+frontend/dist/
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
