@@ -227,6 +227,12 @@ const App = () => {
         }
     }, []);
 
+ // Server wake-up / ping
+    useEffect(() => {
+        fetch("https://majhi-yojna-backend.onrender.com/health").catch(() => {});
+        fetch("https://majhi-yojna-ml-api.onrender.com/health").catch(() => {});
+    }, []);
+    
     return (
         <LanguageProvider>
             <AuthProvider>
