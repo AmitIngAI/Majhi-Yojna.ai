@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { recommendationAPI, userAPI, schemeAPI } from '../../services/api';
+import { recommendationAPI, userAPI, schemeAPI, mlAPI } from '../../services/api';
 import {
     FiCheckCircle, FiXCircle, FiAlertCircle, FiArrowRight,
     FiRefreshCw, FiInfo, FiTarget, FiTrendingUp, FiUser,
@@ -67,26 +67,21 @@ const EligibilityChecker = () => {
         }
     };
 
-    // ─── What-If Simulator ───
+    // ─── What-If Simulator (ab api.js ke mlAPI se — localhost hardcode nahi) ───
     const runSimulation = async () => {
         setSimulating(true);
         try {
-            const res = await fetch('http://localhost:5000/api/recommend', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    age: parseInt(simProfile.age) || 25,
-                    gender: simProfile.gender,
-                    category: simProfile.category,
-                    occupation: simProfile.occupation,
-                    annual_income: parseInt(simProfile.annualIncome) || 100000,
-                    state: 'Maharashtra',
-                    is_bpl: parseInt(simProfile.is_bpl) || 0,
-                    is_disabled: parseInt(simProfile.is_disabled) || 0
-                })
+            const res = await mlAPI.recommend({
+                age: parseInt(simProfile.age) || 25,
+                gender: simProfile.gender,
+                category: simProfile.category,
+                occupation: simProfile.occupation,
+                annual_income: parseInt(simProfile.annualIncome) || 100000,
+                state: 'Maharashtra',
+                is_bpl: parseInt(simProfile.is_bpl) || 0,
+                is_disabled: parseInt(simProfile.is_disabled) || 0
             });
-            const data = await res.json();
-            setSimResults(data);
+            setSimResults(res.data);
         } catch (err) {
             console.error(err);
             alert('Simulation failed. Make sure ML API is running.');
@@ -95,7 +90,7 @@ const EligibilityChecker = () => {
         }
     };
 
-        // ─── Calculate Stats ───
+    // ─── Calculate Stats ───
     const totalSchemes = allSchemes.length;
     const eligibleCount = recommendations.length;
     const notEligibleCount = Math.max(0, totalSchemes - eligibleCount);
@@ -103,15 +98,15 @@ const EligibilityChecker = () => {
     const highMatch = recommendations.filter(r => (r.matchScore || 0) >= 90).length;
 
     const totalScore = recommendations.reduce((sum, r) => sum + (r.matchScore || 90), 0);
-    const avgMatchScore = recommendations.length > 0 
-        ? Math.round(totalScore / recommendations.length) 
+    const avgMatchScore = recommendations.length > 0
+        ? Math.round(totalScore / recommendations.length)
         : 0;
 
     const eligibilityPercent = avgMatchScore > 0 ? avgMatchScore : 90;
     const filteredRecs = recommendations.filter(r =>
         !searchQuery || r.schemeName?.toLowerCase().includes(searchQuery.toLowerCase())
     );
-    
+
     const eligibleIds = new Set(recommendations.map(r => r.schemeId || r.id));
     const notEligibleSchemes = allSchemes.filter(s => !eligibleIds.has(s.id)).slice(0, 10);
 
@@ -222,7 +217,6 @@ const EligibilityChecker = () => {
             {/* CURRENT ELIGIBILITY TAB */}
             {activeTab === 'current' && (
                 <>
-                    {/* Profile Summary */}
                     <div style={styles.contentCard}>
                         <div style={styles.cardHeader}>
                             <h3 style={styles.cardTitle}>📋 Your Profile Summary</h3>
@@ -242,7 +236,6 @@ const EligibilityChecker = () => {
                         </div>
                     </div>
 
-                    {/* Search */}
                     <div style={styles.searchWrap}>
                         <FiSearch style={styles.searchIcon} />
                         <input
@@ -254,7 +247,6 @@ const EligibilityChecker = () => {
                         />
                     </div>
 
-                    {/* Eligible Schemes List */}
                     <div style={styles.contentCard}>
                         <h3 style={styles.cardTitle}>✅ Schemes You're Eligible For ({filteredRecs.length})</h3>
                         {filteredRecs.length === 0 ? (

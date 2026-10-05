@@ -24,7 +24,7 @@ const AdminDashboard = () => {
         userTrend: '+0%',
         schemeTrend: '+0%',
         appTrend: '+0%',
-        benefitTrend: '+18%'
+        benefitTrend: '+0%'
     });
     const [loading, setLoading] = useState(true);
 
@@ -59,7 +59,7 @@ const AdminDashboard = () => {
         }
     };
 
-    // ─── Real benefits calc ───
+    // ─── Rough estimate (asli benefit data nahi hai) ───
     const totalBenefits = data.totalApplications * 25000;
     const benefitsDisplay = totalBenefits > 100000
         ? `₹${(totalBenefits / 100000).toFixed(1)} L`
@@ -213,10 +213,10 @@ const AdminDashboard = () => {
                 />
                 <StatCard
                     icon={<FaRupeeSign />}
-                    label="Total Benefits"
+                    label="Est. Benefits"
                     value={benefitsDisplay}
                     trend={data.benefitTrend}
-                    trendLabel="est. yearly"
+                    trendLabel="rough estimate"
                     bg="linear-gradient(135deg, #E9D5FF 0%, #F5F3FF 100%)"
                     iconBg="#8B5CF6"
                 />
@@ -559,182 +559,36 @@ const SchemeDonutChart = ({ total, categories }) => {
 // ═══════════════════════════════════════════
 
 const styles = {
-    wrapper: {
-        padding: '20px 0',
-        maxWidth: 1400,
-        margin: '0 auto'
-    },
-    loadingWrap: {
-        display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 80, gap: 16
-    },
-    spinner: {
-        width: 48, height: 48, border: '4px solid #E5E7EB',
-        borderTopColor: '#3B82F6', borderRadius: '50%',
-        animation: 'spin 0.8s linear infinite'
-    },
+    wrapper: { padding: '20px 0', maxWidth: 1400, margin: '0 auto' },
+    loadingWrap: { display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 80, gap: 16 },
+    spinner: { width: 48, height: 48, border: '4px solid #E5E7EB', borderTopColor: '#3B82F6', borderRadius: '50%', animation: 'spin 0.8s linear infinite' },
 
-    /* ═══ WELCOME BANNER (Like User Dashboard) ═══ */
-    welcomeBanner: {
-        position: 'relative',
-        width: '100%',
-        background: 'linear-gradient(135deg, #EEF2FF 0%, #ffffff 50%, #FFF7ED 100%)',
-        padding: '30px 40px',
-        overflow: 'hidden',
-        borderRadius: 20,
-        marginBottom: 24,
-        border: '1px solid #E5E7EB'
-    },
-    bannerDecor1: {
-        position: 'absolute',
-        top: '-100px',
-        right: '-100px',
-        width: '400px',
-        height: '400px',
-        background: 'radial-gradient(circle, rgba(79,70,229,0.12) 0%, transparent 70%)',
-        borderRadius: '50%'
-    },
-    bannerDecor2: {
-        position: 'absolute',
-        bottom: '-150px',
-        left: '-100px',
-        width: '400px',
-        height: '400px',
-        background: 'radial-gradient(circle, rgba(249,115,22,0.1) 0%, transparent 70%)',
-        borderRadius: '50%'
-    },
-    bannerContainer: {
-        position: 'relative',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        gap: '30px',
-        flexWrap: 'wrap',
-        zIndex: 2
-    },
+    /* ═══ WELCOME BANNER ═══ */
+    welcomeBanner: { position: 'relative', width: '100%', background: 'linear-gradient(135deg, #EEF2FF 0%, #ffffff 50%, #FFF7ED 100%)', padding: '30px 40px', overflow: 'hidden', borderRadius: 20, marginBottom: 24, border: '1px solid #E5E7EB' },
+    bannerDecor1: { position: 'absolute', top: '-100px', right: '-100px', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(79,70,229,0.12) 0%, transparent 70%)', borderRadius: '50%' },
+    bannerDecor2: { position: 'absolute', bottom: '-150px', left: '-100px', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(249,115,22,0.1) 0%, transparent 70%)', borderRadius: '50%' },
+    bannerContainer: { position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '30px', flexWrap: 'wrap', zIndex: 2 },
     bannerLeft: { flex: 1, minWidth: '300px' },
-    adminBadge: {
-        display: 'inline-flex',
-        alignItems: 'center',
-        background: 'linear-gradient(135deg, #1E3A8A 0%, #4F46E5 100%)',
-        color: '#ffffff',
-        padding: '8px 16px',
-        borderRadius: '100px',
-        fontSize: '12px',
-        fontWeight: '700',
-        letterSpacing: '0.5px',
-        marginBottom: '14px',
-        boxShadow: '0 4px 14px rgba(30,58,138,0.25)'
-    },
-    welcomeTitle: {
-        fontSize: '32px',
-        fontWeight: '800',
-        color: '#111827',
-        marginBottom: '8px',
-        letterSpacing: '-1px',
-        lineHeight: 1.2
-    },
-    userNameHighlight: {
-        background: 'linear-gradient(135deg, #4F46E5 0%, #F97316 100%)',
-        WebkitBackgroundClip: 'text',
-        WebkitTextFillColor: 'transparent',
-        backgroundClip: 'text'
-    },
-    welcomeSubtitle: {
-        fontSize: '15px',
-        color: '#4B5563',
-        lineHeight: 1.6,
-        marginBottom: '18px',
-        maxWidth: '600px'
-    },
-    chipsRow: {
-        display: 'flex',
-        gap: '10px',
-        flexWrap: 'wrap'
-    },
-    infoChip: {
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: '6px',
-        background: '#ffffff',
-        color: '#111827',
-        padding: '8px 14px',
-        borderRadius: '100px',
-        fontSize: '12px',
-        fontWeight: '600',
-        border: '1px solid #E5E7EB',
-        boxShadow: '0 2px 4px rgba(0,0,0,0.03)'
-    },
-    chipIcon: {
-        color: '#4F46E5',
-        fontSize: '14px'
-    },
+    adminBadge: { display: 'inline-flex', alignItems: 'center', background: 'linear-gradient(135deg, #1E3A8A 0%, #4F46E5 100%)', color: '#ffffff', padding: '8px 16px', borderRadius: '100px', fontSize: '12px', fontWeight: '700', letterSpacing: '0.5px', marginBottom: '14px', boxShadow: '0 4px 14px rgba(30,58,138,0.25)' },
+    welcomeTitle: { fontSize: '32px', fontWeight: '800', color: '#111827', marginBottom: '8px', letterSpacing: '-1px', lineHeight: 1.2 },
+    userNameHighlight: { background: 'linear-gradient(135deg, #4F46E5 0%, #F97316 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' },
+    welcomeSubtitle: { fontSize: '15px', color: '#4B5563', lineHeight: 1.6, marginBottom: '18px', maxWidth: '600px' },
+    chipsRow: { display: 'flex', gap: '10px', flexWrap: 'wrap' },
+    infoChip: { display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#ffffff', color: '#111827', padding: '8px 14px', borderRadius: '100px', fontSize: '12px', fontWeight: '600', border: '1px solid #E5E7EB', boxShadow: '0 2px 4px rgba(0,0,0,0.03)' },
+    chipIcon: { color: '#4F46E5', fontSize: '14px' },
     bannerRight: { flexShrink: 0 },
-    adminCard: {
-        background: '#ffffff',
-        padding: '18px 22px',
-        borderRadius: '16px',
-        border: '1px solid #E5E7EB',
-        boxShadow: '0 10px 30px rgba(0,0,0,0.08)',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '14px',
-        minWidth: '280px'
-    },
-    adminAvatar: {
-        width: '56px',
-        height: '56px',
-        borderRadius: '50%',
-        background: 'linear-gradient(135deg, #1E3A8A 0%, #4F46E5 100%)',
-        color: '#ffffff',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: '24px',
-        fontWeight: '800',
-        boxShadow: '0 8px 20px rgba(30,58,138,0.35)',
-        border: '3px solid #ffffff',
-        flexShrink: 0
-    },
+    adminCard: { background: '#ffffff', padding: '18px 22px', borderRadius: '16px', border: '1px solid #E5E7EB', boxShadow: '0 10px 30px rgba(0,0,0,0.08)', display: 'flex', alignItems: 'center', gap: '14px', minWidth: '280px' },
+    adminAvatar: { width: '56px', height: '56px', borderRadius: '50%', background: 'linear-gradient(135deg, #1E3A8A 0%, #4F46E5 100%)', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '24px', fontWeight: '800', boxShadow: '0 8px 20px rgba(30,58,138,0.35)', border: '3px solid #ffffff', flexShrink: 0 },
     adminInfo: { flex: 1 },
-    adminName: {
-        fontSize: '16px',
-        fontWeight: '800',
-        color: '#111827',
-        marginBottom: '2px'
-    },
-    adminEmail: {
-        fontSize: '12px',
-        color: '#6B7280',
-        marginBottom: '6px'
-    },
-    adminRole: {
-        display: 'inline-flex',
-        alignItems: 'center',
-        fontSize: '10px',
-        color: '#4F46E5',
-        fontWeight: '800',
-        letterSpacing: '0.5px',
-        background: '#EEF2FF',
-        padding: '3px 8px',
-        borderRadius: '100px'
-    },
-    onlineDot: {
-        width: 8, height: 8, borderRadius: '50%',
-        background: '#10B981', boxShadow: '0 0 0 3px rgba(16,185,129,0.2)',
-        display: 'inline-block'
-    },
+    adminName: { fontSize: '16px', fontWeight: '800', color: '#111827', marginBottom: '2px' },
+    adminEmail: { fontSize: '12px', color: '#6B7280', marginBottom: '6px' },
+    adminRole: { display: 'inline-flex', alignItems: 'center', fontSize: '10px', color: '#4F46E5', fontWeight: '800', letterSpacing: '0.5px', background: '#EEF2FF', padding: '3px 8px', borderRadius: '100px' },
+    onlineDot: { width: 8, height: 8, borderRadius: '50%', background: '#10B981', boxShadow: '0 0 0 3px rgba(16,185,129,0.2)', display: 'inline-block' },
 
     /* STATS */
     statsGrid: { display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20, marginBottom: 24 },
-    statCard: {
-        display: 'flex', gap: 18, alignItems: 'flex-start',
-        padding: 24, borderRadius: 16, border: '1px solid #E5E7EB'
-    },
-    statIcon: {
-        width: 56, height: 56, borderRadius: 14,
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        color: '#ffffff', fontSize: 24, flexShrink: 0
-    },
+    statCard: { display: 'flex', gap: 18, alignItems: 'flex-start', padding: 24, borderRadius: 16, border: '1px solid #E5E7EB' },
+    statIcon: { width: 56, height: 56, borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffffff', fontSize: 24, flexShrink: 0 },
     statContent: { flex: 1 },
     statLabel: { fontSize: 13, color: '#6B7280', fontWeight: 600, marginBottom: 6 },
     statValue: { fontSize: 32, fontWeight: 800, color: '#111827', letterSpacing: -1, marginBottom: 8, lineHeight: 1 },
@@ -747,22 +601,15 @@ const styles = {
     chartCard: { background: '#ffffff', padding: 24, borderRadius: 16, border: '1px solid #E5E7EB' },
     chartHeader: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 },
     chartTitleWrap: { display: 'flex', alignItems: 'center', gap: 12 },
-    chartIcon: {
-        width: 36, height: 36, borderRadius: 10,
-        background: '#EFF6FF', color: '#3B82F6',
-        display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18
-    },
+    chartIcon: { width: 36, height: 36, borderRadius: 10, background: '#EFF6FF', color: '#3B82F6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 },
     chartTitle: { fontSize: 16, fontWeight: 800, color: '#111827' },
-    chartSelect: {
-        padding: '8px 14px', background: '#F9FAFB', border: '1px solid #E5E7EB',
-        borderRadius: 8, fontSize: 12, color: '#374151', fontWeight: 600, cursor: 'pointer'
-    },
+    chartSelect: { padding: '8px 14px', background: '#F9FAFB', border: '1px solid #E5E7EB', borderRadius: 8, fontSize: 12, color: '#374151', fontWeight: 600, cursor: 'pointer' },
     chartArea: { minHeight: 240 },
 
     /* DONUT */
-    donutWrap: { display: 'flex', alignItems: 'center', gap: 20, padding: '10px 0' },
+    donutWrap: { display: 'flex', alignItems: 'center', gap: 20, padding: '10px 0', flexWrap: 'wrap' },
     donutContainer: { flexShrink: 0 },
-    donutLegend: { flex: 1, display: 'flex', flexDirection: 'column', gap: 10 },
+    donutLegend: { flex: 1, display: 'flex', flexDirection: 'column', gap: 10, minWidth: 180 },
     legendItem: { display: 'flex', alignItems: 'center', gap: 8, fontSize: 12 },
     legendDot: { width: 12, height: 12, borderRadius: '50%', flexShrink: 0 },
     legendLabel: { color: '#374151', fontWeight: 600, flex: 1 },
@@ -773,57 +620,28 @@ const styles = {
     bottomRow: { display: 'grid', gridTemplateColumns: '1.6fr 1fr', gap: 20, marginBottom: 24 },
     activitiesCard: { background: '#ffffff', padding: 24, borderRadius: 16, border: '1px solid #E5E7EB' },
     activityHeader: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 },
-    activityIconMain: {
-        width: 36, height: 36, borderRadius: 10,
-        background: '#EFF6FF', color: '#3B82F6',
-        display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18
-    },
+    activityIconMain: { width: 36, height: 36, borderRadius: 10, background: '#EFF6FF', color: '#3B82F6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 },
     viewAllLink: { color: '#3B82F6', fontSize: 13, fontWeight: 700, textDecoration: 'none' },
     emptyActivity: { textAlign: 'center', padding: '40px 20px' },
 
     activitiesList: { display: 'flex', flexDirection: 'column', gap: 8 },
-    activityRow: {
-        display: 'grid', gridTemplateColumns: '48px 1fr 1.2fr auto',
-        alignItems: 'center', gap: 14, padding: '12px 14px',
-        background: '#F9FAFB', borderRadius: 10, border: '1px solid #F3F4F6'
-    },
-    activityIcon: {
-        width: 40, height: 40, borderRadius: 10,
-        display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18
-    },
+    activityRow: { display: 'grid', gridTemplateColumns: '48px 1fr 1.2fr auto', alignItems: 'center', gap: 14, padding: '12px 14px', background: '#F9FAFB', borderRadius: 10, border: '1px solid #F3F4F6' },
+    activityIcon: { width: 40, height: 40, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 },
     activityInfo: {},
     activityLabel: { fontSize: 13, fontWeight: 700, color: '#111827' },
     activityTitle: { fontSize: 13, color: '#374151', fontWeight: 600 },
-    activityTime: {
-        display: 'flex', alignItems: 'center', gap: 6,
-        fontSize: 12, color: '#6B7280', fontWeight: 600, whiteSpace: 'nowrap'
-    },
+    activityTime: { display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: '#6B7280', fontWeight: 600, whiteSpace: 'nowrap' },
     timeDot: { width: 6, height: 6, borderRadius: '50%', background: '#10B981' },
 
     /* QUICK LINKS */
     quickLinksCard: { background: '#ffffff', padding: 24, borderRadius: 16, border: '1px solid #E5E7EB' },
-    linkIconMain: {
-        width: 36, height: 36, borderRadius: 10,
-        background: '#F5F3FF', color: '#8B5CF6',
-        display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18
-    },
+    linkIconMain: { width: 36, height: 36, borderRadius: 10, background: '#F5F3FF', color: '#8B5CF6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 },
     linksList: { display: 'flex', flexDirection: 'column', gap: 10 },
-    quickLink: {
-        display: 'flex', alignItems: 'center', gap: 14,
-        padding: '14px 16px', borderRadius: 12,
-        textDecoration: 'none', transition: 'all 0.2s'
-    },
-    quickLinkIcon: {
-        width: 32, height: 32,
-        display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18
-    },
+    quickLink: { display: 'flex', alignItems: 'center', gap: 14, padding: '14px 16px', borderRadius: 12, textDecoration: 'none', transition: 'all 0.2s' },
+    quickLinkIcon: { width: 32, height: 32, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 },
     quickLinkLabel: { fontSize: 14, fontWeight: 700, color: '#111827' },
 
-    footerNote: {
-        textAlign: 'center', padding: 20,
-        color: '#9CA3AF', fontSize: 12, fontWeight: 500,
-        borderTop: '1px solid #F3F4F6'
-    }
+    footerNote: { textAlign: 'center', padding: 20, color: '#9CA3AF', fontSize: 12, fontWeight: 500, borderTop: '1px solid #F3F4F6' }
 };
 
 export default AdminDashboard;

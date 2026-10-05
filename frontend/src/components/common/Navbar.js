@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import LanguageToggle from './LanguageToggle';
-import { FiArrowRight } from 'react-icons/fi';
+import { FiArrowRight, FiMenu, FiX } from 'react-icons/fi';
+import useMediaQuery from '../../utils/useMediaQuery';
 
 const Navbar = () => {
     const { isLoggedIn, isAdmin, user, logout } = useAuth();
@@ -10,6 +11,12 @@ const Navbar = () => {
     const location = useLocation();
     const [hoverLink, setHoverLink] = useState(null);
     const [hoverBtn, setHoverBtn] = useState(null);
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const isMobile = useMediaQuery('(max-width: 1180px)');
+
+    useEffect(() => { setMenuOpen(false); }, [location.pathname]);
+    useEffect(() => { if (!isMobile) setMenuOpen(false); }, [isMobile]);
 
     const isActive = (path) => location.pathname === path;
 
@@ -25,15 +32,64 @@ const Navbar = () => {
         { path: '/contact', label: 'Contact' }
     ];
 
+    const logoSize = isMobile ? 42 : 50;
+    const svgSize  = isMobile ? 36 : 42;
+
+    const authButtons = !isLoggedIn ? (
+        <>
+            <Link
+                to="/login"
+                onMouseEnter={() => setHoverBtn('signin')}
+                onMouseLeave={() => setHoverBtn(null)}
+                style={{
+                    ...styles.signInBtn,
+                    ...(hoverBtn === 'signin' ? styles.signInBtnHover : {})
+                }}>
+                Sign In
+            </Link>
+            <Link
+                to="/register"
+                onMouseEnter={() => setHoverBtn('cta')}
+                onMouseLeave={() => setHoverBtn(null)}
+                style={{
+                    ...styles.ctaBtn,
+                    ...(hoverBtn === 'cta' ? styles.ctaBtnHover : {})
+                }}>
+                Get Started
+                <FiArrowRight style={{ marginLeft: 8, fontSize: 16 }} />
+            </Link>
+        </>
+    ) : (
+        <>
+            <Link
+                to={isAdmin ? '/admin/dashboard' : '/user/dashboard'}
+                style={styles.userChip}>
+                <div style={styles.userAvatar}>
+                    {user?.fullName?.charAt(0)?.toUpperCase() || 'U'}
+                </div>
+                <span style={styles.userName}>
+                    {user?.fullName?.split(' ')[0] || 'Dashboard'}
+                </span>
+            </Link>
+            <button onClick={handleLogout} style={styles.logoutBtn}>
+                Logout
+            </button>
+        </>
+    );
+
     return (
         <nav style={styles.nav}>
-            <div style={styles.container}>
+            <div style={{
+                ...styles.container,
+                padding: isMobile ? '10px 16px' : '14px 40px',
+                gap: isMobile ? 10 : 30
+            }}>
 
                 {/* ═══════ LEFT: LOGO ═══════ */}
                 <Link to="/" style={styles.logoWrap}>
                     {/* Government Building Logo */}
-                    <div style={styles.logoIconBox}>
-                        <svg width="42" height="42" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div style={{ ...styles.logoIconBox, width: logoSize, height: logoSize }}>
+                        <svg width={svgSize} height={svgSize} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="50" cy="50" r="48" fill="#ffffff" stroke="#E5E7EB" strokeWidth="1" />
                             <path d="M 50 8 A 42 42 0 0 1 88 65" stroke="#FF9933" strokeWidth="4" strokeLinecap="round" fill="none" />
                             <path d="M 12 60 A 42 42 0 0 0 55 92" stroke="#138808" strokeWidth="4" strokeLinecap="round" fill="none" />
@@ -54,84 +110,72 @@ const Navbar = () => {
                     </div>
 
                     {/* Brand Text - Marathi + English */}
-                    <div style={styles.brandText}>
+                    <div style={styles.brandText} className="notranslate" translate="no">
                         <span style={styles.brandNameMarathi}>
                             <span style={styles.marathiOrange}>माझी</span>
                             <span style={styles.marathiDash}>-</span>
                             <span style={styles.marathiGreen}>योजना</span>
                         </span>
-                        <span style={styles.brandNameEnglish}>
+                        <span style={styles.brandNameEnglish} className="mj-brand-eng">
                             Majhi Yojana
                         </span>
                     </div>
                 </Link>
 
-                {/* ═══════ CENTER: NAV LINKS ═══════ */}
-                <div style={styles.linksWrap}>
-                    <div style={styles.links}>
-                        {navLinks.map((l) => (
-                            <Link
-                                key={l.path}
-                                to={l.path}
-                                onMouseEnter={() => setHoverLink(l.path)}
-                                onMouseLeave={() => setHoverLink(null)}
-                                style={{
-                                    ...styles.link,
-                                    ...(isActive(l.path) ? styles.activeLink : {}),
-                                    ...(hoverLink === l.path && !isActive(l.path) ? styles.hoverLink : {})
-                                }}>
-                                {l.label}
-                            </Link>
-                        ))}
+                {/* ═══════ CENTER: NAV LINKS (desktop only) ═══════ */}
+                {!isMobile && (
+                    <div style={styles.linksWrap}>
+                        <div style={styles.links}>
+                            {navLinks.map((l) => (
+                                <Link
+                                    key={l.path}
+                                    to={l.path}
+                                    onMouseEnter={() => setHoverLink(l.path)}
+                                    onMouseLeave={() => setHoverLink(null)}
+                                    style={{
+                                        ...styles.link,
+                                        ...(isActive(l.path) ? styles.activeLink : {}),
+                                        ...(hoverLink === l.path && !isActive(l.path) ? styles.hoverLink : {})
+                                    }}>
+                                    {l.label}
+                                </Link>
+                            ))}
+                        </div>
                     </div>
-                </div>
+                )}
 
-                {/* ═══════ RIGHT: AUTH BUTTONS ═══════ */}
-                <div style={styles.authSection}>
-                    <LanguageToggle />
-                    {!isLoggedIn ? (
-                        <>
-                            <Link
-                                to="/login"
-                                onMouseEnter={() => setHoverBtn('signin')}
-                                onMouseLeave={() => setHoverBtn(null)}
-                                style={{
-                                    ...styles.signInBtn,
-                                    ...(hoverBtn === 'signin' ? styles.signInBtnHover : {})
-                                }}>
-                                Sign In
-                            </Link>
-                            <Link
-                                to="/register"
-                                onMouseEnter={() => setHoverBtn('cta')}
-                                onMouseLeave={() => setHoverBtn(null)}
-                                style={{
-                                    ...styles.ctaBtn,
-                                    ...(hoverBtn === 'cta' ? styles.ctaBtnHover : {})
-                                }}>
-                                Get Started
-                                <FiArrowRight style={{ marginLeft: 8, fontSize: 16 }} />
-                            </Link>
-                        </>
-                    ) : (
-                        <>
-                            <Link
-                                to={isAdmin ? '/admin/dashboard' : '/user/dashboard'}
-                                style={styles.userChip}>
-                                <div style={styles.userAvatar}>
-                                    {user?.fullName?.charAt(0)?.toUpperCase() || 'U'}
-                                </div>
-                                <span style={styles.userName}>
-                                    {user?.fullName?.split(' ')[0] || 'Dashboard'}
-                                </span>
-                            </Link>
-                            <button onClick={handleLogout} style={styles.logoutBtn}>
-                                Logout
-                            </button>
-                        </>
+                {/* ═══════ RIGHT: LANGUAGE + AUTH / HAMBURGER ═══════ */}
+                <div style={{ ...styles.authSection, gap: isMobile ? 8 : 10 }}>
+                    <LanguageToggle variant={isMobile ? 'compact' : 'default'} />
+                    {!isMobile && authButtons}
+                    {isMobile && (
+                        <button
+                            onClick={() => setMenuOpen(!menuOpen)}
+                            style={styles.menuBtn}
+                            aria-label="Menu">
+                            {menuOpen ? <FiX size={22} /> : <FiMenu size={22} />}
+                        </button>
                     )}
                 </div>
             </div>
+
+            {/* ═══════ MOBILE PANEL ═══════ */}
+            {isMobile && menuOpen && (
+                <div style={styles.mobilePanel}>
+                    {navLinks.map((l) => (
+                        <Link
+                            key={l.path}
+                            to={l.path}
+                            style={{
+                                ...styles.mobileLink,
+                                ...(isActive(l.path) ? styles.mobileLinkActive : {})
+                            }}>
+                            {l.label}
+                        </Link>
+                    ))}
+                    <div style={styles.mobileAuth}>{authButtons}</div>
+                </div>
+            )}
         </nav>
     );
 };
@@ -161,7 +205,8 @@ const styles = {
         alignItems: 'center',
         gap: '12px',
         textDecoration: 'none',
-        flexShrink: 0
+        flexShrink: 0,
+        minWidth: 0
     },
     logoIconBox: {
         width: '50px',
@@ -173,7 +218,8 @@ const styles = {
         background: '#ffffff',
         padding: '2px',
         boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
-        border: '1px solid #E5E7EB'
+        border: '1px solid #E5E7EB',
+        flexShrink: 0
     },
 
     // ═══ BRAND TEXT (Marathi + English) ═══
@@ -221,9 +267,9 @@ const styles = {
     links: {
         display: 'flex',
         alignItems: 'center',
-        gap: '10px',
+        gap: '6px',
         backgroundColor: 'rgba(243,244,246,0.5)',
-        padding: '8px',
+        padding: '6px',
         borderRadius: '100px',
         border: '1px solid rgba(226,232,240,0.6)'
     },
@@ -233,11 +279,12 @@ const styles = {
         textDecoration: 'none',
         fontSize: '15px',
         fontWeight: '600',
-        padding: '12px 36px',
+        padding: '10px 22px',
         borderRadius: '100px',
         transition: 'all 0.25s ease',
-        minWidth: '110px',
-        textAlign: 'center'
+        minWidth: '90px',
+        textAlign: 'center',
+        whiteSpace: 'nowrap'
     },
     activeLink: {
         color: '#ffffff',
@@ -259,6 +306,7 @@ const styles = {
     signInBtn: {
         display: 'inline-flex',
         alignItems: 'center',
+        justifyContent: 'center',
         color: '#111827',
         textDecoration: 'none',
         padding: '11px 22px',
@@ -268,7 +316,8 @@ const styles = {
         backgroundColor: 'transparent',
         border: '1.5px solid #E5E7EB',
         cursor: 'pointer',
-        transition: 'all 0.25s ease'
+        transition: 'all 0.25s ease',
+        whiteSpace: 'nowrap'
     },
     signInBtnHover: {
         backgroundColor: '#F9FAFB',
@@ -278,6 +327,7 @@ const styles = {
     ctaBtn: {
         display: 'inline-flex',
         alignItems: 'center',
+        justifyContent: 'center',
         background: 'linear-gradient(135deg, #4F46E5 0%, #4338CA 100%)',
         color: '#ffffff',
         textDecoration: 'none',
@@ -288,7 +338,8 @@ const styles = {
         border: 'none',
         cursor: 'pointer',
         boxShadow: '0 4px 14px rgba(79,70,229,0.35)',
-        transition: 'all 0.25s ease'
+        transition: 'all 0.25s ease',
+        whiteSpace: 'nowrap'
     },
     ctaBtnHover: {
         transform: 'translateY(-2px)',
@@ -325,6 +376,7 @@ const styles = {
     logoutBtn: {
         display: 'inline-flex',
         alignItems: 'center',
+        justifyContent: 'center',
         color: '#EF4444',
         padding: '10px 20px',
         fontSize: '14px',
@@ -334,6 +386,47 @@ const styles = {
         border: '1.5px solid #FEE2E2',
         cursor: 'pointer',
         transition: 'all 0.2s'
+    },
+
+    // ═══ MOBILE ═══
+    menuBtn: {
+        width: 42,
+        height: 42,
+        borderRadius: 10,
+        border: '1.5px solid #E5E7EB',
+        background: '#fff',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        cursor: 'pointer',
+        flexShrink: 0
+    },
+    mobilePanel: {
+        padding: '8px 16px 18px',
+        borderTop: '1px solid #E5E7EB',
+        background: '#fff',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 6,
+        maxHeight: 'calc(100dvh - 64px)',
+        overflowY: 'auto'
+    },
+    mobileLink: {
+        padding: '14px 16px',
+        borderRadius: 10,
+        fontSize: 16,
+        fontWeight: 600,
+        color: '#374151'
+    },
+    mobileLinkActive: {
+        background: '#EEF2FF',
+        color: '#4F46E5'
+    },
+    mobileAuth: {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 10,
+        marginTop: 10
     }
 };
 

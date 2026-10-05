@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useSearchParams, useLocation } from 'react-router-dom';
 import { schemeAPI } from '../services/api';
 import { useAuth } from '../context/AuthContext';
+import useMediaQuery from '../utils/useMediaQuery';
 import {
     FiSearch, FiX, FiArrowRight,
     FiUsers, FiMapPin,
@@ -31,10 +32,25 @@ const Schemes = () => {
     const location       = useLocation();
     const [searchParams] = useSearchParams();
     const urlCategory    = searchParams.get('category');
+    const mainRef        = useRef(null);
+
+    // ─── Screen size ───
+    const isMobile   = useMediaQuery('(max-width: 768px)');
+    const isSmall    = useMediaQuery('(max-width: 480px)');
+    const isTablet   = useMediaQuery('(max-width: 1024px)');
+    const navCompact = useMediaQuery('(max-width: 1180px)');
+    const isTouch    = useMediaQuery('(hover: none)');
 
     // ─── Detect if user is inside dashboard ───
     const isInsideDashboard = location.pathname.startsWith('/user/');
     const detailPath = isInsideDashboard ? '/user/schemes' : '/schemes';
+
+    // Sticky bar kitna neeche chipke (Navbar / Topbar ki height ke hisaab se)
+    const stickyTop = isInsideDashboard
+        ? (isTablet ? 58 : 70)
+        : (navCompact ? 62 : 88);
+
+    const sidePad = isInsideDashboard ? 0 : (isMobile ? 16 : 40);
 
     /* ── Fetch schemes ── */
     useEffect(() => {
@@ -126,23 +142,148 @@ const Schemes = () => {
 
     const goToPage = (page) => {
         setCurrentPage(page);
-        window.scrollTo({ top: 400, behavior: 'smooth' });
+        if (mainRef.current) {
+            mainRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     };
 
     // ─── Handle card click — Navigate to right detail page ───
     const handleCardClick = (schemeId) => {
-    if (!user && !isInsideDashboard) {
-        sessionStorage.setItem('redirectAfterLogin', `/user/schemes/${schemeId}`);
-        navigate('/login', {
-            state: {
-                from: `/schemes/${schemeId}`,
-                message: 'Please login to view scheme details and apply'
-            }
-        });
-        return;
-    }
-    navigate(`${detailPath}/${schemeId}`);
+        if (!user && !isInsideDashboard) {
+            sessionStorage.setItem('redirectAfterLogin', `/user/schemes/${schemeId}`);
+            navigate('/login', {
+                state: {
+                    from: `/schemes/${schemeId}`,
+                    message: 'Please login to view scheme details and apply'
+                }
+            });
+            return;
+        }
+        navigate(`${detailPath}/${schemeId}`);
     };
+
+    // ─── Responsive style overrides ───
+    const R = {
+        heroContent: {
+            padding: isSmall ? '36px 16px 40px' : isMobile ? '44px 20px 52px' : '70px 40px 80px'
+        },
+        heroBadge: {
+            fontSize: isMobile ? '10px' : '11px',
+            letterSpacing: isMobile ? '0.6px' : '1.5px',
+            padding: isMobile ? '7px 12px' : '8px 18px',
+            marginBottom: isMobile ? '18px' : '24px',
+            textAlign: 'center',
+            lineHeight: 1.4,
+            maxWidth: '100%'
+        },
+        heroTitle: {
+            fontSize: isSmall ? '28px' : isMobile ? '34px' : '54px',
+            letterSpacing: isMobile ? '-1px' : '-2px',
+            marginBottom: isMobile ? '14px' : '20px'
+        },
+        heroDesc: {
+            fontSize: isMobile ? '14.5px' : '17px',
+            marginBottom: isMobile ? '24px' : '36px'
+        },
+        statsBar: isMobile ? {
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+            gap: '8px',
+            padding: '12px 8px',
+            marginBottom: '24px',
+            width: '100%'
+        } : {},
+        statItem: isMobile ? {
+            flexDirection: 'column',
+            gap: '6px',
+            textAlign: 'center'
+        } : {},
+        statNum: {
+            fontSize: isMobile ? '16px' : '22px',
+            textAlign: isMobile ? 'center' : 'left'
+        },
+        statLabel: {
+            fontSize: isMobile ? '9.5px' : '11px',
+            textAlign: isMobile ? 'center' : 'left',
+            letterSpacing: isMobile ? '0.2px' : '0.5px'
+        },
+        heroSearch: {
+            padding: isMobile ? '15px 52px 15px 46px' : '18px 60px 18px 56px',
+            fontSize: isMobile ? '16px' : '15px'
+        },
+        heroSearchIcon: { left: isMobile ? '16px' : '22px', fontSize: isMobile ? '18px' : '20px' },
+        pillsSection: {
+            position: isMobile ? 'static' : 'sticky',
+            top: stickyTop + 'px',
+            padding: isMobile ? '12px 0' : '20px 0',
+            zIndex: 30
+        },
+        pillsContainer: {
+            padding: isInsideDashboard ? '0' : (isMobile ? '0 12px' : '0 40px'),
+            width: '100%',
+            boxSizing: 'border-box',
+            minWidth: 0
+        },
+        pillsScroll: isMobile ? {
+            flexWrap: 'wrap',
+            overflowX: 'visible',
+            gap: '8px',
+            paddingBottom: 0
+        } : { minWidth: 0 },
+        pill: {
+            padding: isMobile ? '7px 12px' : '10px 20px',
+            fontSize: isMobile ? '12px' : '13px',
+            gap: isMobile ? '6px' : '8px'
+        },
+        mainSection: {
+            padding: isMobile ? '24px 0 48px' : '48px 0 80px',
+            scrollMarginTop: (stickyTop + 70) + 'px'
+        },
+        container: { padding: '0 ' + sidePad + 'px' },
+        resultsHeader: { marginBottom: isMobile ? '20px' : '32px' },
+        resultsTitle: { fontSize: isMobile ? '22px' : '28px' },
+        cardsGrid: {
+            gridTemplateColumns: isMobile
+                ? 'minmax(0, 1fr)'
+                : 'repeat(auto-fill, minmax(min(340px, 100%), 1fr))',
+            gap: isMobile ? '16px' : '24px'
+        },
+        cardHeader: { padding: isMobile ? '16px 16px 10px' : '20px 22px 12px' },
+        cardBody: { padding: isMobile ? '4px 16px 18px' : '4px 22px 22px' },
+        cardTitle: {
+            fontSize: isMobile ? '16px' : '17px',
+            minHeight: isMobile ? '0' : '46px'
+        },
+        cardDesc: { minHeight: isMobile ? '0' : '65px', marginBottom: isMobile ? '14px' : '18px' },
+        infoGrid: { padding: isMobile ? '12px 8px' : '14px' },
+        paginationWrap: { gap: isMobile ? '6px' : '10px', marginTop: isMobile ? '32px' : '48px' },
+        pageBtn: {
+            minWidth: isMobile ? '38px' : '42px',
+            height: isMobile ? '38px' : '42px',
+            padding: isMobile ? '0 10px' : '0 14px',
+            fontSize: isMobile ? '13px' : '14px'
+        },
+        ctaBox: {
+            marginTop: isMobile ? '36px' : '60px',
+            padding: isSmall ? '28px 20px' : isMobile ? '32px 24px' : '48px 44px',
+            borderRadius: isMobile ? '18px' : '24px',
+            gap: isMobile ? '20px' : '32px'
+        },
+        ctaLeft: { minWidth: isMobile ? '0' : '280px' },
+        ctaTitle: { fontSize: isMobile ? '20px' : '26px' },
+        ctaDesc: { fontSize: isMobile ? '13.5px' : '14.5px' },
+        ctaBtn: {
+            width: isMobile ? '100%' : 'auto',
+            justifyContent: 'center',
+            padding: isMobile ? '14px 20px' : '16px 32px',
+            fontSize: isMobile ? '14px' : '14.5px'
+        }
+    };
+
+    const hoverOn = (id) => { if (!isTouch) setHoveredCard(id); };
+    const hoverOff = () => { if (!isTouch) setHoveredCard(null); };
 
     return (
         <div style={styles.page}>
@@ -152,26 +293,28 @@ const Schemes = () => {
                 <div style={styles.blob1} />
                 <div style={styles.blob2} />
 
-                {/* Ashoka Chakra */}
-                <div style={styles.chakraWatermark}>
-                    <svg viewBox="0 0 100 100" width="100%" height="100%" opacity="0.06">
-                        <circle cx="50" cy="50" r="45" stroke="white"
-                            strokeWidth="2" fill="none" />
-                        {Array.from({ length: 24 }).map((_, i) => {
-                            const a = (i * 15 * Math.PI) / 180;
-                            return (
-                                <line key={i}
-                                    x1={50 + 10 * Math.cos(a)}
-                                    y1={50 + 10 * Math.sin(a)}
-                                    x2={50 + 44 * Math.cos(a)}
-                                    y2={50 + 44 * Math.sin(a)}
-                                    stroke="white" strokeWidth="1.5" />
-                            );
-                        })}
-                        <circle cx="50" cy="50" r="10" stroke="white"
-                            strokeWidth="2" fill="none" />
-                    </svg>
-                </div>
+                {/* Ashoka Chakra (mobile pe chhupa) */}
+                {!isMobile && (
+                    <div style={styles.chakraWatermark}>
+                        <svg viewBox="0 0 100 100" width="100%" height="100%" opacity="0.06">
+                            <circle cx="50" cy="50" r="45" stroke="white"
+                                strokeWidth="2" fill="none" />
+                            {Array.from({ length: 24 }).map((_, i) => {
+                                const a = (i * 15 * Math.PI) / 180;
+                                return (
+                                    <line key={i}
+                                        x1={50 + 10 * Math.cos(a)}
+                                        y1={50 + 10 * Math.sin(a)}
+                                        x2={50 + 44 * Math.cos(a)}
+                                        y2={50 + 44 * Math.sin(a)}
+                                        stroke="white" strokeWidth="1.5" />
+                                );
+                            })}
+                            <circle cx="50" cy="50" r="10" stroke="white"
+                                strokeWidth="2" fill="none" />
+                        </svg>
+                    </div>
+                )}
 
                 {/* Tricolor top */}
                 <div style={styles.tricolorTop}>
@@ -180,59 +323,65 @@ const Schemes = () => {
                     <div style={{ flex: 1, background: '#138808' }} />
                 </div>
 
-                <div style={styles.heroContent}>
-                    <div style={styles.heroBadge}>
-                        <HiSparkles size={13} style={{ marginRight: 6 }} />
+                <div style={{ ...styles.heroContent, ...R.heroContent }}>
+                    <div style={{ ...styles.heroBadge, ...R.heroBadge }}>
+                        <HiSparkles size={13} style={{ marginRight: 6, flexShrink: 0 }} />
                         30+ VERIFIED GOVERNMENT SCHEMES · MAHARASHTRA
                     </div>
 
-                    <h1 style={styles.heroTitle}>
+                    <h1 style={{ ...styles.heroTitle, ...R.heroTitle }}>
                         Discover <span style={styles.heroOrange}>Government</span>
                         <br />
                         Welfare <span style={styles.heroGreen}>Schemes</span>
                     </h1>
 
-                    <p style={styles.heroDesc}>
+                    <p style={{ ...styles.heroDesc, ...R.heroDesc }}>
                         Browse all Maharashtra Government schemes tailored for you.
                         Filter by category, check eligibility, and apply directly.
                     </p>
 
                     {/* Stats Bar */}
-                    <div style={styles.statsBar}>
-                        <div style={styles.statItem}>
-                            <FiAward size={22} color="#FF9933" />
+                    <div style={{ ...styles.statsBar, ...R.statsBar }}>
+                        <div style={{ ...styles.statItem, ...R.statItem }}>
+                            <FiAward size={isMobile ? 18 : 22} color="#FF9933" />
                             <div>
-                                <div style={styles.statNum}>{schemes.length || 30}+</div>
-                                <div style={styles.statLabel}>Total Schemes</div>
+                                <div style={{ ...styles.statNum, ...R.statNum }}>{schemes.length || 30}+</div>
+                                <div style={{ ...styles.statLabel, ...R.statLabel }}>
+                                    {isMobile ? 'Schemes' : 'Total Schemes'}
+                                </div>
                             </div>
                         </div>
-                        <div style={styles.statDivider} />
-                        <div style={styles.statItem}>
-                            <FiUsers size={22} color="#4ADE80" />
+                        {!isMobile && <div style={styles.statDivider} />}
+                        <div style={{ ...styles.statItem, ...R.statItem }}>
+                            <FiUsers size={isMobile ? 18 : 22} color="#4ADE80" />
                             <div>
-                                <div style={styles.statNum}>1000+</div>
-                                <div style={styles.statLabel}>Citizens Helped</div>
+                                <div style={{ ...styles.statNum, ...R.statNum }}>1000+</div>
+                                <div style={{ ...styles.statLabel, ...R.statLabel }}>
+                                    {isMobile ? 'Citizens' : 'Citizens Helped'}
+                                </div>
                             </div>
                         </div>
-                        <div style={styles.statDivider} />
-                        <div style={styles.statItem}>
-                            <FiTrendingUp size={22} color="#F97316" />
+                        {!isMobile && <div style={styles.statDivider} />}
+                        <div style={{ ...styles.statItem, ...R.statItem }}>
+                            <FiTrendingUp size={isMobile ? 18 : 22} color="#F97316" />
                             <div>
-                                <div style={styles.statNum}>₹5.2Cr</div>
-                                <div style={styles.statLabel}>Benefits Unlocked</div>
+                                <div style={{ ...styles.statNum, ...R.statNum }}>₹5.2Cr</div>
+                                <div style={{ ...styles.statLabel, ...R.statLabel }}>
+                                    {isMobile ? 'Benefits' : 'Benefits Unlocked'}
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     {/* Big Search Bar */}
                     <div style={styles.heroSearchWrap}>
-                        <FiSearch style={styles.heroSearchIcon} />
+                        <FiSearch style={{ ...styles.heroSearchIcon, ...R.heroSearchIcon }} />
                         <input
                             type="text"
-                            placeholder="Search schemes by name, keyword or category..."
+                            placeholder={isMobile ? 'Search schemes...' : 'Search schemes by name, keyword or category...'}
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
-                            style={styles.heroSearch}
+                            style={{ ...styles.heroSearch, ...R.heroSearch }}
                         />
                         {search && (
                             <button onClick={() => setSearch('')}
@@ -245,15 +394,16 @@ const Schemes = () => {
             </section>
 
             {/* ══════ 2. CATEGORY PILLS ══════ */}
-            <section style={styles.pillsSection}>
-                <div style={styles.pillsContainer}>
-                    <div style={styles.pillsScroll}>
+            <section style={{ ...styles.pillsSection, ...R.pillsSection }}>
+                <div style={{ ...styles.pillsContainer, ...R.pillsContainer }}>
+                    <div style={{ ...styles.pillsScroll, ...R.pillsScroll }} className="schemes-pills-scroll">
                         {categories.map((cat) => (
                             <button
                                 key={cat.id}
                                 onClick={() => setActiveCategory(cat.id)}
                                 style={{
                                     ...styles.pill,
+                                    ...R.pill,
                                     ...(activeCategory === cat.id ? {
                                         background: cat.color,
                                         color: '#ffffff',
@@ -275,13 +425,13 @@ const Schemes = () => {
             </section>
 
             {/* ══════ 3. MAIN CONTENT ══════ */}
-            <section style={styles.mainSection}>
-                <div style={styles.container}>
+            <section ref={mainRef} style={{ ...styles.mainSection, ...R.mainSection }}>
+                <div style={{ ...styles.container, ...R.container }}>
 
                     {/* Results Header */}
-                    <div style={styles.resultsHeader}>
+                    <div style={{ ...styles.resultsHeader, ...R.resultsHeader }}>
                         <div>
-                            <h2 style={styles.resultsTitle}>
+                            <h2 style={{ ...styles.resultsTitle, ...R.resultsTitle }}>
                                 {activeCategory === 'all'
                                     ? 'All Schemes'
                                     : categories.find(c => c.id === activeCategory)?.label
@@ -307,7 +457,10 @@ const Schemes = () => {
                         </div>
                     ) : filtered.length === 0 ? (
                         /* Empty State */
-                        <div style={styles.emptyBox}>
+                        <div style={{
+                            ...styles.emptyBox,
+                            padding: isMobile ? '48px 20px' : '80px 20px'
+                        }}>
                             <div style={styles.emptyIcon}>🔍</div>
                             <h3 style={styles.emptyTitle}>No schemes found</h3>
                             <p style={styles.emptyDesc}>
@@ -320,34 +473,32 @@ const Schemes = () => {
                     ) : (
                         <>
                             {/* Scheme Cards Grid */}
-                            <div style={styles.cardsGrid}>
+                            <div style={{ ...styles.cardsGrid, ...R.cardsGrid }}>
                                 {currentSchemes.map((scheme, i) => {
                                     const catConfig = getCategoryConfig(scheme.category);
+                                    const isHov = hoveredCard === scheme.id;
                                     return (
                                         <div
                                             key={scheme.id || i}
-                                            onMouseEnter={() => setHoveredCard(scheme.id)}
-                                            onMouseLeave={() => setHoveredCard(null)}
+                                            onMouseEnter={() => hoverOn(scheme.id)}
+                                            onMouseLeave={hoverOff}
                                             onClick={() => handleCardClick(scheme.id)}
                                             style={{
                                                 ...styles.card,
-                                                transform: hoveredCard === scheme.id
-                                                    ? 'translateY(-8px)'
-                                                    : 'translateY(0)',
-                                                boxShadow: hoveredCard === scheme.id
+                                                transform: isHov ? 'translateY(-8px)' : 'translateY(0)',
+                                                boxShadow: isHov
                                                     ? `0 20px 40px ${catConfig.color}25`
                                                     : '0 2px 12px rgba(0,0,0,0.06)',
-                                                borderColor: hoveredCard === scheme.id
-                                                    ? catConfig.color
-                                                    : '#F3F4F6'
+                                                borderColor: isHov ? catConfig.color : '#F3F4F6'
                                             }}>
 
                                             {/* Card Header */}
-                                            <div style={styles.cardHeader}>
+                                            <div style={{ ...styles.cardHeader, ...R.cardHeader }}>
                                                 <div style={{
                                                     ...styles.categoryBadge,
                                                     background: `${catConfig.color}15`,
-                                                    color: catConfig.color
+                                                    color: catConfig.color,
+                                                    minWidth: 0
                                                 }}>
                                                     <span style={styles.categoryIcon}>
                                                         {catConfig.icon}
@@ -369,12 +520,12 @@ const Schemes = () => {
                                             }} />
 
                                             {/* Card Body */}
-                                            <div style={styles.cardBody}>
-                                                <h3 style={styles.cardTitle}>
+                                            <div style={{ ...styles.cardBody, ...R.cardBody }}>
+                                                <h3 style={{ ...styles.cardTitle, ...R.cardTitle }}>
                                                     {scheme.name || scheme.schemeName || 'Scheme Name'}
                                                 </h3>
 
-                                                <p style={styles.cardDesc}>
+                                                <p style={{ ...styles.cardDesc, ...R.cardDesc }}>
                                                     {scheme.description
                                                         ? scheme.description.substring(0, 120) + (scheme.description.length > 120 ? '...' : '')
                                                         : 'Government welfare scheme for eligible Maharashtra citizens.'
@@ -382,7 +533,7 @@ const Schemes = () => {
                                                 </p>
 
                                                 {/* Info Grid */}
-                                                <div style={styles.infoGrid}>
+                                                <div style={{ ...styles.infoGrid, ...R.infoGrid }}>
                                                     <div style={styles.infoItem}>
                                                         <div style={styles.infoLabel}>AGE</div>
                                                         <div style={styles.infoValue}>
@@ -429,7 +580,7 @@ const Schemes = () => {
                                                             size={14}
                                                             style={{
                                                                 marginLeft: 6,
-                                                                transform: hoveredCard === scheme.id
+                                                                transform: isHov
                                                                     ? 'translateX(4px)'
                                                                     : 'translateX(0)',
                                                                 transition: 'transform 0.3s'
@@ -448,22 +599,23 @@ const Schemes = () => {
 
                             {/* ══════ PAGINATION ══════ */}
                             {totalPages > 1 && (
-                                <div style={styles.paginationWrap}>
+                                <div style={{ ...styles.paginationWrap, ...R.paginationWrap }}>
                                     {/* Previous */}
                                     <button
                                         onClick={() => goToPage(currentPage - 1)}
                                         disabled={currentPage === 1}
                                         style={{
                                             ...styles.pageBtn,
+                                            ...R.pageBtn,
                                             ...styles.pageArrow,
                                             opacity: currentPage === 1 ? 0.4 : 1,
                                             cursor: currentPage === 1 ? 'not-allowed' : 'pointer'
                                         }}>
-                                        ← Prev
+                                        {isSmall ? '←' : '← Prev'}
                                     </button>
 
                                     {/* Page numbers */}
-                                    <div style={styles.pageNumbers}>
+                                    <div style={{ ...styles.pageNumbers, gap: isMobile ? '4px' : '6px' }}>
                                         {Array.from({ length: totalPages }, (_, i) => i + 1)
                                             .filter(page =>
                                                 page === 1
@@ -479,6 +631,7 @@ const Schemes = () => {
                                                         onClick={() => goToPage(page)}
                                                         style={{
                                                             ...styles.pageBtn,
+                                                            ...R.pageBtn,
                                                             ...(currentPage === page ? styles.pageBtnActive : {})
                                                         }}>
                                                         {page}
@@ -494,11 +647,12 @@ const Schemes = () => {
                                         disabled={currentPage === totalPages}
                                         style={{
                                             ...styles.pageBtn,
+                                            ...R.pageBtn,
                                             ...styles.pageArrow,
                                             opacity: currentPage === totalPages ? 0.4 : 1,
                                             cursor: currentPage === totalPages ? 'not-allowed' : 'pointer'
                                         }}>
-                                        Next →
+                                        {isSmall ? '→' : 'Next →'}
                                     </button>
                                 </div>
                             )}
@@ -507,7 +661,11 @@ const Schemes = () => {
                             {totalPages > 1 && (
                                 <div style={styles.pageInfo}>
                                     Page <strong>{currentPage}</strong> of <strong>{totalPages}</strong>
-                                    &nbsp;·&nbsp; Showing {indexOfFirst + 1}–{Math.min(indexOfLast, filtered.length)} of {filtered.length} schemes
+                                    {!isSmall && (
+                                        <>
+                                            &nbsp;·&nbsp; Showing {indexOfFirst + 1}–{Math.min(indexOfLast, filtered.length)} of {filtered.length} schemes
+                                        </>
+                                    )}
                                 </div>
                             )}
                         </>
@@ -515,23 +673,23 @@ const Schemes = () => {
 
                     {/* ══════ CTA Section — ONLY show in PUBLIC view ══════ */}
                     {filtered.length > 0 && !isInsideDashboard && (
-                        <div style={styles.ctaBox}>
-                            <div style={styles.ctaLeft}>
+                        <div style={{ ...styles.ctaBox, ...R.ctaBox }}>
+                            <div style={{ ...styles.ctaLeft, ...R.ctaLeft }}>
                                 <div style={styles.ctaBadge}>
                                     <HiSparkles size={12} style={{ marginRight: 5 }} />
                                     AI-POWERED
                                 </div>
-                                <h3 style={styles.ctaTitle}>
+                                <h3 style={{ ...styles.ctaTitle, ...R.ctaTitle }}>
                                     Not sure which schemes are for you?
                                 </h3>
-                                <p style={styles.ctaDesc}>
+                                <p style={{ ...styles.ctaDesc, ...R.ctaDesc }}>
                                     Let our AI recommend the best schemes based on
                                     your profile — takes just 30 seconds!
                                 </p>
                             </div>
                             <button
                                 onClick={() => navigate('/register')}
-                                style={styles.ctaBtn}>
+                                style={{ ...styles.ctaBtn, ...R.ctaBtn }}>
                                 Get AI Recommendations <FiArrowRight style={{ marginLeft: 8 }} />
                             </button>
                         </div>
@@ -539,22 +697,22 @@ const Schemes = () => {
 
                     {/* ══════ Inside Dashboard CTA — Show DIFFERENT CTA ══════ */}
                     {filtered.length > 0 && isInsideDashboard && (
-                        <div style={styles.ctaBox}>
-                            <div style={styles.ctaLeft}>
+                        <div style={{ ...styles.ctaBox, ...R.ctaBox }}>
+                            <div style={{ ...styles.ctaLeft, ...R.ctaLeft }}>
                                 <div style={styles.ctaBadge}>
                                     <HiSparkles size={12} style={{ marginRight: 5 }} />
                                     AI-POWERED FOR YOU
                                 </div>
-                                <h3 style={styles.ctaTitle}>
+                                <h3 style={{ ...styles.ctaTitle, ...R.ctaTitle }}>
                                     Want personalized recommendations?
                                 </h3>
-                                <p style={styles.ctaDesc}>
+                                <p style={{ ...styles.ctaDesc, ...R.ctaDesc }}>
                                     Our AI analyzes your profile to find the best schemes matched to your eligibility.
                                 </p>
                             </div>
                             <button
                                 onClick={() => navigate('/user/recommendations')}
-                                style={styles.ctaBtn}>
+                                style={{ ...styles.ctaBtn, ...R.ctaBtn }}>
                                 View My Recommendations <FiArrowRight style={{ marginLeft: 8 }} />
                             </button>
                         </div>
@@ -571,6 +729,12 @@ const Schemes = () => {
                     0%, 100% { opacity: 1; }
                     50% { opacity: 0.5; }
                 }
+                .schemes-pills-scroll {
+                    scrollbar-width: none;
+                    -ms-overflow-style: none;
+                    -webkit-overflow-scrolling: touch;
+                }
+                .schemes-pills-scroll::-webkit-scrollbar { display: none; }
             `}</style>
         </div>
     );
@@ -580,11 +744,7 @@ const Schemes = () => {
    STYLES
 ═══════════════════════════════════════════ */
 const styles = {
-    page: {
-        width: '100%',
-        backgroundColor: '#F9FAFB',
-        minHeight: '100vh'
-    },
+        page: { width: '100%', maxWidth: '100%', overflowX: 'clip', backgroundColor: '#F9FAFB', minHeight: '100vh' },
 
     /* ═══ HERO ═══ */
     hero: {
@@ -593,536 +753,197 @@ const styles = {
         overflow: 'hidden'
     },
     blob1: {
-        position: 'absolute', top: '-80px', right: '-80px',
-        width: '350px', height: '350px',
+        position: 'absolute', top: '-80px', right: '-80px', width: '350px', height: '350px',
         background: 'radial-gradient(circle, rgba(249,115,22,0.25) 0%, transparent 70%)',
         borderRadius: '50%', pointerEvents: 'none'
     },
     blob2: {
-        position: 'absolute', bottom: '-60px', left: '-60px',
-        width: '300px', height: '300px',
+        position: 'absolute', bottom: '-60px', left: '-60px', width: '300px', height: '300px',
         background: 'radial-gradient(circle, rgba(74,222,128,0.2) 0%, transparent 70%)',
         borderRadius: '50%', pointerEvents: 'none'
     },
     chakraWatermark: {
-        position: 'absolute', top: '50%', right: '5%',
-        transform: 'translateY(-50%)',
-        width: '300px', height: '300px',
-        pointerEvents: 'none', zIndex: 0
+        position: 'absolute', top: '50%', right: '5%', transform: 'translateY(-50%)',
+        width: '300px', height: '300px', pointerEvents: 'none', zIndex: 0
     },
-    tricolorTop: {
-        display: 'flex', height: '5px', width: '100%',
-        position: 'relative', zIndex: 5
-    },
+    tricolorTop: { display: 'flex', height: '5px', width: '100%', position: 'relative', zIndex: 5 },
     heroContent: {
-        position: 'relative', zIndex: 2,
-        maxWidth: '1200px',
-        margin: '0 auto',
-        padding: '70px 40px 80px',
-        textAlign: 'center'
+        position: 'relative', zIndex: 2, maxWidth: '1200px', margin: '0 auto',
+        padding: '70px 40px 80px', textAlign: 'center'
     },
     heroBadge: {
-        display: 'inline-flex', alignItems: 'center',
-        background: 'rgba(255,255,255,0.12)',
-        backdropFilter: 'blur(10px)',
-        color: 'rgba(255,255,255,0.9)',
-        padding: '8px 18px', borderRadius: '100px',
-        fontSize: '11px', fontWeight: '700', letterSpacing: '1.5px',
-        border: '1px solid rgba(255,255,255,0.2)',
-        marginBottom: '24px'
+        display: 'inline-flex', alignItems: 'center', background: 'rgba(255,255,255,0.12)',
+        backdropFilter: 'blur(10px)', color: 'rgba(255,255,255,0.9)', padding: '8px 18px',
+        borderRadius: '100px', fontSize: '11px', fontWeight: '700', letterSpacing: '1.5px',
+        border: '1px solid rgba(255,255,255,0.2)', marginBottom: '24px'
     },
     heroTitle: {
-        fontSize: '54px', fontWeight: '900', color: '#ffffff',
-        letterSpacing: '-2px', lineHeight: '1.1',
-        marginBottom: '20px'
+        fontSize: '54px', fontWeight: '900', color: '#ffffff', letterSpacing: '-2px',
+        lineHeight: '1.1', marginBottom: '20px'
     },
     heroOrange: { color: '#FF9933' },
     heroGreen: { color: '#4ADE80' },
     heroDesc: {
-        fontSize: '17px', color: 'rgba(255,255,255,0.8)',
-        lineHeight: '1.7', maxWidth: '620px',
-        margin: '0 auto 36px'
+        fontSize: '17px', color: 'rgba(255,255,255,0.8)', lineHeight: '1.7',
+        maxWidth: '620px', margin: '0 auto 36px'
     },
     statsBar: {
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: '32px',
-        background: 'rgba(255,255,255,0.08)',
-        backdropFilter: 'blur(10px)',
-        border: '1px solid rgba(255,255,255,0.15)',
-        borderRadius: '16px',
-        padding: '18px 32px',
-        marginBottom: '36px'
+        display: 'inline-flex', alignItems: 'center', gap: '32px', background: 'rgba(255,255,255,0.08)',
+        backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.15)', borderRadius: '16px',
+        padding: '18px 32px', marginBottom: '36px'
     },
-    statItem: {
-        display: 'flex', alignItems: 'center', gap: '12px',
-        color: '#ffffff'
-    },
-    statNum: {
-        fontSize: '22px', fontWeight: '800',
-        letterSpacing: '-0.5px', textAlign: 'left'
-    },
-    statLabel: {
-        fontSize: '11px', opacity: 0.7,
-        fontWeight: '600', letterSpacing: '0.5px',
-        textTransform: 'uppercase'
-    },
-    statDivider: {
-        width: '1px', height: '30px',
-        background: 'rgba(255,255,255,0.15)'
-    },
+    statItem: { display: 'flex', alignItems: 'center', gap: '12px', color: '#ffffff' },
+    statNum: { fontSize: '22px', fontWeight: '800', letterSpacing: '-0.5px', textAlign: 'left' },
+    statLabel: { fontSize: '11px', opacity: 0.7, fontWeight: '600', letterSpacing: '0.5px', textTransform: 'uppercase' },
+    statDivider: { width: '1px', height: '30px', background: 'rgba(255,255,255,0.15)' },
 
     /* HERO SEARCH */
-    heroSearchWrap: {
-        position: 'relative',
-        maxWidth: '600px',
-        margin: '0 auto'
-    },
+    heroSearchWrap: { position: 'relative', maxWidth: '600px', margin: '0 auto' },
     heroSearchIcon: {
-        position: 'absolute',
-        left: '22px',
-        top: '50%',
-        transform: 'translateY(-50%)',
-        fontSize: '20px',
-        color: '#9CA3AF',
-        zIndex: 2
+        position: 'absolute', left: '22px', top: '50%', transform: 'translateY(-50%)',
+        fontSize: '20px', color: '#9CA3AF', zIndex: 2
     },
     heroSearch: {
-        width: '100%',
-        padding: '18px 60px 18px 56px',
-        fontSize: '15px',
-        border: 'none',
-        borderRadius: '14px',
-        background: '#ffffff',
-        color: '#111827',
-        outline: 'none',
-        boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
-        fontFamily: 'inherit',
-        fontWeight: '500'
+        width: '100%', padding: '18px 60px 18px 56px', fontSize: '15px', border: 'none',
+        borderRadius: '14px', background: '#ffffff', color: '#111827', outline: 'none',
+        boxShadow: '0 10px 30px rgba(0,0,0,0.15)', fontFamily: 'inherit', fontWeight: '500'
     },
     heroSearchClear: {
-        position: 'absolute',
-        right: '12px',
-        top: '50%',
-        transform: 'translateY(-50%)',
-        width: '36px', height: '36px',
-        border: 'none',
-        background: '#F3F4F6',
-        borderRadius: '50%',
-        color: '#6B7280',
-        cursor: 'pointer',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
+        position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)',
+        width: '36px', height: '36px', border: 'none', background: '#F3F4F6', borderRadius: '50%',
+        color: '#6B7280', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center'
     },
 
     /* ═══ CATEGORY PILLS ═══ */
     pillsSection: {
-        background: '#ffffff',
-        borderBottom: '1px solid #F3F4F6',
-        padding: '20px 0',
-        position: 'sticky',
-        top: '88px',
-        zIndex: 50,
-        boxShadow: '0 2px 8px rgba(0,0,0,0.04)'
+        background: '#ffffff', borderBottom: '1px solid #F3F4F6', padding: '20px 0',
+        position: 'sticky', top: '88px', zIndex: 30, boxShadow: '0 2px 8px rgba(0,0,0,0.04)'
     },
-    pillsContainer: {
-        maxWidth: '1200px',
-        margin: '0 auto',
-        padding: '0 40px'
-    },
-    pillsScroll: {
-        display: 'flex',
-        gap: '10px',
-        overflowX: 'auto',
-        paddingBottom: '4px'
-    },
+    pillsContainer: { maxWidth: '1200px', margin: '0 auto', padding: '0 40px' },
+    pillsScroll: { display: 'flex', gap: '10px', overflowX: 'auto', paddingBottom: '4px' },
     pill: {
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: '8px',
-        padding: '10px 20px',
-        borderRadius: '100px',
-        border: '1.5px solid #E5E7EB',
-        background: '#ffffff',
-        color: '#4B5563',
-        fontSize: '13px',
-        fontWeight: '600',
-        cursor: 'pointer',
-        transition: 'all 0.25s ease',
-        whiteSpace: 'nowrap',
-        fontFamily: 'inherit',
-        flexShrink: 0
+        display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 20px',
+        borderRadius: '100px', border: '1.5px solid #E5E7EB', background: '#ffffff', color: '#4B5563',
+        fontSize: '13px', fontWeight: '600', cursor: 'pointer', transition: 'all 0.25s ease',
+        whiteSpace: 'nowrap', fontFamily: 'inherit', flexShrink: 0
     },
-    pillIcon: {
-        display: 'flex',
-        alignItems: 'center',
-        fontSize: '14px'
-    },
+    pillIcon: { display: 'flex', alignItems: 'center', fontSize: '14px' },
 
     /* ═══ MAIN ═══ */
-    mainSection: {
-        padding: '48px 0 80px'
-    },
-    container: {
-        maxWidth: '1200px',
-        margin: '0 auto',
-        padding: '0 40px'
-    },
+    mainSection: { padding: '48px 0 80px' },
+    container: { maxWidth: '1200px', margin: '0 auto', padding: '0 40px' },
     resultsHeader: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'flex-end',
-        marginBottom: '32px',
-        flexWrap: 'wrap',
-        gap: '16px'
+        display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end',
+        marginBottom: '32px', flexWrap: 'wrap', gap: '16px'
     },
-    resultsTitle: {
-        fontSize: '28px',
-        fontWeight: '800',
-        color: '#111827',
-        marginBottom: '6px',
-        letterSpacing: '-0.5px'
-    },
-    resultsCount: {
-        fontSize: '14px',
-        color: '#6B7280',
-        margin: 0
-    },
+    resultsTitle: { fontSize: '28px', fontWeight: '800', color: '#111827', marginBottom: '6px', letterSpacing: '-0.5px' },
+    resultsCount: { fontSize: '14px', color: '#6B7280', margin: 0 },
     clearBtn: {
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: '6px',
-        padding: '10px 18px',
-        background: '#FEE2E2',
-        color: '#DC2626',
-        border: 'none',
-        borderRadius: '10px',
-        fontSize: '13px',
-        fontWeight: '600',
-        cursor: 'pointer',
-        fontFamily: 'inherit',
-        transition: 'all 0.2s'
+        display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '10px 18px',
+        background: '#FEE2E2', color: '#DC2626', border: 'none', borderRadius: '10px',
+        fontSize: '13px', fontWeight: '600', cursor: 'pointer', fontFamily: 'inherit', transition: 'all 0.2s'
     },
 
     /* ═══ LOADING & EMPTY ═══ */
-    loadingBox: {
-        textAlign: 'center',
-        padding: '80px 20px',
-        color: '#6B7280'
-    },
+    loadingBox: { textAlign: 'center', padding: '80px 20px', color: '#6B7280' },
     loadingSpinner: {
-        width: '40px',
-        height: '40px',
-        border: '3px solid #E5E7EB',
-        borderTopColor: '#4F46E5',
-        borderRadius: '50%',
-        margin: '0 auto 20px',
-        animation: 'spin 0.8s linear infinite'
+        width: '40px', height: '40px', border: '3px solid #E5E7EB', borderTopColor: '#4F46E5',
+        borderRadius: '50%', margin: '0 auto 20px', animation: 'spin 0.8s linear infinite'
     },
-    emptyBox: {
-        textAlign: 'center',
-        padding: '80px 20px',
-        background: '#ffffff',
-        borderRadius: '20px',
-        border: '1px solid #F3F4F6'
-    },
+    emptyBox: { textAlign: 'center', padding: '80px 20px', background: '#ffffff', borderRadius: '20px', border: '1px solid #F3F4F6' },
     emptyIcon: { fontSize: '56px', marginBottom: '16px' },
-    emptyTitle: {
-        fontSize: '22px',
-        fontWeight: '800',
-        color: '#111827',
-        marginBottom: '8px'
-    },
-    emptyDesc: {
-        fontSize: '14px',
-        color: '#6B7280',
-        marginBottom: '24px'
-    },
+    emptyTitle: { fontSize: '22px', fontWeight: '800', color: '#111827', marginBottom: '8px' },
+    emptyDesc: { fontSize: '14px', color: '#6B7280', marginBottom: '24px' },
     emptyBtn: {
-        padding: '12px 28px',
-        background: '#4F46E5',
-        color: '#ffffff',
-        border: 'none',
-        borderRadius: '10px',
-        fontSize: '14px',
-        fontWeight: '700',
-        cursor: 'pointer',
-        fontFamily: 'inherit'
+        padding: '12px 28px', background: '#4F46E5', color: '#ffffff', border: 'none',
+        borderRadius: '10px', fontSize: '14px', fontWeight: '700', cursor: 'pointer', fontFamily: 'inherit'
     },
 
     /* ═══ CARDS GRID ═══ */
-    cardsGrid: {
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
-        gap: '24px'
-    },
+    cardsGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(340px, 100%), 1fr))', gap: '24px' },
     card: {
-        background: '#ffffff',
-        borderRadius: '20px',
-        border: '1.5px solid #F3F4F6',
-        overflow: 'hidden',
-        cursor: 'pointer',
-        transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
-        position: 'relative',
-        display: 'flex',
-        flexDirection: 'column'
+        background: '#ffffff', borderRadius: '20px', border: '1.5px solid #F3F4F6', overflow: 'hidden',
+        cursor: 'pointer', transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)', position: 'relative',
+        display: 'flex', flexDirection: 'column', minWidth: 0
     },
-    cardAccent: {
-        height: '4px',
-        width: '100%'
-    },
-    cardHeader: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '20px 22px 12px'
-    },
+    cardAccent: { height: '4px', width: '100%' },
+    cardHeader: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '8px', padding: '20px 22px 12px' },
     categoryBadge: {
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: '6px',
-        padding: '6px 12px',
-        borderRadius: '100px',
-        fontSize: '10.5px',
-        fontWeight: '800',
-        letterSpacing: '1px'
+        display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '6px 12px',
+        borderRadius: '100px', fontSize: '10.5px', fontWeight: '800', letterSpacing: '1px'
     },
-    categoryIcon: {
-        fontSize: '13px',
-        display: 'flex'
-    },
+    categoryIcon: { fontSize: '13px', display: 'flex' },
     statusChip: {
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: '6px',
-        padding: '4px 10px',
-        background: '#F0FDF4',
-        color: '#16A34A',
-        borderRadius: '100px',
-        fontSize: '11px',
-        fontWeight: '700'
+        display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '4px 10px', background: '#F0FDF4',
+        color: '#16A34A', borderRadius: '100px', fontSize: '11px', fontWeight: '700', flexShrink: 0
     },
-    statusDot: {
-        width: '6px',
-        height: '6px',
-        borderRadius: '50%',
-        background: '#16A34A',
-        animation: 'pulse 2s infinite'
-    },
+    statusDot: { width: '6px', height: '6px', borderRadius: '50%', background: '#16A34A', animation: 'pulse 2s infinite' },
 
-    cardBody: {
-        padding: '4px 22px 22px',
-        flex: 1,
-        display: 'flex',
-        flexDirection: 'column'
-    },
-    cardTitle: {
-        fontSize: '17px',
-        fontWeight: '800',
-        color: '#111827',
-        marginBottom: '10px',
-        lineHeight: '1.35',
-        minHeight: '46px'
-    },
-    cardDesc: {
-        fontSize: '13.5px',
-        color: '#6B7280',
-        lineHeight: '1.6',
-        marginBottom: '18px',
-        minHeight: '65px'
-    },
+    cardBody: { padding: '4px 22px 22px', flex: 1, display: 'flex', flexDirection: 'column' },
+    cardTitle: { fontSize: '17px', fontWeight: '800', color: '#111827', marginBottom: '10px', lineHeight: '1.35', minHeight: '46px', wordBreak: 'break-word' },
+    cardDesc: { fontSize: '13.5px', color: '#6B7280', lineHeight: '1.6', marginBottom: '18px', minHeight: '65px' },
 
     /* INFO GRID */
     infoGrid: {
-        display: 'flex',
-        alignItems: 'center',
-        background: '#F9FAFB',
-        borderRadius: '12px',
-        padding: '14px',
-        marginBottom: '14px',
-        border: '1px solid #F3F4F6'
+        display: 'flex', alignItems: 'center', background: '#F9FAFB', borderRadius: '12px',
+        padding: '14px', marginBottom: '14px', border: '1px solid #F3F4F6'
     },
-    infoItem: {
-        flex: 1,
-        textAlign: 'center'
-    },
-    infoLabel: {
-        fontSize: '10px',
-        fontWeight: '700',
-        color: '#9CA3AF',
-        letterSpacing: '1px',
-        marginBottom: '4px'
-    },
-    infoValue: {
-        fontSize: '14px',
-        fontWeight: '800',
-        color: '#111827'
-    },
-    infoDivider: {
-        width: '1px',
-        height: '30px',
-        background: '#E5E7EB'
-    },
+    infoItem: { flex: 1, textAlign: 'center', minWidth: 0 },
+    infoLabel: { fontSize: '10px', fontWeight: '700', color: '#9CA3AF', letterSpacing: '1px', marginBottom: '4px' },
+    infoValue: { fontSize: '14px', fontWeight: '800', color: '#111827' },
+    infoDivider: { width: '1px', height: '30px', background: '#E5E7EB' },
 
     benefitBox: {
-        display: 'flex',
-        alignItems: 'center',
-        gap: '8px',
-        padding: '10px 14px',
-        background: '#F0FDF4',
-        border: '1px solid #BBF7D0',
-        borderRadius: '10px',
-        marginBottom: '16px'
+        display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 14px', background: '#F0FDF4',
+        border: '1px solid #BBF7D0', borderRadius: '10px', marginBottom: '16px'
     },
-    benefitIcon: {
-        fontSize: '14px'
-    },
-    benefitText: {
-        fontSize: '12px',
-        color: '#166534',
-        fontWeight: '600',
-        lineHeight: '1.5'
-    },
+    benefitIcon: { fontSize: '14px' },
+    benefitText: { fontSize: '12px', color: '#166534', fontWeight: '600', lineHeight: '1.5' },
 
     cardFooter: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        paddingTop: '14px',
-        borderTop: '1px dashed #E5E7EB',
-        marginTop: 'auto'
+        display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '14px',
+        borderTop: '1px dashed #E5E7EB', marginTop: 'auto'
     },
-    viewLink: {
-        display: 'inline-flex',
-        alignItems: 'center',
-        fontSize: '13px',
-        fontWeight: '700'
-    },
+    viewLink: { display: 'inline-flex', alignItems: 'center', fontSize: '13px', fontWeight: '700' },
     locationChip: {
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: '4px',
-        padding: '4px 10px',
-        background: '#EEF2FF',
-        color: '#4338CA',
-        borderRadius: '100px',
-        fontSize: '11px',
-        fontWeight: '700'
+        display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '4px 10px', background: '#EEF2FF',
+        color: '#4338CA', borderRadius: '100px', fontSize: '11px', fontWeight: '700'
     },
 
     /* ═══ PAGINATION ═══ */
-    paginationWrap: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        gap: '10px',
-        marginTop: '48px',
-        flexWrap: 'wrap'
-    },
-    pageNumbers: {
-        display: 'flex',
-        alignItems: 'center',
-        gap: '6px'
-    },
+    paginationWrap: { display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px', marginTop: '48px', flexWrap: 'wrap' },
+    pageNumbers: { display: 'flex', alignItems: 'center', gap: '6px' },
     pageBtn: {
-        minWidth: '42px',
-        height: '42px',
-        padding: '0 14px',
-        background: '#ffffff',
-        border: '1.5px solid #E5E7EB',
-        borderRadius: '10px',
-        fontSize: '14px',
-        fontWeight: '700',
-        color: '#4B5563',
-        cursor: 'pointer',
-        transition: 'all 0.2s ease',
-        fontFamily: 'inherit',
-        display: 'inline-flex',
-        alignItems: 'center',
-        justifyContent: 'center'
+        minWidth: '42px', height: '42px', padding: '0 14px', background: '#ffffff', border: '1.5px solid #E5E7EB',
+        borderRadius: '10px', fontSize: '14px', fontWeight: '700', color: '#4B5563', cursor: 'pointer',
+        transition: 'all 0.2s ease', fontFamily: 'inherit', display: 'inline-flex', alignItems: 'center', justifyContent: 'center'
     },
     pageBtnActive: {
-        background: 'linear-gradient(135deg, #4F46E5 0%, #4338CA 100%)',
-        color: '#ffffff',
-        border: '1.5px solid #4F46E5',
-        boxShadow: '0 6px 16px rgba(79,70,229,0.35)'
+        background: 'linear-gradient(135deg, #4F46E5 0%, #4338CA 100%)', color: '#ffffff',
+        border: '1.5px solid #4F46E5', boxShadow: '0 6px 16px rgba(79,70,229,0.35)'
     },
-    pageArrow: {
-        fontWeight: '600',
-        color: '#111827'
-    },
-    pageDots: {
-        color: '#9CA3AF',
-        fontWeight: '700',
-        padding: '0 4px'
-    },
-    pageInfo: {
-        textAlign: 'center',
-        marginTop: '16px',
-        fontSize: '13px',
-        color: '#6B7280',
-        fontWeight: '500'
-    },
+    pageArrow: { fontWeight: '600', color: '#111827' },
+    pageDots: { color: '#9CA3AF', fontWeight: '700', padding: '0 4px' },
+    pageInfo: { textAlign: 'center', marginTop: '16px', fontSize: '13px', color: '#6B7280', fontWeight: '500' },
 
     /* ═══ CTA BOX ═══ */
     ctaBox: {
-        marginTop: '60px',
-        background: 'linear-gradient(135deg, #1E1B4B 0%, #4F46E5 100%)',
-        borderRadius: '24px',
-        padding: '48px 44px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        gap: '32px',
-        flexWrap: 'wrap',
-        position: 'relative',
-        overflow: 'hidden'
+        marginTop: '60px', background: 'linear-gradient(135deg, #1E1B4B 0%, #4F46E5 100%)', borderRadius: '24px',
+        padding: '48px 44px', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        gap: '32px', flexWrap: 'wrap', position: 'relative', overflow: 'hidden'
     },
-    ctaLeft: {
-        flex: 1,
-        minWidth: '280px'
-    },
+    ctaLeft: { flex: 1, minWidth: '280px' },
     ctaBadge: {
-        display: 'inline-flex',
-        alignItems: 'center',
-        background: 'rgba(255,255,255,0.15)',
-        color: '#ffffff',
-        padding: '6px 14px',
-        borderRadius: '100px',
-        fontSize: '11px',
-        fontWeight: '700',
-        letterSpacing: '1.5px',
-        marginBottom: '14px'
+        display: 'inline-flex', alignItems: 'center', background: 'rgba(255,255,255,0.15)', color: '#ffffff',
+        padding: '6px 14px', borderRadius: '100px', fontSize: '11px', fontWeight: '700', letterSpacing: '1.5px', marginBottom: '14px'
     },
-    ctaTitle: {
-        fontSize: '26px',
-        fontWeight: '800',
-        color: '#ffffff',
-        marginBottom: '10px',
-        letterSpacing: '-0.5px'
-    },
-    ctaDesc: {
-        fontSize: '14.5px',
-        color: 'rgba(255,255,255,0.8)',
-        lineHeight: '1.7',
-        margin: 0
-    },
+    ctaTitle: { fontSize: '26px', fontWeight: '800', color: '#ffffff', marginBottom: '10px', letterSpacing: '-0.5px' },
+    ctaDesc: { fontSize: '14.5px', color: 'rgba(255,255,255,0.8)', lineHeight: '1.7', margin: 0 },
     ctaBtn: {
-        display: 'inline-flex',
-        alignItems: 'center',
-        padding: '16px 32px',
-        background: 'linear-gradient(135deg, #FF9933 0%, #F97316 100%)',
-        color: '#ffffff',
-        border: 'none',
-        borderRadius: '12px',
-        fontSize: '14.5px',
-        fontWeight: '700',
-        cursor: 'pointer',
-        boxShadow: '0 10px 30px rgba(249,115,22,0.4)',
-        fontFamily: 'inherit',
-        letterSpacing: '0.3px',
-        flexShrink: 0
+        display: 'inline-flex', alignItems: 'center', padding: '16px 32px',
+        background: 'linear-gradient(135deg, #FF9933 0%, #F97316 100%)', color: '#ffffff', border: 'none',
+        borderRadius: '12px', fontSize: '14.5px', fontWeight: '700', cursor: 'pointer',
+        boxShadow: '0 10px 30px rgba(249,115,22,0.4)', fontFamily: 'inherit', letterSpacing: '0.3px', flexShrink: 0
     }
 };
 

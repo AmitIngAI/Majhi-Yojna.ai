@@ -42,7 +42,7 @@ const BenefitTimeline = () => {
 
     const currentAge = profile?.age || 25;
 
-    // ─── Age Milestones (matching image) ───
+    // ─── Age Milestones ───
     const ageStages = [
         { age: currentAge, icon: <FiUser />, label: 'Years', bg: '#DBEAFE', color: '#3B82F6', current: true },
         { age: 30, icon: <FaUsers />, label: 'Years', bg: '#D1FAE5', color: '#10B981' },
@@ -58,10 +58,10 @@ const BenefitTimeline = () => {
         currentAge >= (s.ageMin || 0) && currentAge <= (s.ageMax || 100)
     );
 
-    // ─── Future Eligibility (Next 10 Years) ───
+    // ─── Future Eligibility (Next 10 Years) — ab sach me 10 saal ───
     const futureSchemes = allSchemes.filter(s => {
         const minAge = s.ageMin || 0;
-        return minAge > currentAge && minAge <= currentAge + 40;
+        return minAge > currentAge && minAge <= currentAge + 10;
     }).sort((a, b) => (a.ageMin || 0) - (b.ageMin || 0));
 
     // ─── Life Stage Groups ───
@@ -159,7 +159,7 @@ const BenefitTimeline = () => {
                 </div>
             </div>
 
-            {/* ─── AGE ROADMAP VISUAL (Always Show) ─── */}
+            {/* ─── AGE ROADMAP VISUAL ─── */}
             <div style={styles.roadmapCard}>
                 <h2 style={styles.roadmapTitle}>Your Age-based Roadmap</h2>
 
@@ -286,7 +286,7 @@ const BenefitTimeline = () => {
                         })}
                         {futureSchemes.length === 0 && (
                             <div style={styles.emptyMini}>
-                                <p style={{ color: '#6B7280', fontSize: 13 }}>You're eligible for most age-based schemes!</p>
+                                <p style={{ color: '#6B7280', fontSize: 13 }}>No new age-based schemes open in the next 10 years.</p>
                             </div>
                         )}
                     </div>
@@ -349,416 +349,79 @@ const BenefitTimeline = () => {
 };
 
 const styles = {
-    wrapper: {
-        padding: '20px 0',
-        maxWidth: 1400,
-        margin: '0 auto'
-    },
-    loadingWrap: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        padding: 80,
-        gap: 16
-    },
-    spinner: {
-        width: 48,
-        height: 48,
-        border: '4px solid #E5E7EB',
-        borderTopColor: '#3B82F6',
-        borderRadius: '50%',
-        animation: 'spin 0.8s linear infinite'
-    },
+    wrapper: { padding: '20px 0', maxWidth: 1400, margin: '0 auto' },
+    loadingWrap: { display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 80, gap: 16 },
+    spinner: { width: 48, height: 48, border: '4px solid #E5E7EB', borderTopColor: '#3B82F6', borderRadius: '50%', animation: 'spin 0.8s linear infinite' },
 
-    header: {
-        marginBottom: 24
-    },
-    pageTitle: {
-        fontSize: 32,
-        fontWeight: 800,
-        color: '#111827',
-        marginBottom: 6,
-        letterSpacing: -0.5
-    },
-    pageDesc: {
-        fontSize: 14,
-        color: '#6B7280'
-    },
+    header: { marginBottom: 24 },
+    pageTitle: { fontSize: 32, fontWeight: 800, color: '#111827', marginBottom: 6, letterSpacing: -0.5 },
+    pageDesc: { fontSize: 14, color: '#6B7280' },
 
     /* ─── TABS ─── */
-    tabsCard: {
-        background: '#ffffff',
-        padding: 8,
-        borderRadius: 14,
-        border: '1px solid #E5E7EB',
-        display: 'flex',
-        gap: 4,
-        marginBottom: 20
-    },
-    tab: {
-        flex: 1,
-        display: 'inline-flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: 8,
-        padding: '14px 20px',
-        background: 'transparent',
-        color: '#6B7280',
-        border: 'none',
-        borderRadius: 10,
-        fontSize: 14,
-        fontWeight: 600,
-        cursor: 'pointer',
-        transition: 'all 0.2s',
-        borderBottom: '3px solid transparent'
-    },
-    tabActive: {
-        background: 'transparent',
-        color: '#3B82F6',
-        fontWeight: 700,
-        borderBottom: '3px solid #3B82F6'
-    },
-    tabIcon: {
-        fontSize: 16
-    },
+    tabsCard: { background: '#ffffff', padding: 8, borderRadius: 14, border: '1px solid #E5E7EB', display: 'flex', gap: 4, marginBottom: 20 },
+    tab: { flex: 1, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '14px 20px', background: 'transparent', color: '#6B7280', border: 'none', borderRadius: 10, fontSize: 14, fontWeight: 600, cursor: 'pointer', transition: 'all 0.2s', borderBottom: '3px solid transparent' },
+    tabActive: { background: 'transparent', color: '#3B82F6', fontWeight: 700, borderBottom: '3px solid #3B82F6' },
+    tabIcon: { fontSize: 16 },
 
     /* ─── ROADMAP VISUAL ─── */
-    roadmapCard: {
-        background: '#ffffff',
-        padding: 30,
-        borderRadius: 16,
-        border: '1px solid #E5E7EB',
-        marginBottom: 20
-    },
-    roadmapTitle: {
-        fontSize: 18,
-        fontWeight: 800,
-        color: '#111827',
-        marginBottom: 30
-    },
+    roadmapCard: { background: '#ffffff', padding: 30, borderRadius: 16, border: '1px solid #E5E7EB', marginBottom: 20 },
+    roadmapTitle: { fontSize: 18, fontWeight: 800, color: '#111827', marginBottom: 30 },
 
-    timeline: {
-        position: 'relative',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'flex-start',
-        padding: '40px 20px 20px',
-        marginBottom: 30
-    },
-    timelineLine: {
-        position: 'absolute',
-        top: 78,
-        left: 60,
-        right: 60,
-        height: 2,
-        background: 'repeating-linear-gradient(90deg, #D1D5DB 0, #D1D5DB 6px, transparent 6px, transparent 12px)',
-        zIndex: 0
-    },
-    timelineNode: {
-        position: 'relative',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        zIndex: 2,
-        minWidth: 80
-    },
-    nowLabel: {
-        position: 'absolute',
-        top: -30,
-        background: 'transparent',
-        color: '#111827',
-        fontSize: 14,
-        fontWeight: 700
-    },
-    nodeCircle: {
-        width: 60,
-        height: 60,
-        borderRadius: '50%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: 22,
-        marginBottom: 12,
-        background: '#F3F4F6'
-    },
-    nodeAge: {
-        fontSize: 20,
-        fontWeight: 800,
-        marginBottom: 2
-    },
-    nodeLabel: {
-        fontSize: 12,
-        color: '#6B7280',
-        fontWeight: 600
-    },
+    timeline: { position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', padding: '40px 20px 20px', marginBottom: 30 },
+    timelineLine: { position: 'absolute', top: 78, left: 60, right: 60, height: 2, background: 'repeating-linear-gradient(90deg, #D1D5DB 0, #D1D5DB 6px, transparent 6px, transparent 12px)', zIndex: 0 },
+    timelineNode: { position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 2, minWidth: 80 },
+    nowLabel: { position: 'absolute', top: -30, background: 'transparent', color: '#111827', fontSize: 14, fontWeight: 700 },
+    nodeCircle: { width: 60, height: 60, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, marginBottom: 12, background: '#F3F4F6' },
+    nodeAge: { fontSize: 20, fontWeight: 800, marginBottom: 2 },
+    nodeLabel: { fontSize: 12, color: '#6B7280', fontWeight: 600 },
 
     /* ─── LEGEND ─── */
-    legend: {
-        display: 'flex',
-        justifyContent: 'center',
-        gap: 30,
-        flexWrap: 'wrap',
-        padding: '20px 0 0',
-        borderTop: '1px solid #F3F4F6'
-    },
-    legendItem: {
-        display: 'flex',
-        alignItems: 'center',
-        gap: 8,
-        fontSize: 13,
-        color: '#374151',
-        fontWeight: 600
-    },
-    legendDot: {
-        width: 12,
-        height: 12,
-        borderRadius: 3
-    },
+    legend: { display: 'flex', justifyContent: 'center', gap: 30, flexWrap: 'wrap', padding: '20px 0 0', borderTop: '1px solid #F3F4F6' },
+    legendItem: { display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: '#374151', fontWeight: 600 },
+    legendDot: { width: 12, height: 12, borderRadius: 3 },
 
     /* ─── 3 COLUMN GRID ─── */
-    threeColGrid: {
-        display: 'grid',
-        gridTemplateColumns: 'repeat(3, 1fr)',
-        gap: 20,
-        marginBottom: 20
-    },
-    column: {
-        background: '#ffffff',
-        padding: 20,
-        borderRadius: 16,
-        border: '1px solid #E5E7EB',
-        display: 'flex',
-        flexDirection: 'column'
-    },
-    columnHeader: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: 16,
-        paddingBottom: 14,
-        borderBottom: '1px solid #F3F4F6'
-    },
-    columnTitle: {
-        fontSize: 15,
-        fontWeight: 800,
-        color: '#111827'
-    },
-    columnBadge: {
-        background: '#EEF2FF',
-        color: '#4F46E5',
-        padding: '4px 10px',
-        borderRadius: 100,
-        fontSize: 11,
-        fontWeight: 700
-    },
+    threeColGrid: { display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginBottom: 20 },
+    column: { background: '#ffffff', padding: 20, borderRadius: 16, border: '1px solid #E5E7EB', display: 'flex', flexDirection: 'column' },
+    columnHeader: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16, paddingBottom: 14, borderBottom: '1px solid #F3F4F6' },
+    columnTitle: { fontSize: 15, fontWeight: 800, color: '#111827' },
+    columnBadge: { background: '#EEF2FF', color: '#4F46E5', padding: '4px 10px', borderRadius: 100, fontSize: 11, fontWeight: 700 },
 
     /* ─── SCHEME ITEMS ─── */
-    schemeItemsList: {
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 10,
-        flex: 1
-    },
-    schemeItemLink: {
-        display: 'flex',
-        alignItems: 'center',
-        gap: 12,
-        padding: 12,
-        background: '#F9FAFB',
-        borderRadius: 10,
-        textDecoration: 'none',
-        transition: 'all 0.2s',
-        border: '1px solid transparent'
-    },
-    schemeIcon: {
-        width: 40,
-        height: 40,
-        borderRadius: 10,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: 18,
-        flexShrink: 0
-    },
-    schemeInfo: {
-        flex: 1,
-        minWidth: 0
-    },
-    schemeName: {
-        fontSize: 13,
-        fontWeight: 700,
-        color: '#111827',
-        marginBottom: 4,
-        lineHeight: 1.3
-    },
-    schemeSubtext: {
-        fontSize: 11,
-        color: '#6B7280',
-        lineHeight: 1.4
-    },
-    chevron: {
-        color: '#9CA3AF',
-        fontSize: 16,
-        flexShrink: 0
-    },
+    schemeItemsList: { display: 'flex', flexDirection: 'column', gap: 10, flex: 1 },
+    schemeItemLink: { display: 'flex', alignItems: 'center', gap: 12, padding: 12, background: '#F9FAFB', borderRadius: 10, textDecoration: 'none', transition: 'all 0.2s', border: '1px solid transparent' },
+    schemeIcon: { width: 40, height: 40, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, flexShrink: 0 },
+    schemeInfo: { flex: 1, minWidth: 0 },
+    schemeName: { fontSize: 13, fontWeight: 700, color: '#111827', marginBottom: 4, lineHeight: 1.3 },
+    schemeSubtext: { fontSize: 11, color: '#6B7280', lineHeight: 1.4 },
+    chevron: { color: '#9CA3AF', fontSize: 16, flexShrink: 0 },
 
     /* ─── FUTURE ITEMS ─── */
-    futureItemLink: {
-        display: 'flex',
-        alignItems: 'center',
-        gap: 12,
-        padding: 12,
-        background: '#F9FAFB',
-        borderRadius: 10,
-        textDecoration: 'none',
-        transition: 'all 0.2s'
-    },
-    yearBadge: {
-        background: '#F97316',
-        color: '#ffffff',
-        borderRadius: 8,
-        padding: '8px 10px',
-        textAlign: 'center',
-        minWidth: 50,
-        flexShrink: 0
-    },
-    yearNumber: {
-        fontSize: 16,
-        fontWeight: 800,
-        lineHeight: 1
-    },
-    yearText: {
-        fontSize: 9,
-        fontWeight: 600,
-        opacity: 0.9,
-        marginTop: 2
-    },
-    atAgeBadge: {
-        background: '#DBEAFE',
-        color: '#1E40AF',
-        padding: '4px 10px',
-        borderRadius: 6,
-        fontSize: 11,
-        fontWeight: 700,
-        whiteSpace: 'nowrap',
-        flexShrink: 0
-    },
+    futureItemLink: { display: 'flex', alignItems: 'center', gap: 12, padding: 12, background: '#F9FAFB', borderRadius: 10, textDecoration: 'none', transition: 'all 0.2s' },
+    yearBadge: { background: '#F97316', color: '#ffffff', borderRadius: 8, padding: '8px 10px', textAlign: 'center', minWidth: 50, flexShrink: 0 },
+    yearNumber: { fontSize: 16, fontWeight: 800, lineHeight: 1 },
+    yearText: { fontSize: 9, fontWeight: 600, opacity: 0.9, marginTop: 2 },
+    atAgeBadge: { background: '#DBEAFE', color: '#1E40AF', padding: '4px 10px', borderRadius: 6, fontSize: 11, fontWeight: 700, whiteSpace: 'nowrap', flexShrink: 0 },
 
     /* ─── LIFE STAGE ITEMS ─── */
-    lifeStageItem: {
-        display: 'flex',
-        alignItems: 'center',
-        gap: 12,
-        padding: 12,
-        background: '#F9FAFB',
-        borderRadius: 10,
-        cursor: 'pointer',
-        transition: 'all 0.2s'
-    },
-    stageIcon: {
-        width: 40,
-        height: 40,
-        borderRadius: 10,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: 18,
-        flexShrink: 0
-    },
-    stageInfo: {
-        flex: 1,
-        minWidth: 0
-    },
-    stageTitle: {
-        fontSize: 13,
-        fontWeight: 700,
-        color: '#111827',
-        marginBottom: 4
-    },
-    stageRange: {
-        fontSize: 11,
-        color: '#6B7280',
-        fontWeight: 500
-    },
-    stageDesc: {
-        fontSize: 11,
-        color: '#6B7280',
-        lineHeight: 1.4
-    },
-    stageCount: {
-        background: '#F3F4F6',
-        color: '#374151',
-        padding: '4px 10px',
-        borderRadius: 6,
-        fontSize: 11,
-        fontWeight: 700,
-        whiteSpace: 'nowrap',
-        flexShrink: 0
-    },
+    lifeStageItem: { display: 'flex', alignItems: 'center', gap: 12, padding: 12, background: '#F9FAFB', borderRadius: 10, cursor: 'pointer', transition: 'all 0.2s' },
+    stageIcon: { width: 40, height: 40, borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, flexShrink: 0 },
+    stageInfo: { flex: 1, minWidth: 0 },
+    stageTitle: { fontSize: 13, fontWeight: 700, color: '#111827', marginBottom: 4 },
+    stageRange: { fontSize: 11, color: '#6B7280', fontWeight: 500 },
+    stageDesc: { fontSize: 11, color: '#6B7280', lineHeight: 1.4 },
+    stageCount: { background: '#F3F4F6', color: '#374151', padding: '4px 10px', borderRadius: 6, fontSize: 11, fontWeight: 700, whiteSpace: 'nowrap', flexShrink: 0 },
 
-    emptyMini: {
-        padding: 20,
-        textAlign: 'center'
-    },
+    emptyMini: { padding: 20, textAlign: 'center' },
 
-    viewAllLink: {
-        display: 'block',
-        textAlign: 'center',
-        marginTop: 16,
-        padding: '10px 0',
-        color: '#3B82F6',
-        fontSize: 13,
-        fontWeight: 700,
-        textDecoration: 'none',
-        borderTop: '1px solid #F3F4F6'
-    },
+    viewAllLink: { display: 'block', textAlign: 'center', marginTop: 16, padding: '10px 0', color: '#3B82F6', fontSize: 13, fontWeight: 700, textDecoration: 'none', borderTop: '1px solid #F3F4F6' },
 
     /* ─── TIP BAR ─── */
-    tipBar: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '16px 24px',
-        background: '#EFF6FF',
-        border: '1px solid #BFDBFE',
-        borderRadius: 12,
-        flexWrap: 'wrap',
-        gap: 16
-    },
-    tipLeft: {
-        display: 'flex',
-        alignItems: 'center',
-        gap: 14,
-        flex: 1
-    },
-    tipIcon: {
-        width: 36,
-        height: 36,
-        borderRadius: 8,
-        background: '#3B82F6',
-        color: '#ffffff',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: 18,
-        flexShrink: 0
-    },
-    tipStrong: {
-        color: '#1E40AF'
-    },
-    updateBtn: {
-        display: 'inline-flex',
-        alignItems: 'center',
-        background: '#ffffff',
-        color: '#374151',
-        padding: '10px 20px',
-        borderRadius: 8,
-        border: '1px solid #D1D5DB',
-        fontSize: 13,
-        fontWeight: 700,
-        textDecoration: 'none',
-        whiteSpace: 'nowrap'
-    }
+    tipBar: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 24px', background: '#EFF6FF', border: '1px solid #BFDBFE', borderRadius: 12, flexWrap: 'wrap', gap: 16 },
+    tipLeft: { display: 'flex', alignItems: 'center', gap: 14, flex: 1 },
+    tipIcon: { width: 36, height: 36, borderRadius: 8, background: '#3B82F6', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, flexShrink: 0 },
+    tipStrong: { color: '#1E40AF' },
+    updateBtn: { display: 'inline-flex', alignItems: 'center', background: '#ffffff', color: '#374151', padding: '10px 20px', borderRadius: 8, border: '1px solid #D1D5DB', fontSize: 13, fontWeight: 700, textDecoration: 'none', whiteSpace: 'nowrap' }
 };
 
 export default BenefitTimeline;

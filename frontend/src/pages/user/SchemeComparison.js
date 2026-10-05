@@ -7,6 +7,24 @@ import {
 } from 'react-icons/fi';
 import { HiSparkles } from 'react-icons/hi2';
 
+// ─── Scheme kitna "open" hai (kam restrictions = zyada open) ───
+const isOpen = (value, openValues) =>
+    !value || openValues.includes(String(value).toLowerCase());
+
+const getOpenness = (s) => {
+    const checks = [
+        isOpen(s.genderRequired, ['all', 'any']),
+        isOpen(s.categoryRequired, ['all', 'any']),
+        isOpen(s.occupationRequired, ['any', 'all']),
+        isOpen(s.educationRequired, ['any', 'all']),
+        isOpen(s.ruralUrbanRequired, ['rural & urban', 'both', 'all', 'any']),
+        isOpen(s.bplRequired, ['any', 'all', 'no']),
+        !s.incomeLimit,
+        ((s.ageMax || 100) - (s.ageMin || 0)) >= 40
+    ];
+    return { open: checks.filter(Boolean).length, total: checks.length };
+};
+
 const SchemeComparison = () => {
     const [allSchemes, setAllSchemes] = useState([]);
     const [selectedSchemes, setSelectedSchemes] = useState([null, null, null]);
@@ -50,6 +68,23 @@ const SchemeComparison = () => {
 
     const validSchemes = selectedSchemes.filter(s => s !== null);
     const showComparison = validSchemes.length >= 2;
+
+    // ─── Asli calculation: kaun sa scheme sabse open hai ───
+    let bestScheme = null;
+    let bestOpenness = null;
+    let isTie = false;
+    if (showComparison) {
+        validSchemes.forEach((s) => {
+            const o = getOpenness(s);
+            if (!bestOpenness || o.open > bestOpenness.open) {
+                bestScheme = s;
+                bestOpenness = o;
+                isTie = false;
+            } else if (o.open === bestOpenness.open) {
+                isTie = true;
+            }
+        });
+    }
 
     if (loading) {
         return (
@@ -211,13 +246,25 @@ const SchemeComparison = () => {
                         </table>
                     </div>
 
-                    {/* AI Recommendation */}
+                    {/* Widest Eligibility (asli calculation) */}
                     <div style={styles.aiBox}>
                         <HiSparkles style={{ fontSize: 32, color: '#F97316' }} />
                         <div style={{ flex: 1 }}>
-                            <h4 style={styles.aiTitle}>💡 Best Match Recommendation</h4>
+                            <h4 style={styles.aiTitle}>💡 Widest Eligibility</h4>
                             <p style={styles.aiDesc}>
-                                Based on the comparison, <strong>{validSchemes[0].schemeName}</strong> appears to have the widest eligibility criteria. Check the details to see which one best suits your profile.
+                                {isTie ? (
+                                    <>
+                                        <strong>{bestScheme.schemeName}</strong> aur kuch aur selected schemes me
+                                        barabar restrictions hain ({bestOpenness.open} of {bestOpenness.total} criteria sabke liye open).
+                                    </>
+                                ) : (
+                                    <>
+                                        <strong>{bestScheme.schemeName}</strong> me sabse kam restrictions hain
+                                        ({bestOpenness.open} of {bestOpenness.total} criteria sabke liye open).
+                                    </>
+                                )}{' '}
+                                Ye sirf scheme ke rules compare karta hai, aapki profile se match nahi karta.
+                                Apni eligibility ke liye Eligibility Check use karo.
                             </p>
                         </div>
                     </div>

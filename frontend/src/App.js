@@ -81,9 +81,9 @@ const AppRoutes = () => {
     const hideNavbar = isLoggedIn && isDashboardRoute;
 
     return (
-        <>
+        <div className="app">
             {!hideNavbar && <Navbar />}
-            <main style={{ minHeight: hideNavbar ? '100vh' : '80vh' }}>
+            <main className="app-main">
                 <Routes>
 
                     {/* ═══════ PUBLIC PAGES ═══════ */}
@@ -209,7 +209,7 @@ const AppRoutes = () => {
                 </Routes>
             </main>
             {!hideNavbar && <Footer />}
-        </>
+        </div>
     );
 };
 

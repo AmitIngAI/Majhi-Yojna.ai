@@ -16,7 +16,7 @@ const Footer = () => {
     const productLinks = [
         { label: 'All Schemes', to: '/schemes' },
         { label: 'AI Recommendations', to: '/user/recommendations' },
-        { label: 'Check Eligibility', to: '/user/recommendations' },
+        { label: 'Check Eligibility', to: '/user/eligibility' },
         { label: 'Saved Schemes', to: '/user/saved' },
         { label: 'Dashboard', to: '/user/dashboard' }
     ];
@@ -38,12 +38,12 @@ const Footer = () => {
         <footer style={styles.footer}>
             <div style={styles.topAccent}></div>
 
-            <div style={styles.container}>
+            <div style={styles.container} className="mj-footer-container">
 
-                <div style={styles.topSection}>
+                <div style={styles.topSection} className="mj-footer-grid">
 
                     {/* Brand Column */}
-                    <div style={styles.brandCol}>
+                    <div style={styles.brandCol} className="mj-footer-brand">
                         <div style={styles.logoWrap}>
                             {/* Government Building Logo */}
                             <div style={styles.logoIcon}>
@@ -68,13 +68,13 @@ const Footer = () => {
                             </div>
 
                             {/* Brand Text - Marathi + English */}
-                            <div style={styles.brandTextWrap}>
+                            <div style={styles.brandTextWrap} className="notranslate" translate="no">
                                 <span style={styles.brandNameMarathi}>
                                     <span style={styles.marathiOrange}>माझी</span>
                                     <span style={styles.marathiDash}>-</span>
                                     <span style={styles.marathiGreen}>योजना</span>
                                 </span>
-                                <span style={styles.brandNameEnglish}>
+                                <span style={styles.brandNameEnglish} className="mj-brand-eng">
                                     Majhi Yojana
                                 </span>
                             </div>
@@ -145,7 +145,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div style={styles.bottomBar}>
+                <div style={styles.bottomBar} className="mj-footer-bottom">
                     <div style={styles.copyrightWrap}>
                         <span style={styles.copyrightText}>
                             © 2026 <strong style={{ color: '#fff' }}>Majhi Yojana</strong> — All Rights Reserved.
@@ -186,7 +186,7 @@ const styles = {
     },
     topSection: {
         display: 'grid',
-        gridTemplateColumns: '2fr 1fr 1fr 1fr 1.4fr',
+        gridTemplateColumns: '2fr 1fr 1fr 1fr',
         gap: '50px',
         marginBottom: '50px'
     },
@@ -207,7 +207,8 @@ const styles = {
         justifyContent: 'center',
         padding: '2px',
         boxShadow: '0 4px 14px rgba(255,255,255,0.15)',
-        border: '2px solid rgba(255,255,255,0.1)'
+        border: '2px solid rgba(255,255,255,0.1)',
+        flexShrink: 0
     },
 
     // ═══ BRAND TEXT (Marathi + English) ═══

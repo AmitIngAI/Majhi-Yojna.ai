@@ -1,4 +1,3 @@
-@import './styles/custom.css';
 /* Prevent translation of these elements */
 .notranslate {
     translate: no;

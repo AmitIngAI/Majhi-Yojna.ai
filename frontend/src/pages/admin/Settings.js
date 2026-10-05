@@ -163,8 +163,6 @@ const AdminSettings = () => {
                         <SecurityItem icon="🔐" title="Account Role" value={user?.role || 'ADMIN'} />
                         <SecurityItem icon="✅" title="Account Status" value="Active" color="#10B981" />
                         <SecurityItem icon="🛡️" title="2FA Status" value="Not enabled" color="#F59E0B" />
-                        <SecurityItem icon="📧" title="Email Verified" value="Yes" color="#10B981" />
-                        <SecurityItem icon="🕐" title="Last Login" value="Recently" />
                         <SecurityItem icon="🔑" title="Session Type" value="JWT Token" />
                     </div>
                 </div>
@@ -180,7 +178,7 @@ const Field = ({ label, icon, type = 'text', value, onChange, disabled, rightIco
             <span style={{ color: '#6B7280', marginRight: 8 }}>{icon}</span>
             <input type={type} value={value || ''} onChange={(e) => onChange && onChange(e.target.value)}
                 disabled={disabled}
-                style={{ flex: 1, padding: '12px 0', border: 'none', outline: 'none', fontSize: 14, background: 'transparent' }} />
+                style={{ flex: 1, padding: '12px 0', border: 'none', outline: 'none', fontSize: 14, background: 'transparent', minWidth: 0 }} />
             {rightIcon}
         </div>
     </div>
@@ -202,7 +200,7 @@ const s = {
     title: { fontSize: 28, fontWeight: 800, color: '#111827', display: 'flex', alignItems: 'center' },
     desc: { fontSize: 14, color: '#6B7280', marginTop: 4 },
     msgBar: { padding: 14, borderRadius: 10, marginBottom: 16, fontWeight: 600 },
-    tabsCard: { display: 'flex', gap: 4, background: '#fff', padding: 8, borderRadius: 12, border: '1px solid #E5E7EB', marginBottom: 20 },
+    tabsCard: { display: 'flex', gap: 4, background: '#fff', padding: 8, borderRadius: 12, border: '1px solid #E5E7EB', marginBottom: 20, flexWrap: 'wrap' },
     tab: { flex: 1, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '12px 20px', background: 'transparent', color: '#6B7280', border: 'none', borderRadius: 8, fontSize: 13, fontWeight: 700, cursor: 'pointer' },
     tabActive: { background: '#4F46E5', color: '#fff' },
     card: { background: '#fff', padding: 30, borderRadius: 16, border: '1px solid #E5E7EB' },

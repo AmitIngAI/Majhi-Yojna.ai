@@ -7,8 +7,7 @@ import React, {
 
 const AuthContext = createContext(null);
 
-// ─── Storage Helper (Use sessionStorage instead of localStorage) ───
-// sessionStorage clears automatically when browser tab/window closes
+// sessionStorage tab/window band hone pe apne aap clear ho jaata hai
 const storage = {
     getItem: (key) => sessionStorage.getItem(key),
     setItem: (key, value) => sessionStorage.setItem(key, value),
@@ -39,7 +38,7 @@ export const AuthProvider = ({ children }) => {
         setLoading(false);
     }, []);
 
-    // ── Login 
+    // ── Login
     const login = (responseData) => {
         const userData = {
             userId          : responseData.userId,
@@ -56,7 +55,7 @@ export const AuthProvider = ({ children }) => {
         setUser(userData);
     };
 
-    // ── Logout 
+    // ── Logout
     const logout = () => {
         storage.clear();
         setToken(null);
@@ -64,14 +63,14 @@ export const AuthProvider = ({ children }) => {
         window.location.href = '/login';
     };
 
-    // ── Update User 
+    // ── Update User
     const updateUser = (updatedData) => {
         const newUser = { ...user, ...updatedData };
         storage.setItem('user', JSON.stringify(newUser));
         setUser(newUser);
     };
 
-    // ── Helpers 
+    // ── Helpers
     const isLoggedIn = !!token;
     const isAdmin    = user?.role === 'ADMIN';
     const isUser     = user?.role === 'USER';

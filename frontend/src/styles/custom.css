@@ -1,50 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
-
 /* ═══ LANGUAGE TOGGLE ANIMATIONS ═══ */
 
 @keyframes dropdownFade {
-    from {
-        opacity: 0;
-        transform: translateY(-10px) scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
+    from { opacity: 0; transform: translateY(-10px) scale(0.95); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 @keyframes checkPop {
-    0% {
-        transform: scale(0);
-        opacity: 0;
-    }
-    50% {
-        transform: scale(1.3);
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
+    0%   { transform: scale(0); opacity: 0; }
+    50%  { transform: scale(1.3); }
+    100% { transform: scale(1); opacity: 1; }
 }
 
 @keyframes spin {
     from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    to   { transform: rotate(360deg); }
 }
 
 @keyframes pulse {
     0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.7; transform: scale(1.1); }
+    50%      { opacity: 0.7; transform: scale(1.1); }
 }
 
 /* Prevent translation of these elements */
-.notranslate {
-    translate: no;
-}
-
-input, textarea, select {
-    translate: no !important;
-}
+.notranslate { translate: no; }
+input, textarea, select { translate: no !important; }
 
 /* ─── RESET ─── */
 * {
@@ -56,47 +35,45 @@ input, textarea, select {
 html, body, #root {
     width      : 100%;
     min-height : 100vh;
-    overflow-x : hidden;
+    min-height : 100dvh;
 }
 
 body {
-    font-family       : 'Plus Jakarta Sans', 'Inter', sans-serif;
+    font-family       : 'Plus Jakarta Sans', 'Inter', 'Noto Sans Devanagari', sans-serif;
     background-color  : #ffffff;
     color             : #111827;
     line-height       : 1.5;
+    overflow-x        : clip;
     -webkit-font-smoothing : antialiased;
     -moz-osx-font-smoothing : grayscale;
 }
 
+img, video, svg { max-width: 100%; }
+img, video { height: auto; }
+
 a { text-decoration : none; color : inherit; }
 button { font-family : inherit; cursor : pointer; }
 
-/* ─── DESIGN TOKENS (Use these colors everywhere) ─── */
+/* ─── DESIGN TOKENS ─── */
 :root {
-    /* Primary — Indigo */
     --primary        : #4F46E5;
     --primary-dark   : #4338CA;
     --primary-light  : #818CF8;
     --primary-soft   : #EEF2FF;
 
-    /* Accent — Coral Orange */
     --accent         : #F97316;
     --accent-dark    : #EA580C;
     --accent-soft    : #FFF7ED;
 
-    /* Success — Emerald */
     --success        : #10B981;
     --success-soft   : #ECFDF5;
 
-    /* Warning — Amber */
     --warning        : #F59E0B;
     --warning-soft   : #FEF3C7;
 
-    /* Danger — Red */
     --danger         : #EF4444;
     --danger-soft    : #FEE2E2;
 
-    /* Neutrals */
     --dark           : #111827;
     --text           : #1F2937;
     --muted          : #6B7280;
@@ -105,7 +82,6 @@ button { font-family : inherit; cursor : pointer; }
     --bg-soft        : #F9FAFB;
     --bg-hover       : #F3F4F6;
 
-    /* Shadows */
     --shadow-sm      : 0 1px 3px rgba(0,0,0,0.05);
     --shadow-md      : 0 4px 12px rgba(0,0,0,0.08);
     --shadow-lg      : 0 10px 40px rgba(0,0,0,0.10);
@@ -113,18 +89,15 @@ button { font-family : inherit; cursor : pointer; }
     --shadow-primary : 0 10px 30px rgba(79,70,229,0.35);
     --shadow-accent  : 0 10px 30px rgba(249,115,22,0.35);
 
-    /* Radius */
     --radius-sm      : 8px;
     --radius-md      : 12px;
     --radius-lg      : 16px;
     --radius-xl      : 24px;
     --radius-full    : 9999px;
 
-    /* Spacing */
     --container-max  : 1400px;
     --padding-x      : 60px;
 
-    /* Gradients */
     --gradient-primary : linear-gradient(135deg, #4F46E5 0%, #6366F1 100%);
     --gradient-accent  : linear-gradient(135deg, #F97316 0%, #FB923C 100%);
     --gradient-hero    : linear-gradient(180deg, #EEF2FF 0%, #ffffff 100%);
@@ -241,9 +214,7 @@ button { font-family : inherit; cursor : pointer; }
     text-align : center;
 }
 
-.mb-underline {
-    color : var(--primary);
-}
+.mb-underline { color : var(--primary); }
 
 /* ─── FORMS ─── */
 .mb-input {
@@ -274,7 +245,25 @@ button { font-family : inherit; cursor : pointer; }
     font-weight     : 500;
 }
 
-/* ─── RESPONSIVE ─── */
+/* ═══════════════════════════════════════════
+   FOOTER CLASSES (Footer.js me lagenge)
+═══════════════════════════════════════════ */
+@media (max-width: 1024px) {
+    .mj-footer-grid { grid-template-columns: 1fr 1fr !important; gap: 36px 24px !important; }
+    .mj-footer-brand { grid-column: 1 / -1; }
+    .mj-footer-container { padding: 56px 32px 24px !important; }
+}
+@media (max-width: 600px) {
+    .mj-footer-container { padding: 40px 20px 24px !important; }
+    .mj-footer-bottom { flex-direction: column; align-items: flex-start !important; }
+}
+@media (max-width: 380px) {
+    .mj-brand-eng { display: none; }
+}
+
+/* ═══════════════════════════════════════════
+   GLOBAL RESPONSIVE
+═══════════════════════════════════════════ */
 @media (max-width: 1024px) {
     :root { --padding-x : 32px; }
     .mb-section-title { font-size : 34px; }
@@ -284,4 +273,163 @@ button { font-family : inherit; cursor : pointer; }
     :root { --padding-x : 20px; }
     .mb-section-title { font-size : 28px; }
     .mb-section-desc  { font-size : 15px; }
+    .mb-full-section  { padding: 56px 0; }
+    .mb-card          { padding: 20px; }
+    .mb-input         { font-size: 16px; }
+    input, select, textarea { font-size: 16px; } /* iPhone zoom roko */
 }
+
+@media (max-width: 480px) {
+    .mb-full-section { padding: 40px 0; }
+    .mb-section-title { font-size: 24px; letter-spacing: -0.5px; }
+    .mb-btn-primary, .mb-btn-secondary { padding: 12px 20px; font-size: 14px; }
+}
+
+@media (hover: none) {
+    .mb-card:hover { transform: none; box-shadow: none; border-color: var(--border); }
+    .mb-btn-primary:hover { transform: none; }
+}
+
+
+/* ───── Tablet: 1024px ───── */
+@media (max-width: 1024px) {
+
+    /* 4 aur 3 column grids -> 2 column */
+    [style*="repeat(4, 1fr)"] { grid-template-columns: repeat(2, 1fr) !important; }
+    [style*="repeat(3, 1fr)"] { grid-template-columns: repeat(2, 1fr) !important; }
+
+    /* 2 column layouts (main + sidebar) -> 1 column */
+    [style*="1.7fr 1fr"],
+    [style*="1.5fr 1fr"],
+    [style*="1.6fr 1fr"],
+    [style*="1fr 1.3fr"],
+    [style*="1fr 1.6fr"],
+    [style*="1fr 320px"],
+    [style*="280px 1fr"] { grid-template-columns: 1fr !important; }
+
+    /* Home categories: fixed height hatao */
+    [style*="grid-template-rows"] {
+        grid-template-rows: none !important;
+        grid-auto-rows: 260px;
+        height: auto !important;
+        min-height: 0 !important;
+    }
+
+    /* Sticky side-cards (SchemeDetail, Profile) normal flow me */
+    [style*="position: sticky"][style*="top: 90px"] { position: static !important; }
+
+    /* Side padding kam */
+    [style*="px 60px"] {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+    }
+
+    /* Dashboard pages ke andar double padding hatao */
+    .mj-content [style*="px 60px"] {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* Schemes ka sticky category bar (Navbar / topbar ke neeche) */
+    [style*="top: 88px"] { top: 62px !important; }
+}
+
+/* ───── Chhota tablet: 900px ───── */
+@media (max-width: 900px) {
+    /* About: tab content (text + chips) */
+    [style*="gap: 48px"][style*="align-items: start"] { grid-template-columns: 1fr !important; }
+
+    /* AuthPage: card ek column, height auto, purple panel chhupao */
+    [style*="height: 640px"] {
+        grid-template-columns: 1fr !important;
+        height: auto !important;
+        min-height: 0 !important;
+    }
+    [style*="height: 640px"] > [style*="linear-gradient(160deg"] { display: none !important; }
+    [style*="height: 640px"] [style*="overflow-y: auto"] { height: auto !important; }
+}
+
+/* ───── Mobile: 768px ───── */
+@media (max-width: 768px) {
+
+    /* sab 3-4 column grids -> 1 column (cards) */
+    [style*="repeat(3, 1fr)"] { grid-template-columns: 1fr !important; }
+    [style*="minmax(340px"],
+    [style*="minmax(250px"] { grid-template-columns: 1fr !important; }
+
+    /* "span 3 / span 2" 1 column pe toot'ta hai */
+    [style*="grid-column: span 3"],
+    [style*="grid-column: span 2"] { grid-column: 1 / -1 !important; }
+
+    /* Hero / heading sizes */
+    [style*="font-size: 58px"] { font-size: 34px !important; }
+    [style*="font-size: 54px"] { font-size: 32px !important; }
+    [style*="font-size: 52px"] { font-size: 32px !important; letter-spacing: -1px !important; }
+    [style*="font-size: 44px"] { font-size: 28px !important; }
+    [style*="font-size: 42px"] { font-size: 30px !important; }
+    [style*="font-size: 40px"] { font-size: 26px !important; }
+    [style*="font-size: 36px"] { font-size: 26px !important; }
+    [style*="font-size: 32px"] { font-size: 24px !important; }
+
+    /* Section / hero padding */
+    [style*="padding: 100px"] { padding-top: 56px !important; padding-bottom: 56px !important; }
+    [style*="padding: 70px 40px"],
+    [style*="padding: 60px 40px"] { padding: 40px 20px !important; }
+    [style*="padding: 40px 44px"] { padding: 24px 18px !important; }
+    [style*="padding: 40px 45px"] { padding: 28px 20px !important; }
+    [style*="padding: 40px;"] { padding: 22px !important; }
+    [style*="padding: 80px;"],
+    [style*="padding: 80px 40px"],
+    [style*="padding: 80px 20px"] { padding: 36px 18px !important; }
+    [style*="px 40px"] { padding-left: 16px !important; padding-right: 16px !important; }
+    [style*="padding: 48px 44px"] { padding: 28px 20px !important; }
+
+    /* min-width jo phone se bada hai */
+    [style*="min-width: 360px"],
+    [style*="min-width: 300px"],
+    [style*="min-width: 280px"] { min-width: 0 !important; width: 100% !important; }
+
+    /* About hero: dono side ke emblem chhupao */
+    [style*="width: 80px"][style*="height: 80px"][style*="backdrop-filter"] { display: none !important; }
+
+    /* Home: How it works steps -> upar neeche */
+    [style*="align-items: stretch"][style*="max-width: 1200px"] { flex-direction: column !important; }
+    [style*="align-self: center"][style*="font-size: 28px"] { transform: rotate(90deg); }
+
+    /* EligibilityChecker: circle + text upar neeche */
+    [style*="padding: 32px"][style*="gap: 32px"] {
+        flex-direction: column !important;
+        text-align: center;
+    }
+
+    /* BenefitTimeline: 7 circles scroll honge, dotted line chhupao */
+    [style*="padding: 40px 20px 20px"] {
+        overflow-x: auto !important;
+        justify-content: flex-start !important;
+        gap: 14px;
+    }
+    [style*="repeating-linear-gradient(90deg"] { display: none !important; }
+
+    /* Tables scroll karenge (wrapper me overflow-x auto pehle se hai) */
+    table { min-width: 560px; }
+
+    /* Admin dashboard activity row */
+    [style*="48px 1fr 1.2fr auto"] { grid-template-columns: 40px 1fr !important; }
+
+    /* Home ticker chhota */
+    [style*="height: 48px"][style*="overflow: hidden"] { height: 42px !important; }
+}
+
+/* ───── Chhota phone: 600px ───── */
+@media (max-width: 600px) {
+    [style*="repeat(2, 1fr)"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+}
+
+/* ───── 480px ───── */
+@media (max-width: 480px) {
+    [style*="repeat(4, 1fr)"] { grid-template-columns: 1fr !important; }
+    [style*="font-size: 34px"] { font-size: 28px !important; }
+}
+
+.mj-content [style*="px 60px"] { padding-left: 0 !important; padding-right: 0 !important; }

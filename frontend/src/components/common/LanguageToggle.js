@@ -255,7 +255,7 @@ const styles = {
         position: 'absolute',
         top: 'calc(100% + 10px)',
         right: 0,
-        width: 300,
+        width: 'min(300px, calc(100vw - 32px))',
         background: '#ffffff',
         borderRadius: 20,
         boxShadow: '0 25px 60px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.03)',
