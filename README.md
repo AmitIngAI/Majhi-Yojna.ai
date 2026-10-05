@@ -12,7 +12,7 @@
 [![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
-**[Live Demo](https://mahabenefit-frontend.onrender.com/)**
+**[Live Demo](https://majhi-yojna-frontend.onrender.com/)**
 
 </div>
 
