@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { adminAPI } from '../../services/api';
+import useMediaQuery from '../../utils/useMediaQuery';
 import {
     FiPlus, FiSearch, FiEye, FiEdit2, FiTrash2, FiX,
     FiCheckCircle, FiFileText
@@ -72,6 +73,9 @@ const AdminSchemes = () => {
     const [viewScheme, setViewScheme] = useState(null);
     const [msg, setMsg] = useState('');
 
+    const isMobile = useMediaQuery('(max-width: 768px)');
+    const isSmall  = useMediaQuery('(max-width: 480px)');
+
     // ─── Form state with selectedDocuments as array ───
     const [form, setForm] = useState({
         schemeName: '', category: 'Health', description: '', benefits: '',
@@ -79,7 +83,7 @@ const AdminSchemes = () => {
         officialLink: '', ageMin: 18, ageMax: 60, incomeLimit: 200000,
         genderRequired: 'All', categoryRequired: 'All', occupationRequired: 'Any',
         status: 'Active',
-        selectedDocuments: []  // ← Array of selected document names
+        selectedDocuments: []
     });
 
     useEffect(() => {
@@ -111,7 +115,6 @@ const AdminSchemes = () => {
     };
 
     const openEditModal = (scheme) => {
-        // Parse existing requiredDocuments string into array
         let selectedDocs = [];
         if (scheme.requiredDocuments) {
             selectedDocs = scheme.requiredDocuments
@@ -156,7 +159,6 @@ const AdminSchemes = () => {
             return;
         }
 
-        // Convert selectedDocuments array to comma-separated string for backend
         const dataToSend = {
             ...form,
             requiredDocuments: form.selectedDocuments.join(', ')
@@ -198,23 +200,53 @@ const AdminSchemes = () => {
         s.category?.toLowerCase().includes(search.toLowerCase())
     );
 
-    // Group documents by category
     const documentsByCategory = ALL_DOCUMENTS.reduce((acc, doc) => {
         if (!acc[doc.category]) acc[doc.category] = [];
         acc[doc.category].push(doc);
         return acc;
     }, {});
 
+    const getDocCount = (sch) => sch.requiredDocuments
+        ? sch.requiredDocuments.split(',').filter(d => d.trim()).length
+        : 0;
+
+    const statusStyle = (status) => ({
+        ...s.statusBadge,
+        background: status === 'Active' ? '#D1FAE5' : '#FEE2E2',
+        color: status === 'Active' ? '#065F46' : '#991B1B'
+    });
+
+    const renderActions = (sch) => (
+        <div style={s.actions}>
+            <button onClick={() => setViewScheme(sch)}
+                style={{ ...s.actionBtn, ...s.viewBtn }} title="View"><FiEye /></button>
+            <button onClick={() => openEditModal(sch)}
+                style={{ ...s.actionBtn, background: '#FEF3C7', color: '#92400E' }} title="Edit"><FiEdit2 /></button>
+            <button onClick={() => handleDelete(sch.id, sch.schemeName)}
+                style={{ ...s.actionBtn, ...s.deleteBtn }} title="Delete"><FiTrash2 /></button>
+        </div>
+    );
+
+    // grid helpers (modal ke andar)
+    const grid2 = { display: 'grid', gridTemplateColumns: isSmall ? 'minmax(0, 1fr)' : 'repeat(2, minmax(0, 1fr))', gap: 12 };
+    const grid3 = { display: 'grid', gridTemplateColumns: isSmall ? 'minmax(0, 1fr)' : isMobile ? 'repeat(2, minmax(0, 1fr))' : 'repeat(3, minmax(0, 1fr))', gap: 12 };
+
     if (loading) return <div style={s.loading}><div style={s.spinner}></div><p>Loading schemes...</p></div>;
 
     return (
         <div style={s.wrap}>
-            <div style={s.header}>
+            <div style={{
+                ...s.header,
+                flexDirection: isMobile ? 'column' : 'row',
+                alignItems: isMobile ? 'stretch' : 'center',
+                gap: isMobile ? 14 : 0,
+                marginBottom: isMobile ? 16 : 24
+            }}>
                 <div>
-                    <h1 style={s.title}>Scheme Management</h1>
+                    <h1 style={{ ...s.title, fontSize: isMobile ? 22 : 28 }}>Scheme Management</h1>
                     <p style={s.desc}>Total: {schemes.length} schemes</p>
                 </div>
-                <button onClick={openAddModal} style={s.addBtn}>
+                <button onClick={openAddModal} style={{ ...s.addBtn, justifyContent: 'center', width: isMobile ? '100%' : 'auto' }}>
                     <FiPlus /> Add New Scheme
                 </button>
             </div>
@@ -222,33 +254,67 @@ const AdminSchemes = () => {
             {msg && <div style={s.msgBar}>{msg}</div>}
 
             <div style={s.card}>
-                <div style={s.searchBar}>
+                <div style={{ ...s.searchBar, padding: isMobile ? 12 : 20 }}>
                     <FiSearch style={s.searchIcon} />
                     <input type="text" placeholder="Search by scheme name..."
                         value={search} onChange={(e) => setSearch(e.target.value)}
-                        style={s.searchInput} />
+                        style={{ ...s.searchInput, fontSize: isMobile ? 16 : 14 }} />
                 </div>
 
-                <div style={s.tableWrap}>
-                    <table style={s.table}>
-                        <thead>
-                            <tr>
-                                <th style={s.th}>ID</th>
-                                <th style={s.th}>Scheme Name</th>
-                                <th style={s.th}>Category</th>
-                                <th style={s.th}>Age</th>
-                                <th style={s.th}>Income</th>
-                                <th style={s.th}>Docs</th>
-                                <th style={s.th}>Status</th>
-                                <th style={s.th}>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {filtered.map((sch) => {
-                                const docCount = sch.requiredDocuments
-                                    ? sch.requiredDocuments.split(',').filter(d => d.trim()).length
-                                    : 0;
-                                return (
+                {isMobile ? (
+                    /* ─── MOBILE: cards ─── */
+                    <div style={s.cardList}>
+                        {filtered.map((sch) => (
+                            <div key={sch.id} style={s.schemeCard}>
+                                <div style={s.schemeCardTop}>
+                                    <div style={{ minWidth: 0, flex: 1 }}>
+                                        <div style={s.schemeCardId}>#{sch.id}</div>
+                                        <div style={s.schemeCardName}>{sch.schemeName}</div>
+                                    </div>
+                                    <span style={statusStyle(sch.status)}>● {sch.status}</span>
+                                </div>
+                                <div style={s.metaGrid}>
+                                    <div style={s.metaBox}>
+                                        <div style={s.metaLabel}>CATEGORY</div>
+                                        <div style={s.metaValue}>{sch.category}</div>
+                                    </div>
+                                    <div style={s.metaBox}>
+                                        <div style={s.metaLabel}>AGE</div>
+                                        <div style={s.metaValue}>{sch.ageMin}-{sch.ageMax}</div>
+                                    </div>
+                                    <div style={s.metaBox}>
+                                        <div style={s.metaLabel}>INCOME</div>
+                                        <div style={s.metaValue}>₹{sch.incomeLimit ? Number(sch.incomeLimit).toLocaleString('en-IN') : 'Any'}</div>
+                                    </div>
+                                    <div style={s.metaBox}>
+                                        <div style={s.metaLabel}>DOCS</div>
+                                        <div style={s.metaValue}>
+                                            <span style={s.docCountBadge}><FaIdCard size={11} /> {getDocCount(sch)}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                {renderActions(sch)}
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    /* ─── DESKTOP: table ─── */
+                    <div style={s.tableWrap}>
+                        <table style={s.table}>
+                            <thead>
+                                <tr>
+                                    <th style={s.th}>ID</th>
+                                    <th style={s.th}>Scheme Name</th>
+                                    <th style={s.th}>Category</th>
+                                    <th style={s.th}>Age</th>
+                                    <th style={s.th}>Income</th>
+                                    <th style={s.th}>Docs</th>
+                                    <th style={s.th}>Status</th>
+                                    <th style={s.th}>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {filtered.map((sch) => (
                                     <tr key={sch.id} style={s.tr}>
                                         <td style={s.td}><strong>#{sch.id}</strong></td>
                                         <td style={s.td}><strong>{sch.schemeName}</strong></td>
@@ -257,47 +323,34 @@ const AdminSchemes = () => {
                                         <td style={s.td}>₹{sch.incomeLimit ? Number(sch.incomeLimit).toLocaleString('en-IN') : 'Any'}</td>
                                         <td style={s.td}>
                                             <span style={s.docCountBadge}>
-                                                <FaIdCard size={11} /> {docCount}
+                                                <FaIdCard size={11} /> {getDocCount(sch)}
                                             </span>
                                         </td>
                                         <td style={s.td}>
-                                            <span style={{
-                                                ...s.statusBadge,
-                                                background: sch.status === 'Active' ? '#D1FAE5' : '#FEE2E2',
-                                                color: sch.status === 'Active' ? '#065F46' : '#991B1B'
-                                            }}>● {sch.status}</span>
+                                            <span style={statusStyle(sch.status)}>● {sch.status}</span>
                                         </td>
-                                        <td style={s.td}>
-                                            <div style={s.actions}>
-                                                <button onClick={() => setViewScheme(sch)}
-                                                    style={{ ...s.actionBtn, ...s.viewBtn }} title="View"><FiEye /></button>
-                                                <button onClick={() => openEditModal(sch)}
-                                                    style={{ ...s.actionBtn, background: '#FEF3C7', color: '#92400E' }} title="Edit"><FiEdit2 /></button>
-                                                <button onClick={() => handleDelete(sch.id, sch.schemeName)}
-                                                    style={{ ...s.actionBtn, ...s.deleteBtn }} title="Delete"><FiTrash2 /></button>
-                                            </div>
-                                        </td>
+                                        <td style={s.td}>{renderActions(sch)}</td>
                                     </tr>
-                                );
-                            })}
-                        </tbody>
-                    </table>
-                </div>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                )}
                 {filtered.length === 0 && <div style={s.empty}>No schemes found</div>}
             </div>
 
             {/* ═══════ ADD/EDIT MODAL ═══════ */}
             {showModal && (
-                <div style={s.modal} onClick={() => setShowModal(false)}>
+                <div style={{ ...s.modal, padding: isMobile ? 8 : 20 }} onClick={() => setShowModal(false)}>
                     <div style={s.modalContent} onClick={(e) => e.stopPropagation()}>
-                        <div style={s.modalHeader}>
-                            <h3 style={s.modalTitle}>{editingScheme ? '✏️ Edit Scheme' : '➕ Add New Scheme'}</h3>
+                        <div style={{ ...s.modalHeader, padding: isMobile ? 14 : 20 }}>
+                            <h3 style={{ ...s.modalTitle, fontSize: isMobile ? 17 : 20 }}>{editingScheme ? '✏️ Edit Scheme' : '➕ Add New Scheme'}</h3>
                             <button onClick={() => setShowModal(false)} style={s.modalClose}><FiX /></button>
                         </div>
-                        <div style={s.modalBody}>
+                        <div style={{ ...s.modalBody, padding: isMobile ? 12 : 24 }}>
 
                             {/* ─── BASIC INFO ─── */}
-                            <div style={s.sectionCard}>
+                            <div style={{ ...s.sectionCard, padding: isMobile ? 14 : 20 }}>
                                 <div style={s.sectionTitle}>📋 Basic Information</div>
                                 <FormInput label="Scheme Name *" value={form.schemeName}
                                     onChange={v => setForm({ ...form, schemeName: v })} />
@@ -313,9 +366,9 @@ const AdminSchemes = () => {
                             </div>
 
                             {/* ─── ELIGIBILITY ─── */}
-                            <div style={s.sectionCard}>
+                            <div style={{ ...s.sectionCard, padding: isMobile ? 14 : 20 }}>
                                 <div style={s.sectionTitle}>🎯 Eligibility Criteria</div>
-                                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 12 }}>
+                                <div style={grid2}>
                                     <FormInput label="Min Age" type="number" value={form.ageMin}
                                         onChange={v => setForm({ ...form, ageMin: parseInt(v) || 0 })} />
                                     <FormInput label="Max Age" type="number" value={form.ageMax}
@@ -323,7 +376,7 @@ const AdminSchemes = () => {
                                 </div>
                                 <FormInput label="Income Limit (₹)" type="number" value={form.incomeLimit}
                                     onChange={v => setForm({ ...form, incomeLimit: parseFloat(v) || 0 })} />
-                                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }}>
+                                <div style={grid3}>
                                     <FormSelect label="Gender" value={form.genderRequired}
                                         onChange={v => setForm({ ...form, genderRequired: v })}
                                         options={['All', 'Male', 'Female']} />
@@ -337,9 +390,9 @@ const AdminSchemes = () => {
                             </div>
 
                             {/* ═══════ REQUIRED DOCUMENTS - MULTI-SELECT ═══════ */}
-                            <div style={s.sectionCard}>
-                                <div style={s.docSectionHeader}>
-                                    <div>
+                            <div style={{ ...s.sectionCard, padding: isMobile ? 14 : 20 }}>
+                                <div style={{ ...s.docSectionHeader, flexWrap: 'wrap', gap: 10 }}>
+                                    <div style={{ minWidth: 0, flex: 1 }}>
                                         <div style={s.sectionTitle}>📄 Required Documents</div>
                                         <p style={s.docSectionDesc}>
                                             Select documents required for this scheme. Users will see these in scheme details.
@@ -351,7 +404,6 @@ const AdminSchemes = () => {
                                     </div>
                                 </div>
 
-                                {/* Selected Documents Preview */}
                                 {form.selectedDocuments.length > 0 && (
                                     <div style={s.selectedPreview}>
                                         <div style={s.previewLabel}>✅ Selected Documents:</div>
@@ -370,7 +422,6 @@ const AdminSchemes = () => {
                                     </div>
                                 )}
 
-                                {/* Documents by Category */}
                                 <div style={s.docsContainer}>
                                     {Object.entries(documentsByCategory).map(([categoryName, docs]) => {
                                         const categoryDocNames = docs.map(d => d.name);
@@ -432,7 +483,7 @@ const AdminSchemes = () => {
                             </div>
 
                             {/* ─── ELIGIBILITY & PROCESS ─── */}
-                            <div style={s.sectionCard}>
+                            <div style={{ ...s.sectionCard, padding: isMobile ? 14 : 20 }}>
                                 <div style={s.sectionTitle}>📝 Detailed Information</div>
                                 <FormTextarea label="Eligibility Criteria (detailed)" value={form.eligibilityCriteria}
                                     onChange={v => setForm({ ...form, eligibilityCriteria: v })}
@@ -443,7 +494,7 @@ const AdminSchemes = () => {
                             </div>
 
                         </div>
-                        <div style={s.modalFooter}>
+                        <div style={{ ...s.modalFooter, padding: isMobile ? 12 : 20 }}>
                             <button onClick={() => setShowModal(false)} style={s.cancelBtn}>Cancel</button>
                             <button onClick={handleSave} style={s.saveBtn}>
                                 {editingScheme ? '💾 Update Scheme' : '➕ Add Scheme'}
@@ -455,13 +506,13 @@ const AdminSchemes = () => {
 
             {/* ═══════ VIEW MODAL ═══════ */}
             {viewScheme && (
-                <div style={s.modal} onClick={() => setViewScheme(null)}>
+                <div style={{ ...s.modal, padding: isMobile ? 8 : 20 }} onClick={() => setViewScheme(null)}>
                     <div style={s.modalContent} onClick={(e) => e.stopPropagation()}>
-                        <div style={s.modalHeader}>
-                            <h3 style={s.modalTitle}>{viewScheme.schemeName}</h3>
+                        <div style={{ ...s.modalHeader, padding: isMobile ? 14 : 20 }}>
+                            <h3 style={{ ...s.modalTitle, fontSize: isMobile ? 17 : 20, minWidth: 0, wordBreak: 'break-word' }}>{viewScheme.schemeName}</h3>
                             <button onClick={() => setViewScheme(null)} style={s.modalClose}><FiX /></button>
                         </div>
-                        <div style={s.modalBody}>
+                        <div style={{ ...s.modalBody, padding: isMobile ? 12 : 24 }}>
                             <div style={s.viewSection}>
                                 <div style={s.viewRow}><strong>Category:</strong> {viewScheme.category}</div>
                                 <div style={s.viewRow}><strong>Description:</strong> {viewScheme.description || 'N/A'}</div>
@@ -503,7 +554,7 @@ const FormInput = ({ label, type = 'text', value, onChange, placeholder }) => (
         <label style={{ fontSize: 12, fontWeight: 700, color: '#374151', display: 'block', marginBottom: 6 }}>{label}</label>
         <input type={type} value={value || ''} onChange={(e) => onChange(e.target.value)}
             placeholder={placeholder}
-            style={{ width: '100%', padding: '10px 14px', border: '1.5px solid #E5E7EB', borderRadius: 8, fontSize: 13, outline: 'none' }} />
+            style={{ width: '100%', padding: '10px 14px', border: '1.5px solid #E5E7EB', borderRadius: 8, fontSize: 13, outline: 'none', minWidth: 0 }} />
     </div>
 );
 
@@ -520,14 +571,14 @@ const FormSelect = ({ label, value, onChange, options }) => (
     <div style={{ marginBottom: 14 }}>
         <label style={{ fontSize: 12, fontWeight: 700, color: '#374151', display: 'block', marginBottom: 6 }}>{label}</label>
         <select value={value} onChange={(e) => onChange(e.target.value)}
-            style={{ width: '100%', padding: '10px 14px', border: '1.5px solid #E5E7EB', borderRadius: 8, fontSize: 13, background: '#fff' }}>
+            style={{ width: '100%', padding: '10px 14px', border: '1.5px solid #E5E7EB', borderRadius: 8, fontSize: 13, background: '#fff', minWidth: 0 }}>
             {options.map(o => <option key={o} value={o}>{o}</option>)}
         </select>
     </div>
 );
 
 const s = {
-    wrap: { padding: '20px 0', maxWidth: 1400, margin: '0 auto' },
+    wrap: { padding: '20px 0', maxWidth: 1400, margin: '0 auto', minWidth: 0 },
     loading: { display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 80, gap: 16 },
     spinner: { width: 48, height: 48, border: '4px solid #E5E7EB', borderTopColor: '#4F46E5', borderRadius: '50%', animation: 'spin 0.8s linear infinite' },
     header: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 },
@@ -537,31 +588,42 @@ const s = {
     msgBar: { padding: 14, background: '#D1FAE5', color: '#065F46', borderRadius: 10, marginBottom: 16, fontWeight: 600 },
     card: { background: '#fff', borderRadius: 16, border: '1px solid #E5E7EB', overflow: 'hidden' },
     searchBar: { display: 'flex', alignItems: 'center', gap: 10, padding: 20, borderBottom: '1px solid #F3F4F6' },
-    searchIcon: { color: '#6B7280', fontSize: 18 },
-    searchInput: { flex: 1, border: 'none', outline: 'none', fontSize: 14 },
+    searchIcon: { color: '#6B7280', fontSize: 18, flexShrink: 0 },
+    searchInput: { flex: 1, border: 'none', outline: 'none', fontSize: 14, minWidth: 0 },
     tableWrap: { overflowX: 'auto' },
     table: { width: '100%', borderCollapse: 'collapse' },
     th: { padding: 16, textAlign: 'left', background: '#F9FAFB', fontSize: 12, fontWeight: 800, color: '#374151', textTransform: 'uppercase', letterSpacing: 0.5 },
     tr: { borderBottom: '1px solid #F3F4F6' },
     td: { padding: 16, fontSize: 14, color: '#111827' },
-    statusBadge: { padding: '4px 12px', borderRadius: 100, fontSize: 11, fontWeight: 700 },
+    statusBadge: { padding: '4px 12px', borderRadius: 100, fontSize: 11, fontWeight: 700, whiteSpace: 'nowrap' },
     docCountBadge: { display: 'inline-flex', alignItems: 'center', gap: 4, background: '#EEF2FF', color: '#4F46E5', padding: '4px 10px', borderRadius: 100, fontSize: 11, fontWeight: 700 },
-    actions: { display: 'flex', gap: 6 },
+    actions: { display: 'flex', gap: 6, flexWrap: 'wrap' },
     actionBtn: { padding: 8, borderRadius: 8, border: 'none', fontSize: 14, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' },
     viewBtn: { background: '#EEF2FF', color: '#4F46E5' },
     deleteBtn: { background: '#FEE2E2', color: '#DC2626' },
     empty: { textAlign: 'center', padding: 40, color: '#6B7280' },
 
+    /* MOBILE CARDS */
+    cardList: { display: 'flex', flexDirection: 'column', gap: 12, padding: 12 },
+    schemeCard: { background: '#F9FAFB', border: '1px solid #F3F4F6', borderRadius: 12, padding: 14, display: 'flex', flexDirection: 'column', gap: 12 },
+    schemeCardTop: { display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 10 },
+    schemeCardId: { fontSize: 11, fontWeight: 800, color: '#6B7280', marginBottom: 2 },
+    schemeCardName: { fontSize: 15, fontWeight: 800, color: '#111827', lineHeight: 1.35, wordBreak: 'break-word' },
+    metaGrid: { display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 8 },
+    metaBox: { background: '#fff', border: '1px solid #F3F4F6', borderRadius: 8, padding: '8px 10px', minWidth: 0 },
+    metaLabel: { fontSize: 10, fontWeight: 700, color: '#9CA3AF', letterSpacing: 0.8, marginBottom: 3 },
+    metaValue: { fontSize: 13, fontWeight: 700, color: '#111827', wordBreak: 'break-word' },
+
     /* MODAL */
     modal: { position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 100, padding: 20 },
-    modalContent: { background: '#fff', borderRadius: 16, width: '100%', maxWidth: 800, maxHeight: '92vh', overflow: 'hidden', display: 'flex', flexDirection: 'column' },
-    modalHeader: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: 20, borderBottom: '1px solid #E5E7EB', background: 'linear-gradient(135deg, #EEF2FF 0%, #F5F3FF 100%)' },
+    modalContent: { background: '#fff', borderRadius: 16, width: '100%', maxWidth: 800, maxHeight: '96dvh', overflow: 'hidden', display: 'flex', flexDirection: 'column' },
+    modalHeader: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 10, padding: 20, borderBottom: '1px solid #E5E7EB', background: 'linear-gradient(135deg, #EEF2FF 0%, #F5F3FF 100%)' },
     modalTitle: { fontSize: 20, fontWeight: 800, color: '#111827' },
-    modalClose: { width: 34, height: 34, background: '#fff', border: '1px solid #E5E7EB', borderRadius: 8, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' },
-    modalBody: { padding: 24, overflow: 'auto', flex: 1 },
-    modalFooter: { display: 'flex', gap: 10, padding: 20, borderTop: '1px solid #E5E7EB', background: '#F9FAFB' },
-    cancelBtn: { flex: 1, padding: '14px 20px', background: '#fff', color: '#111827', border: '1.5px solid #E5E7EB', borderRadius: 10, fontSize: 14, fontWeight: 700, cursor: 'pointer' },
-    saveBtn: { flex: 1, padding: '14px 20px', background: 'linear-gradient(135deg, #4F46E5 0%, #4338CA 100%)', color: '#fff', border: 'none', borderRadius: 10, fontSize: 14, fontWeight: 700, cursor: 'pointer' },
+    modalClose: { width: 34, height: 34, background: '#fff', border: '1px solid #E5E7EB', borderRadius: 8, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 },
+    modalBody: { padding: 24, overflow: 'auto', flex: 1, minHeight: 0 },
+    modalFooter: { display: 'flex', gap: 10, padding: 20, borderTop: '1px solid #E5E7EB', background: '#F9FAFB', flexWrap: 'wrap' },
+    cancelBtn: { flex: '1 1 120px', padding: '14px 20px', background: '#fff', color: '#111827', border: '1.5px solid #E5E7EB', borderRadius: 10, fontSize: 14, fontWeight: 700, cursor: 'pointer' },
+    saveBtn: { flex: '1 1 160px', padding: '14px 20px', background: 'linear-gradient(135deg, #4F46E5 0%, #4338CA 100%)', color: '#fff', border: 'none', borderRadius: 10, fontSize: 14, fontWeight: 700, cursor: 'pointer' },
 
     /* SECTIONS */
     sectionCard: { background: '#F9FAFB', padding: 20, borderRadius: 12, marginBottom: 20, border: '1px solid #F3F4F6' },
@@ -575,8 +637,8 @@ const s = {
     selectedPreview: { background: '#fff', padding: 14, borderRadius: 10, border: '1px solid #E5E7EB', marginBottom: 16 },
     previewLabel: { fontSize: 12, fontWeight: 700, color: '#374151', marginBottom: 8 },
     chipsRow: { display: 'flex', flexWrap: 'wrap', gap: 6 },
-    selectedChip: { display: 'inline-flex', alignItems: 'center', gap: 6, background: 'linear-gradient(135deg, #4F46E5 0%, #4338CA 100%)', color: '#fff', padding: '5px 10px 5px 12px', borderRadius: 100, fontSize: 11, fontWeight: 600 },
-    removeChipBtn: { background: 'rgba(255,255,255,0.25)', border: 'none', borderRadius: '50%', width: 18, height: 18, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#fff', padding: 0 },
+    selectedChip: { display: 'inline-flex', alignItems: 'center', gap: 6, background: 'linear-gradient(135deg, #4F46E5 0%, #4338CA 100%)', color: '#fff', padding: '5px 10px 5px 12px', borderRadius: 100, fontSize: 11, fontWeight: 600, maxWidth: '100%' },
+    removeChipBtn: { background: 'rgba(255,255,255,0.25)', border: 'none', borderRadius: '50%', width: 18, height: 18, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#fff', padding: 0, flexShrink: 0 },
 
     docsContainer: { display: 'flex', flexDirection: 'column', gap: 14 },
     categoryBlock: { background: '#fff', borderRadius: 10, border: '1px solid #E5E7EB', overflow: 'hidden' },
@@ -586,16 +648,16 @@ const s = {
     categoryName: { fontSize: 13, fontWeight: 800, color: '#111827', flex: 1 },
     categoryCount: { background: '#EEF2FF', color: '#4F46E5', padding: '3px 10px', borderRadius: 100, fontSize: 11, fontWeight: 700 },
 
-    docsGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: 8, padding: 12 },
-    docItem: { display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', border: '1.5px solid', borderRadius: 8, cursor: 'pointer', transition: 'all 0.2s', position: 'relative' },
+    docsGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(250px, 100%), 1fr))', gap: 8, padding: 12 },
+    docItem: { display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', border: '1.5px solid', borderRadius: 8, cursor: 'pointer', transition: 'all 0.2s', position: 'relative', minWidth: 0 },
     docCheckbox: { width: 16, height: 16, accentColor: '#4F46E5', cursor: 'pointer', flexShrink: 0 },
     docIcon: { fontSize: 16 },
-    docName: { fontSize: 12, flex: 1 },
+    docName: { fontSize: 12, flex: 1, minWidth: 0, wordBreak: 'break-word' },
     docCheckIcon: { color: '#10B981', fontSize: 14, flexShrink: 0 },
 
     /* VIEW MODAL */
     viewSection: { background: '#F9FAFB', padding: 16, borderRadius: 10, marginBottom: 16 },
-    viewRow: { padding: '6px 0', fontSize: 14, color: '#374151' },
+    viewRow: { padding: '6px 0', fontSize: 14, color: '#374151', wordBreak: 'break-word' },
     viewDocChip: { display: 'inline-flex', alignItems: 'center', gap: 5, background: '#EEF2FF', color: '#4338CA', padding: '6px 12px', borderRadius: 100, fontSize: 12, fontWeight: 600 }
 };
 
