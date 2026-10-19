@@ -100,6 +100,23 @@ Maharashtra citizens often miss out on government benefits because:
 
 ---
 
+## 📸 Screenshots
+
+### 🏠 Landing Page
+![Landing Page](screenshots/1.png)
+
+### 🔐 Login Page
+![Login](screenshots/2.png)
+
+### 👤 User Dashboard
+![User Dashboard](screenshots/3.png)
+
+### 👤 Admin Dashboard
+![Admin Dashboard](screenshots/4.png)
+
+### 🔧 Scheme Recommendation Page
+![Scheme Recommendation Page](screenshots/5.png)
+
 ## 🏗️ System Architecture
 
 ```
